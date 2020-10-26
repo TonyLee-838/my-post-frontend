@@ -2,7 +2,7 @@ import React from "react";
 import { createUseStyles } from "react-jss";
 
 import colors from "../config/color";
-function NavPanel({}) {
+function NavPanel() {
   const styles = useStyle();
   return (
     <div className={styles.container}>

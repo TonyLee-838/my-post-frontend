@@ -6,6 +6,7 @@ import colors from "../config/color";
 
 const fakePosts = [
   {
+    id: 1,
     title: "TitleTitleTitleTitleTitleTitleTitle",
     description:
       "description here!description here!description here!description here!description here!description here!description here!description here!description here!description here!description here!description here!description here!description here!description here!description here!description here!description here!description here!",
@@ -14,6 +15,7 @@ const fakePosts = [
     author: "Tony",
   },
   {
+    id: 2,
     title: "TitleTitleTitleTitleTitleTitleTitle",
     description:
       "description here!description here!description here!description here!description here!description here!description here!description here!description here!description here!description here!description here!description here!description here!description here!description here!description here!description here!description here!",
@@ -22,6 +24,7 @@ const fakePosts = [
     author: "Tony",
   },
   {
+    id: 3,
     title: "TitleTitleTitleTitleTitleTitleTitle",
     description:
       "description here!description here!description here!description here!description here!description here!description here!description here!description here!description here!description here!description here!description here!description here!description here!description here!description here!description here!description here!",
@@ -30,6 +33,7 @@ const fakePosts = [
     author: "Tony",
   },
   {
+    id: 4,
     title: "TitleTitleTitleTitleTitleTitleTitle",
     description:
       "description here!description here!description here!description here!description here!description here!description here!description here!description here!description here!description here!description here!description here!description here!description here!description here!description here!description here!description here!",
@@ -38,6 +42,7 @@ const fakePosts = [
     author: "Tony",
   },
   {
+    id: 5,
     title: "TitleTitleTitleTitleTitleTitleTitle",
     description:
       "description here!description here!description here!description here!description here!description here!description here!description here!description here!description here!description here!description here!description here!description here!description here!description here!description here!description here!description here!",
@@ -46,6 +51,7 @@ const fakePosts = [
     author: "Tony",
   },
   {
+    id: 6,
     title: "TitleTitleTitleTitleTitleTitleTitle",
     description:
       "description here!description here!description here!description here!description here!description here!description here!description here!description here!description here!description here!description here!description here!description here!description here!description here!description here!description here!description here!",
@@ -61,7 +67,7 @@ function PostList() {
     <div className={styles.backgroundContainer}>
       <div className={styles.lists}>
         {fakePosts.map((post) => (
-          <PostCard post={post} />
+          <PostCard key={post.id} post={post} />
         ))}
       </div>
     </div>
