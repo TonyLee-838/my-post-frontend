@@ -1,7 +1,7 @@
 import React from "react";
-import Panel from "../common/Panel";
 
-function NavPanel({}) {
+import Panel from "../common/Panel";
+function RecentPostPanel({}) {
   const content = (
     <p>
       My personal Introduction here!My personal Introduction here!My personal
@@ -10,7 +10,7 @@ function NavPanel({}) {
     </p>
   );
 
-  return <Panel label="About Me" Content={() => content} />;
+  return <Panel label="Recent Post" Content={() => content} />;
 }
 
-export default NavPanel;
+export default RecentPostPanel;

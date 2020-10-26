@@ -4,6 +4,7 @@ import { createUseStyles } from "react-jss";
 import NavPanel from "./NavPanel";
 import AboutMePanel from "./AboutMePanel";
 import colors from "../config/color";
+import RecentPostPanel from "./RecentPostPanel";
 
 function SideBar({}) {
   const styles = useStyle();
@@ -11,6 +12,7 @@ function SideBar({}) {
     <div className={styles.container}>
       <NavPanel />
       <AboutMePanel />
+      <RecentPostPanel />
     </div>
   );
 }

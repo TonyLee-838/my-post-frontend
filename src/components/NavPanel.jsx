@@ -5,7 +5,7 @@ import colors from "../config/color";
 function NavPanel({}) {
   const styles = useStyle();
   return (
-    <div className={styles.navBar}>
+    <div className={styles.container}>
       <a className={styles.link} href="#">
         Home
       </a>
@@ -23,7 +23,7 @@ function NavPanel({}) {
 }
 
 const useStyle = createUseStyles({
-  navBar: {
+  container: {
     display: "flex",
     flexDirection: "column",
     flex: "",
@@ -31,7 +31,7 @@ const useStyle = createUseStyles({
 
     alignItems: "center",
     width: "300px",
-    height: "30vh",
+    height: "35vh",
     backgroundColor: colors.secondary,
   },
   link: {
