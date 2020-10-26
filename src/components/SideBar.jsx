@@ -5,14 +5,15 @@ import NavPanel from "./NavPanel";
 import AboutMePanel from "./AboutMePanel";
 import colors from "../config/color";
 import RecentPostPanel from "./RecentPostPanel";
+import CategoryPanel from "./CategoryPanel";
 
-function SideBar({}) {
+function SideBar() {
   const styles = useStyle();
   return (
     <div className={styles.container}>
       <NavPanel />
       <AboutMePanel />
-      <RecentPostPanel />
+      <CategoryPanel />
     </div>
   );
 }

@@ -2,6 +2,7 @@ import React from "react";
 import { createUseStyles } from "react-jss";
 import PostList from "./components/PostList";
 import SideBar from "./components/SideBar";
+import colors from "./config/color";
 
 function App() {
   const styles = useStyle();

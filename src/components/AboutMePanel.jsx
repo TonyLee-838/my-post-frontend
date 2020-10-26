@@ -1,7 +1,7 @@
 import React from "react";
 import Panel from "../common/Panel";
 
-function NavPanel({}) {
+function NavPanel() {
   const content = (
     <p>
       My personal Introduction here!My personal Introduction here!My personal
