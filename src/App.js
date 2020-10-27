@@ -1,6 +1,7 @@
 import React from "react";
 import { createUseStyles } from "react-jss";
 import PostList from "./components/PostList";
+import RecentPostPanel from "./components/RecentPostPanel";
 import SideBar from "./components/SideBar";
 import colors from "./config/color";
 
@@ -16,6 +17,11 @@ function App() {
 
 const useStyle = createUseStyles({
   container: {
+    // Test Style:
+    // width: "500px",
+    // height: "500px",
+    // backgroundColor: colors.primary,
+
     display: "flex",
     margin: 0,
   },

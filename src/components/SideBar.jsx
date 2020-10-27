@@ -13,7 +13,7 @@ function SideBar() {
     <div className={styles.container}>
       <NavPanel />
       <AboutMePanel />
-      <CategoryPanel />
+      <RecentPostPanel />
     </div>
   );
 }
