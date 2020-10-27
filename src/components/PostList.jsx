@@ -63,10 +63,10 @@ const fakePosts = [
 ];
 
 function PostList() {
-  const styles = useStyles();
+  const classes = useStyles();
   return (
-    <div className={styles.backgroundContainer}>
-      <div className={styles.lists}>
+    <div className={classes.backgroundContainer}>
+      <div className={classes.lists}>
         {fakePosts.map((post, i) => (
           <>
             <PostCard key={post.id} post={post} />

@@ -5,15 +5,15 @@ import colors from "../config/color";
 
 function PostCard({ post }) {
   const { title, description, lastEditTime, author } = post;
-  const styles = useStyle();
+  const classes = useStyle();
 
   return (
-    <div className={styles.card}>
-      <p href="#" className={styles.title}>
+    <div className={classes.card}>
+      <p href="#" className={classes.title}>
         {title}
       </p>
-      <p className={styles.description}>{description}</p>
-      <div className={styles.postDetails}>
+      <p className={classes.description}>{description}</p>
+      <div className={classes.postDetails}>
         <label>{`Posted by: ${author}`}</label>
         <label>{`Last Edit At: ${lastEditTime}`}</label>
       </div>

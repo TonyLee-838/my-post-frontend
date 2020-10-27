@@ -1,5 +1,7 @@
 TODO:
 
+UI:
+
 - [ ] Post Card Component
   - [x] Title
   - [x] Description
@@ -8,7 +10,7 @@ TODO:
 - [ ] Post Card List
 
   - [x] Style
-  - [ ] Separator
+  - [x] Separator
   - [ ] Pagination
 
 - [ ] Sidebar
@@ -24,15 +26,15 @@ TODO:
 
   - [ ] Recent Post Panel
 
-    - [ ] Recent Post List
+    - [x] Recent Post List
 
       - [ ] Post Title Item
 
     - [ ]Auto scrolling
 
   - [ ] Category Panel
-    - [ ] Category List
-      - [ ] Category Item
+    - [x] Category List
+      - [x] Category Item
 
 - [ ]Refactor:
 

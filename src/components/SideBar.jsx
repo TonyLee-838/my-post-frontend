@@ -8,9 +8,9 @@ import RecentPostPanel from "./RecentPostPanel";
 import CategoryPanel from "./CategoryPanel";
 
 function SideBar() {
-  const styles = useStyle();
+  const classes = useStyle();
   return (
-    <div className={styles.container}>
+    <div className={classes.container}>
       <NavPanel />
       <AboutMePanel />
       <RecentPostPanel />

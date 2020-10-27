@@ -3,21 +3,13 @@ import { createUseStyles } from "react-jss";
 
 import colors from "../config/color";
 function NavPanel() {
-  const styles = useStyle();
+  const classes = useStyle();
   return (
-    <div className={styles.container}>
-      <a className={styles.link} href="#">
-        Home
-      </a>
-      <a className={styles.link} href="#">
-        What I learnt today
-      </a>
-      <a className={styles.link} href="#">
-        Blogs
-      </a>
-      <a className={styles.link} href="#">
-        Projects
-      </a>
+    <div className={classes.container}>
+      <a href="#">Home</a>
+      <a href="#">What I learnt today</a>
+      <a href="#">Blogs</a>
+      <a href="#">Projects</a>
     </div>
   );
 }
@@ -33,9 +25,10 @@ const useStyle = createUseStyles({
     width: "300px",
     height: "35vh",
     backgroundColor: colors.secondary,
-  },
-  link: {
-    color: colors.white,
+
+    "& a": {
+      color: colors.white,
+    },
   },
 });
 

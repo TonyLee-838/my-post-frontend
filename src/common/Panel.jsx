@@ -4,11 +4,11 @@ import { createUseStyles } from "react-jss";
 import colors from "../config/color";
 
 function Panel({ label, Content }) {
-  const styles = useStyle();
+  const classes = useStyle();
   return (
-    <div className={styles.container}>
-      <h4 className={styles.label}>{label}</h4>
-      <Content className={[styles.container]} />
+    <div className={classes.container}>
+      <h4 className={classes.label}>{label}</h4>
+      <Content className={[classes.container]} />
     </div>
   );
 }
