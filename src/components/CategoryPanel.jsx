@@ -4,14 +4,17 @@ import Panel from "../common/Panel";
 
 function CategoryPanel() {
   const categories = [
-    { id: 1, label: "HTML" },
-    { id: 2, label: "CSS" },
-    { id: 3, label: "JavaScript" },
-    { id: 4, label: "React" },
+    { id: "c1", label: "HTML" },
+    { id: "c2", label: "CSS" },
+    { id: "c3", label: "JavaScript" },
+    { id: "c4", label: "React" },
   ];
 
   return (
-    <Panel label="Post Category" Content={() => <List items={categories} />} />
+    <Panel
+      label="Post Category"
+      Content={() => <List items={categories} separator />}
+    />
   );
 }
 

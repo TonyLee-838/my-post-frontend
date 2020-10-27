@@ -3,6 +3,7 @@ import { createUseStyles } from "react-jss";
 
 import PostCard from "./PostCard";
 import colors from "../config/color";
+import Separator from "../common/Separator";
 
 const fakePosts = [
   {
@@ -66,8 +67,11 @@ function PostList() {
   return (
     <div className={styles.backgroundContainer}>
       <div className={styles.lists}>
-        {fakePosts.map((post) => (
-          <PostCard key={post.id} post={post} />
+        {fakePosts.map((post, i) => (
+          <>
+            <PostCard key={post.id} post={post} />
+            {<Separator />}
+          </>
         ))}
       </div>
     </div>

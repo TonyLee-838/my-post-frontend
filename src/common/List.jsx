@@ -1,13 +1,17 @@
 import React from "react";
 import ListItem from "./ListItem";
+import Separator from "./Separator";
 
-function List({ items }) {
+function List({ items, style, separator = false }) {
   return (
-    <div>
-      {items.map((item) => (
-        <ListItem key={item.id} label={item.label} />
+    <>
+      {items.map((item, i) => (
+        <div>
+          <ListItem style={style} key={item.id} label={item.label} />
+          {separator && i !== items.length - 1 && <Separator />}
+        </div>
       ))}
-    </div>
+    </>
   );
 }
 
