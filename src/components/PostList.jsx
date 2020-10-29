@@ -4,6 +4,7 @@ import { createUseStyles } from "react-jss";
 import PostCard from "./PostCard";
 import colors from "../config/color";
 import Separator from "../common/Separator";
+import BackgroundView from "../common/BackgoundView";
 
 const fakePosts = [
   {
@@ -65,15 +66,13 @@ const fakePosts = [
 function PostList() {
   const classes = useStyles();
   return (
-    <div className={classes.backgroundContainer}>
-      <div className={classes.lists}>
-        {fakePosts.map((post, i) => (
-          <>
-            <PostCard key={post.id} post={post} />
-            {<Separator />}
-          </>
-        ))}
-      </div>
+    <div className={classes.lists}>
+      {fakePosts.map((post, i) => (
+        <>
+          <PostCard key={post.id} post={post} />
+          {<Separator />}
+        </>
+      ))}
     </div>
   );
 }

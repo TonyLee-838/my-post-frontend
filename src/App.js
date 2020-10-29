@@ -1,30 +1,21 @@
 import React from "react";
-import { createUseStyles } from "react-jss";
+import BackgroundView from "./common/BackgoundView";
+
+import moduleName from "html-to-react";
 import PostList from "./components/PostList";
 import RecentPostPanel from "./components/RecentPostPanel";
 import SideBar from "./components/SideBar";
 import colors from "./config/color";
+import PostContent from "./components/PostContent";
 
 function App() {
-  const styles = useStyle();
   return (
-    <div className={styles.container}>
+    <BackgroundView>
       <SideBar />
-      <PostList />
-    </div>
+      <PostContent />
+      {/* <PostList /> */}
+    </BackgroundView>
   );
 }
-
-const useStyle = createUseStyles({
-  container: {
-    // Test Style:
-    // width: "500px",
-    // height: "500px",
-    // backgroundColor: colors.primary,
-
-    display: "flex",
-    margin: 0,
-  },
-});
 
 export default App;

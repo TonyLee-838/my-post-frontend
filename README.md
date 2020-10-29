@@ -3,15 +3,19 @@ TODO:
 UI:
 
 - [ ] Post Card Component
+
   - [x] Title
   - [x] Description
   - [ ] share buttons
   - [ ] Clickable feedback
+
 - [ ] Post Card List
 
   - [x] Style
   - [x] Separator
   - [ ] Pagination
+
+- [ ] PostContent
 
 - [ ] Sidebar
 
@@ -27,9 +31,7 @@ UI:
   - [ ] Recent Post Panel
 
     - [x] Recent Post List
-
-      - [ ] Post Title Item
-
+      - [x] Post Title Item
     - [ ]Auto scrolling
 
   - [ ] Category Panel
@@ -44,3 +46,5 @@ UI:
     - [x]List
 
 - [ ] State management
+
+- [ ] Event Handling
