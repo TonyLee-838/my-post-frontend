@@ -68,10 +68,10 @@ function PostList() {
   return (
     <div className={classes.lists}>
       {fakePosts.map((post, i) => (
-        <>
-          <PostCard key={post.id} post={post} />
+        <div key={post.id}>
+          <PostCard post={post} />
           {<Separator />}
-        </>
+        </div>
       ))}
     </div>
   );

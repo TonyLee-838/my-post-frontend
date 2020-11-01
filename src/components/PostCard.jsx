@@ -1,17 +1,18 @@
 import React from "react";
 import { createUseStyles } from "react-jss";
+import { Link } from "react-router-dom";
 
 import colors from "../config/color";
 
 function PostCard({ post }) {
-  const { title, description, lastEditTime, author } = post;
+  const { id, title, description, lastEditTime, author } = post;
   const classes = useStyle();
 
   return (
     <div className={classes.card}>
-      <p href="#" className={classes.title}>
+      <Link to={`/posts/${id}`} className={classes.title}>
         {title}
-      </p>
+      </Link>
       <p className={classes.description}>{description}</p>
       <div className={classes.postDetails}>
         <label>{`Posted by: ${author}`}</label>
@@ -43,7 +44,7 @@ const useStyle = createUseStyles({
     fontFamily: "Georgia, serif",
   },
   description: {
-    color: colors.light,
+    color: colors.dark,
     fontFamily: "Georgia, serif",
   },
 });

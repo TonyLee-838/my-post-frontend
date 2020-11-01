@@ -7,13 +7,14 @@ import colors from "../config/color";
 import RecentPostPanel from "./RecentPostPanel";
 import CategoryPanel from "./CategoryPanel";
 
-function SideBar() {
+function SideBar({ children }) {
   const classes = useStyle();
   return (
     <div className={classes.container}>
       <NavPanel />
-      <AboutMePanel />
-      <RecentPostPanel />
+      {children}
+      {/* <AboutMePanel />
+      <RecentPostPanel /> */}
     </div>
   );
 }

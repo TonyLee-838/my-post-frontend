@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { createUseStyles } from "react-jss";
 
 import colors from "../config/color";
@@ -46,7 +46,13 @@ const md = `
     \`\`\`
 `;
 
-function PostContent(props) {
+function PostContent({ id }) {
+  const [post, setPost] = useState();
+
+  useEffect(() => {
+    setPost(md);
+  }, []);
+
   const classes = useStyles();
   return (
     <div className={classes.container}>

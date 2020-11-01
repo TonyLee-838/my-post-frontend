@@ -1,16 +1,17 @@
 import React from "react";
 import { createUseStyles } from "react-jss";
+import { Link } from "react-router-dom";
 
 import colors from "../config/color";
 function NavPanel() {
   const classes = useStyle();
   return (
-    <div className={classes.container}>
-      <a href="#">Home</a>
-      <a href="#">What I learnt today</a>
-      <a href="#">Blogs</a>
-      <a href="#">Projects</a>
-    </div>
+    <nav className={classes.container}>
+      <Link to="/">Home</Link>
+      <Link to="/learning-pieces">What I learnt today</Link>
+      <Link to="/posts">Posts</Link>
+      <Link to="/projects">Projects</Link>
+    </nav>
   );
 }
 
