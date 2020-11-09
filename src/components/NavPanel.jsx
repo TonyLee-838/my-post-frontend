@@ -26,9 +26,6 @@ const useStyle = createUseStyles({
     width: "100%",
     height: "35vh",
 
-    backgroundColor: colors.secondary,
-    opacity: "0.6",
-
     "& a": {
       color: colors.white,
       fontFamily: "",

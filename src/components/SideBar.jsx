@@ -2,15 +2,15 @@ import React from "react";
 import { createUseStyles } from "react-jss";
 
 import NavPanel from "./NavPanel";
-import AboutMePanel from "./AboutMePanel";
 import colors from "../config/color";
-import RecentPostPanel from "./RecentPostPanel";
-import CategoryPanel from "./CategoryPanel";
 
 function SideBar({ children }) {
   const classes = useStyle();
   return (
     <div className={classes.container}>
+      <a href="https://github.com/TonyLee-838?tab=repositories">
+        <img className={classes.avatar} src={require("../assets/Tony.jpg")} />
+      </a>
       <NavPanel />
       {children}
     </div>
@@ -18,10 +18,20 @@ function SideBar({ children }) {
 }
 
 const useStyle = createUseStyles({
+  avatar: {
+    marginLeft: "50%",
+    marginTop: "80px",
+    marginBottom: "50px",
+    transform: " translateX(-50%)",
+    borderRadius: "50%",
+    borderColor: colors.secondary,
+    border: "8px solid",
+    width: "40%",
+  },
   container: {
-    height: "100",
-    width: "450px",
-    backgroundColor: colors.primary,
+    width: "500px",
+    "min-height": "100%",
+    backgroundColor: colors.dark,
   },
 });
 

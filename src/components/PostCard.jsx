@@ -3,9 +3,11 @@ import { createUseStyles } from "react-jss";
 import { Link } from "react-router-dom";
 
 import colors from "../config/color";
+const description =
+  "description! description! description! description! description! description! description! description! description! description! description! description! description! description! description! description! description! description! description! description! description! description! description! description! ";
 
 function PostCard({ post }) {
-  const { _id, title, description, lastEditTime, author } = post;
+  const { _id, title, lastEditTime, author } = post;
   const classes = useStyle();
 
   return (
@@ -26,9 +28,10 @@ const useStyle = createUseStyles({
   card: {
     backgroundColor: colors.white,
     padding: "30px",
+    width: "70vw",
   },
   title: {
-    fontWeight: 900,
+    fontWeight: 990,
     fontSize: "3.65rem",
     fontFamily: "Nunito sans-serif",
     textDecoration: "none",
@@ -44,9 +47,10 @@ const useStyle = createUseStyles({
     fontFamily: "Georgia, serif",
   },
   description: {
-    fontSize: "1.35rem",
     color: colors.dark,
+    fontSize: "1.35rem",
     fontFamily: "Georgia, serif",
+    wordWrap: "break-word",
   },
 });
 

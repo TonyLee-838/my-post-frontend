@@ -11,7 +11,7 @@ function BackgroundView({ children }) {
 
 const useStyle = createUseStyles({
   container: {
-    backgroundColor: colors.secondary,
+    backgroundColor: colors.white,
     display: "flex",
     margin: 0,
   },
