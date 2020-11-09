@@ -8,7 +8,7 @@ function NavPanel() {
   return (
     <nav className={classes.container}>
       <Link to="/">Home</Link>
-      <Link to="/learning-pieces">What I learnt today</Link>
+      <Link to="/pieces">Learning Pieces</Link>
       <Link to="/posts">Posts</Link>
       <Link to="/projects">Projects</Link>
     </nav>
@@ -21,15 +21,18 @@ const useStyle = createUseStyles({
     flexDirection: "column",
     flex: "",
     justifyContent: "space-around",
-
     alignItems: "center",
-    width: "300px",
+
+    width: "100%",
     height: "35vh",
+
     backgroundColor: colors.secondary,
     opacity: "0.6",
 
     "& a": {
       color: colors.white,
+      fontFamily: "",
+      fontSize: "1.3rem",
     },
   },
 });

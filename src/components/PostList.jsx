@@ -1,11 +1,10 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { createUseStyles } from "react-jss";
 
 import PostCard from "./PostCard";
 import colors from "../config/color";
 import Separator from "../common/Separator";
-import BackgroundView from "../common/BackgoundView";
-
+import { getPosts } from "../api/posts";
 const fakePosts = [
   {
     id: 1,
@@ -65,9 +64,20 @@ const fakePosts = [
 
 function PostList() {
   const classes = useStyles();
+  const [posts, setPosts] = useState([]);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      const posts = await getPosts();
+      setPosts(posts);
+    };
+
+    fetchData();
+  }, []);
+
   return (
     <div className={classes.lists}>
-      {fakePosts.map((post, i) => (
+      {posts.map((post, i) => (
         <div key={post.id}>
           <PostCard post={post} />
           {<Separator />}

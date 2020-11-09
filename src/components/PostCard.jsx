@@ -5,12 +5,12 @@ import { Link } from "react-router-dom";
 import colors from "../config/color";
 
 function PostCard({ post }) {
-  const { id, title, description, lastEditTime, author } = post;
+  const { _id, title, description, lastEditTime, author } = post;
   const classes = useStyle();
 
   return (
     <div className={classes.card}>
-      <Link to={`/posts/${id}`} className={classes.title}>
+      <Link to={`/posts/${_id}`} className={classes.title}>
         {title}
       </Link>
       <p className={classes.description}>{description}</p>
@@ -29,8 +29,9 @@ const useStyle = createUseStyles({
   },
   title: {
     fontWeight: 900,
-    fontSize: "2.65rem",
+    fontSize: "3.65rem",
     fontFamily: "Nunito sans-serif",
+    textDecoration: "none",
     color: colors.black,
     margin: {
       top: 0,
@@ -39,11 +40,11 @@ const useStyle = createUseStyles({
     wordWrap: "break-word",
   },
   postDetails: {
-    fontSize: "0.75rem",
     textAlign: "right",
     fontFamily: "Georgia, serif",
   },
   description: {
+    fontSize: "1.35rem",
     color: colors.dark,
     fontFamily: "Georgia, serif",
   },

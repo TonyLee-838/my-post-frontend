@@ -13,8 +13,6 @@ function SideBar({ children }) {
     <div className={classes.container}>
       <NavPanel />
       {children}
-      {/* <AboutMePanel />
-      <RecentPostPanel /> */}
     </div>
   );
 }
@@ -22,7 +20,7 @@ function SideBar({ children }) {
 const useStyle = createUseStyles({
   container: {
     height: "100",
-    width: "300px",
+    width: "450px",
     backgroundColor: colors.primary,
   },
 });
