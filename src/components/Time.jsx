@@ -8,7 +8,17 @@ const Time = ({ time }) => {
   const classes = useStyle();
 
   return (
-    <ListItem icon="MdDateRange" label={getTimeString(time)} styles={classes} />
+    <ListItem
+      icon="MdDateRange"
+      label={getTimeString(time)}
+      styles={{
+        container: { margin: "0 0 0 auto", width: "300px" },
+        label: {
+          fontSize: "1.6rem",
+          fontFamily: " 'Varela Round', sans-serif",
+        },
+      }}
+    />
   );
 };
 

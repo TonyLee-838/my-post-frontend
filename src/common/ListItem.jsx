@@ -1,4 +1,5 @@
 import React from "react";
+import { createUseStyles } from "react-jss";
 import Icon from "./Icon";
 
 function ListItem({
@@ -6,12 +7,28 @@ function ListItem({
   label,
   styles = { container: "", label: "", icon: "" },
 }) {
+  const classes = useStyle(styles);
   return (
-    <div className={styles.container}>
-      <Icon name={icon} styles={styles.icon} />
-      <label className={styles.label}>{label}</label>
+    <div className={classes.container}>
+      <Icon name={icon} styles={classes.icon} />
+      <label className={classes.label}>{label}</label>
     </div>
   );
 }
+
+const useStyle = createUseStyles({
+  container: (styles) => ({
+    display: "flex",
+    alignItems: "center",
+    padding: "5px",
+    ...styles.container,
+  }),
+  label: (styles) => ({
+    fontSize: "1.6rem",
+    fontFamily: " 'Patua One', sans-serif",
+    ...styles.label,
+  }),
+  icon: (styles) => styles.icon,
+});
 
 export default ListItem;

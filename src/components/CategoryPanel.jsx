@@ -9,7 +9,7 @@ function CategoryPanel() {
     { id: "c1", label: "HTML", color: "#fd3f5f" },
     { id: "c2", label: "CSS", color: "#116efd" },
     { id: "c3", label: "JavaScript", color: "#fdcf1f" },
-    { id: "c4", label: "React", color: "#1fcffd" },
+    { id: "c4", label: "React", color: "#61dafb" },
   ];
 
   return (
