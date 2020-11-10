@@ -4,19 +4,21 @@ import * as MaterialIcons from "react-icons/md";
 import * as SimpleIcons from "react-icons/si";
 import colors from "../config/color";
 
-const Icon = ({ name, ...props }) => {
-  const classes = useStyle(props);
-  const Icon = name.startsWith("Md") ? MaterialIcons[name] : SimpleIcons[name];
-  return <Icon className={classes.icon} />;
+const Icon = ({ name, styles = "" }) => {
+  const classes = useStyle(styles);
+  const IconComponent = name.startsWith("Md")
+    ? MaterialIcons[name]
+    : SimpleIcons[name];
+  return <IconComponent className={`${classes.icon} ${styles}`} />;
 };
 
 const useStyle = createUseStyles({
-  icon: (props) => ({
+  icon: {
     margin: "0 10px 0 10px",
     paddingBottom: "5px",
-    color: props.color ? props.color : colors.black,
-    fontSize: props.fontSize ? props.fontSize : "2rem",
-  }),
+    color: colors.black,
+    fontSize: "2rem",
+  },
 });
 
 export default Icon;

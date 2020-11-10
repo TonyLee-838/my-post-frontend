@@ -2,15 +2,13 @@ import React from "react";
 import { createUseStyles } from "react-jss";
 import moment from "moment";
 import Icon from "../common/Icon";
+import ListItem from "../common/ListItem";
 
 const Time = ({ time }) => {
   const classes = useStyle();
 
   return (
-    <div className={classes.container}>
-      <Icon name="MdDateRange" />
-      <label className={classes.time}>{getTimeString(time)}</label>
-    </div>
+    <ListItem icon="MdDateRange" label={getTimeString(time)} styles={classes} />
   );
 };
 
@@ -27,7 +25,7 @@ const useStyle = createUseStyles({
     alignItems: "center",
     margin: "0 0 0 auto",
   },
-  time: {
+  label: {
     fontSize: "1.6rem",
     fontFamily: " 'Varela Round', sans-serif",
   },

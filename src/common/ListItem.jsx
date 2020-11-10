@@ -1,33 +1,17 @@
 import React from "react";
-import { createUseStyles } from "react-jss";
-import colors from "../config/color";
+import Icon from "./Icon";
 
-function ListItem({ icon, label, style = { container: "", label: "" } }) {
-  const classes = useStyle(style);
+function ListItem({
+  icon,
+  label,
+  styles = { container: "", label: "", icon: "" },
+}) {
   return (
-    <div className={classes.container}>
-      <h4 className={classes.label}>{label}</h4>
+    <div className={styles.container}>
+      <Icon name={icon} styles={styles.icon} />
+      <label className={styles.label}>{label}</label>
     </div>
   );
 }
-
-const useStyle = createUseStyles({
-  container: (style) => ({
-    cursor: "pointer",
-    padding: "5px 0px 5px 0px",
-    borderRadius: "2px",
-    "&:hover": {
-      backgroundColor: colors.black,
-      transition: "background-color 0.3s ease",
-    },
-    ...style.container,
-  }),
-  label: (style) => ({
-    transform: "translateX(1.5%)",
-    margin: 0,
-
-    ...style.label,
-  }),
-});
 
 export default ListItem;
