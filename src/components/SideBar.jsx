@@ -9,7 +9,10 @@ function SideBar({ children }) {
   return (
     <div className={classes.container}>
       <a href="https://github.com/TonyLee-838?tab=repositories">
-        <img className={classes.avatar} src={require("../assets/Tony.jpg")} />
+        <img
+          className={classes.avatar}
+          src={require("../assets/images/Tony.jpg")}
+        />
       </a>
       <NavPanel />
       {children}

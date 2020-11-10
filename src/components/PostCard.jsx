@@ -20,6 +20,7 @@ function PostCard({ post }) {
         <span>React</span>
       </div>
       <div className={classes.tags}>
+        Tags:
         <label>#React</label>
         <label>#Functional Components</label>
       </div>
@@ -33,12 +34,12 @@ function PostCard({ post }) {
 
 const useStyle = createUseStyles({
   category: {
-    fontFamily: "Georgia, serif",
+    fontFamily: "Ubuntu,sans-serif",
     fontSize: "1.2rem",
   },
   card: {
     backgroundColor: colors.white,
-    padding: "30px",
+    padding: "60px",
     width: "70vw",
   },
   description: {
@@ -52,23 +53,35 @@ const useStyle = createUseStyles({
     fontFamily: "Georgia, serif",
   },
   tags: {
-    color: colors.lightBlue,
-    "& label": {
-      fontSize: "1.25rem",
+    fontSize: "1.25rem",
+    fontFamily: "Ubuntu,sans-serif",
+
+    "& > label": {
+      color: colors.lightBlue,
       marginRight: "15px",
+      marginLeft: "15px",
+      cursor: "pointer",
+      "&:hover": {
+        textDecoration: "underline",
+      },
     },
   },
   title: {
-    fontWeight: 990,
-    fontSize: "3.65rem",
-    fontFamily: "Nunito sans-serif",
+    fontWeight: 850,
+    fontSize: "3.8rem",
+    fontFamily: " 'Patua One', sans-serif",
     textDecoration: "none",
     color: colors.black,
     margin: {
       top: 0,
       bottom: 0,
     },
+    transition: "all 0.2s ease",
     wordWrap: "break-word",
+    "&:hover": {
+      color: colors.primary,
+      textDecoration: "underline",
+    },
   },
 });
 

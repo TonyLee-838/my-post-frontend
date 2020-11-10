@@ -19,18 +19,22 @@ const useStyle = createUseStyles({
   container: {
     display: "flex",
     flexDirection: "column",
-    flex: "",
-    alignItems: "center",
 
     width: "100%",
     height: "35vh",
 
     "& a": {
+      cursor: "pointer",
       color: colors.white,
       fontFamily: "sans-serif",
-      fontSize: "1.7rem",
+      fontSize: "1.6rem",
       textDecoration: "none",
-      margin: "15px 0px 15px 0px",
+      padding: "15px 0px 15px 0px",
+      marginLeft: "100px",
+      transition: "color 0.15s ",
+      "&:hover": {
+        color: colors.lightBlue,
+      },
     },
   },
 });
