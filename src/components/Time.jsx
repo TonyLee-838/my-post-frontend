@@ -1,18 +1,14 @@
 import React from "react";
 import { createUseStyles } from "react-jss";
-import { IconContext } from "react-icons";
-import { MdDateRange } from "react-icons/md";
 import moment from "moment";
+import Icon from "../common/Icon";
 
-const Time = ({ time, label }) => {
+const Time = ({ time }) => {
   const classes = useStyle();
 
   return (
     <div className={classes.container}>
-      <IconContext.Provider value={{ className: classes.icon }}>
-        <MdDateRange />
-      </IconContext.Provider>
-      {/* <label className={classes.label}>{label}</label> */}
+      <Icon name="MdDateRange" />
       <label className={classes.time}>{getTimeString(time)}</label>
     </div>
   );
@@ -30,11 +26,6 @@ const useStyle = createUseStyles({
     justifyContent: "center",
     alignItems: "center",
     margin: "0 0 0 auto",
-  },
-  icon: {
-    fontSize: "2rem",
-    margin: "0 10px 0 10px",
-    paddingBottom: "5px",
   },
   time: {
     fontSize: "1.6rem",
