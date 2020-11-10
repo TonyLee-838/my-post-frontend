@@ -3,11 +3,13 @@ import { createUseStyles } from "react-jss";
 import { Link } from "react-router-dom";
 
 import colors from "../config/color";
+import Time from "./Time";
 const description =
   "description! description! description! description! description! description! description! description! description! description! description! description! description! description! description! description! description! description! description! description! description! description! description! description! ";
 
 function PostCard({ post }) {
-  const { _id, title, lastEditTime, author } = post;
+  const { _id, title, timeUpdated, author } = post;
+
   const classes = useStyle();
 
   return (
@@ -25,8 +27,8 @@ function PostCard({ post }) {
         <label>#Functional Components</label>
       </div>
       <div className={classes.postDetails}>
-        <label>{`Posted by: ${author}`}</label>
-        <label>{`Last Edit At: ${lastEditTime}`}</label>
+        <Time time={timeUpdated} label={"Updated at:"} />
+        {/* <label>{`Posted by: ${author}`}</label> */}
       </div>
     </div>
   );
