@@ -20,7 +20,6 @@ const useStyle = createUseStyles({
     display: "flex",
     flexDirection: "column",
     flex: "",
-    justifyContent: "space-around",
     alignItems: "center",
 
     width: "100%",
@@ -28,8 +27,10 @@ const useStyle = createUseStyles({
 
     "& a": {
       color: colors.white,
-      fontFamily: "",
-      fontSize: "1.3rem",
+      fontFamily: "sans-serif",
+      fontSize: "1.7rem",
+      textDecoration: "none",
+      margin: "15px 0px 15px 0px",
     },
   },
 });

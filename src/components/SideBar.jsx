@@ -29,7 +29,9 @@ const useStyle = createUseStyles({
     width: "40%",
   },
   container: {
-    width: "500px",
+    position: "fixed",
+
+    width: "25%",
     "min-height": "100%",
     backgroundColor: colors.dark,
   },

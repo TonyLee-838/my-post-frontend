@@ -6,12 +6,14 @@ import PostList from "../components/PostList";
 
 function PostListScreen(props) {
   return (
-    <BackgroundView>
+    <>
       <SideBar>
         <CategoryPanel />
       </SideBar>
-      <PostList />
-    </BackgroundView>
+      <BackgroundView>
+        <PostList />
+      </BackgroundView>
+    </>
   );
 }
 

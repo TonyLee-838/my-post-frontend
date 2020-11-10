@@ -20,7 +20,7 @@ function PostList() {
   }, []);
 
   return (
-    <div className={classes.lists}>
+    <div className={classes.container}>
       {posts.map((post) => (
         <div key={post.id}>
           <PostCard post={post} />
@@ -32,10 +32,11 @@ function PostList() {
 }
 
 const useStyles = createUseStyles({
-  backgroundContainer: {
-    backgroundColor: colors.secondary,
-  },
-  lists: {
+  container: {
+    width: "75%",
+    marginRight: 0,
+    marginLeft: "auto",
+    flex: 1,
     boxShadow: "-3px -2px 7px 1px" + colors.black,
   },
 });

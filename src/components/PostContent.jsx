@@ -27,7 +27,6 @@ function PostContent({ id }) {
 
 const useStyles = createUseStyles({
   container: {
-    width: "100%",
     padding: {
       left: "20px",
       right: "40px",
