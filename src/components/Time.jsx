@@ -1,20 +1,24 @@
 import React from "react";
 import { createUseStyles } from "react-jss";
-import { IconContext } from "react-icons";
-import { MdDateRange } from "react-icons/md";
 import moment from "moment";
+import Icon from "../common/Icon";
+import ListItem from "../common/ListItem";
 
-const Time = ({ time, label }) => {
+const Time = ({ time }) => {
   const classes = useStyle();
 
   return (
-    <div className={classes.container}>
-      <IconContext.Provider value={{ className: classes.icon }}>
-        <MdDateRange />
-      </IconContext.Provider>
-      {/* <label className={classes.label}>{label}</label> */}
-      <label className={classes.time}>{getTimeString(time)}</label>
-    </div>
+    <ListItem
+      icon="MdDateRange"
+      label={getTimeString(time)}
+      styles={{
+        container: { margin: "0 0 0 auto", width: "300px" },
+        label: {
+          fontSize: "1.6rem",
+          fontFamily: " 'Varela Round', sans-serif",
+        },
+      }}
+    />
   );
 };
 
@@ -31,12 +35,7 @@ const useStyle = createUseStyles({
     alignItems: "center",
     margin: "0 0 0 auto",
   },
-  icon: {
-    fontSize: "2rem",
-    margin: "0 10px 0 10px",
-    paddingBottom: "5px",
-  },
-  time: {
+  label: {
     fontSize: "1.6rem",
     fontFamily: " 'Varela Round', sans-serif",
   },

@@ -24,7 +24,7 @@ const useStyle = createUseStyles({
   avatar: {
     marginLeft: "50%",
     marginTop: "80px",
-    marginBottom: "50px",
+    marginBottom: "30px",
     transform: " translateX(-50%)",
     borderRadius: "50%",
     borderColor: colors.secondary,

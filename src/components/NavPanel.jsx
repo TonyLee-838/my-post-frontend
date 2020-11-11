@@ -1,16 +1,26 @@
 import React from "react";
 import { createUseStyles } from "react-jss";
 import { Link } from "react-router-dom";
+import Icon from "../common/Icon";
 
 import colors from "../config/color";
 function NavPanel() {
   const classes = useStyle();
+  const links = [
+    { label: "Home", path: "/", icon: "MdHome" },
+    { label: "Learning Pieces", path: "/pieces", icon: "MdTimeline" },
+    { label: "Posts", path: "/posts", icon: "MdLibraryBooks" },
+    { label: "Projects", path: "/projects", icon: "MdDevices" },
+  ];
+
   return (
     <nav className={classes.container}>
-      <Link to="/">Home</Link>
-      <Link to="/pieces">Learning Pieces</Link>
-      <Link to="/posts">Posts</Link>
-      <Link to="/projects">Projects</Link>
+      {links.map((l) => (
+        <div className={classes.link} key={l.label}>
+          <Icon name={l.icon} styles={classes.icon} />
+          <Link to={l.path}>{l.label}</Link>
+        </div>
+      ))}
     </nav>
   );
 }
@@ -19,23 +29,31 @@ const useStyle = createUseStyles({
   container: {
     display: "flex",
     flexDirection: "column",
-
     width: "100%",
-    height: "35vh",
-
-    "& a": {
-      cursor: "pointer",
+    marginBottom: "15px",
+  },
+  link: {
+    "& > a": {
       color: colors.white,
       fontFamily: "sans-serif",
       fontSize: "1.6rem",
       textDecoration: "none",
-      padding: "15px 0px 15px 0px",
-      marginLeft: "100px",
-      transition: "color 0.15s ",
-      "&:hover": {
+    },
+    display: "flex",
+    alignItems: "center",
+    padding: "15px 0px 10px 0px",
+    cursor: "pointer",
+    marginLeft: "70px",
+    transition: "all 0.4s ease",
+    "&:hover": {
+      "& *": {
         color: colors.lightBlue,
       },
     },
+  },
+  icon: {
+    color: colors.white,
+    margin: "0px 15px 0px 15px",
   },
 });
 
