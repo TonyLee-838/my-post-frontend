@@ -8,9 +8,10 @@ import Time from "./Time";
 const description =
   "description! description! description! description! description! description! description! description! description! description! description! description! description! description! description! description! description! description! description! description! description! description! description! description! ";
 
-function PostCard({ post }) {
-  const { _id, title, timeUpdated, author } = post;
+function PostCard({ post, category }) {
+  const { _id, title, timeUpdated } = post;
 
+  console.log(category);
   const classes = useStyle();
   //TODO: Refactor!
   return (
@@ -20,32 +21,30 @@ function PostCard({ post }) {
       </Link>
       <p className={classes.description}>{description}</p>
 
-      <div className={classes.category}>
-        <ListItem
-          icon="SiReact"
-          label={"React"}
-          styles={{
-            container: {
-              backgroundColor: colors.medium,
-              borderRadius: "10px",
-              width: "150px",
-              marginBottom: "10px",
-              "&:hover": {
-                opacity: 0.8,
+      {category && (
+        <div className={classes.category}>
+          <ListItem
+            icon={category.icon}
+            label={category.name}
+            styles={{
+              container: {
+                "&:hover": {
+                  opacity: 0.8,
+                },
+                "& *": {
+                  cursor: "pointer",
+                },
               },
-              "& *": {
-                cursor: "pointer",
+              icon: {
+                color: category.color,
               },
-            },
-            icon: {
-              color: "#61dafb",
-            },
-            label: {
-              color: "#61dafb",
-            },
-          }}
-        />
-      </div>
+              label: {
+                color: category.color,
+              },
+            }}
+          />
+        </div>
+      )}
       <div className={classes.tags}>
         Tags:
         <label>#React</label>

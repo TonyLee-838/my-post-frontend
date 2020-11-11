@@ -1,6 +1,6 @@
 import React from "react";
 
-import BackgroundView from "../common/BackgoundView";
+import BackgroundView from "../common/BackgroundView";
 import SideBar from "../components/SideBar";
 import AboutMePanel from "../components/AboutMePanel";
 import RecentPostPanel from "../components/RecentPostPanel";

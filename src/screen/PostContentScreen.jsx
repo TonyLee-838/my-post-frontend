@@ -1,5 +1,5 @@
 import React from "react";
-import BackgroundView from "../common/BackgoundView";
+import BackgroundView from "../common/BackgroundView";
 import SideBar from "../components/SideBar";
 import CategoryPanel from "../components/CategoryPanel";
 import PostContent from "../components/PostContent";

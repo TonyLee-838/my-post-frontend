@@ -1,30 +1,22 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import { createUseStyles } from "react-jss";
 
 import PostCard from "./PostCard";
 import colors from "../config/color";
 import Separator from "../common/Separator";
-import { getPosts } from "../api/posts";
 
-function PostList() {
+function PostList({ posts, categories }) {
   const classes = useStyles();
-  const [posts, setPosts] = useState([]);
-
-  useEffect(() => {
-    const fetchData = async () => {
-      const posts = await getPosts();
-      setPosts(posts);
-    };
-
-    fetchData();
-  }, []);
 
   return (
     <div className={classes.container}>
       {posts.map((post) => (
         <div key={post.id}>
-          <PostCard post={post} />
-          {<Separator />}
+          <PostCard
+            post={post}
+            category={categories.find((c) => c._id === post.categoryId)}
+          />
+          <Separator />
         </div>
       ))}
     </div>

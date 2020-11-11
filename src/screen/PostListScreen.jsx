@@ -1,17 +1,22 @@
 import React, { useEffect, useState } from "react";
 import SideBar from "../components/SideBar";
-import BackgroundView from "../common/BackgoundView";
+import BackgroundView from "../common/BackgroundView";
 import CategoryPanel from "../components/CategoryPanel";
 import PostList from "../components/PostList";
 import { getCategories } from "../api/categories";
+import { getPosts } from "../api/posts";
 
 function PostListScreen() {
   const [categories, setCategories] = useState([]);
+  const [posts, setPosts] = useState([]);
 
   useEffect(() => {
     async function fetchData() {
-      const { data } = await getCategories();
-      setCategories(data);
+      const categories = await getCategories();
+      setCategories(categories);
+
+      const posts = await getPosts();
+      setPosts(posts);
     }
     fetchData();
   }, []);
@@ -22,7 +27,7 @@ function PostListScreen() {
         <CategoryPanel categories={categories} />
       </SideBar>
       <BackgroundView>
-        <PostList />
+        <PostList posts={posts} categories={categories} />
       </BackgroundView>
     </>
   );
