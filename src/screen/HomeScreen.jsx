@@ -10,7 +10,6 @@ function HomeScreen(props) {
     <BackgroundView>
       <SideBar>
         <AboutMePanel />
-        <RecentPostPanel />
       </SideBar>
     </BackgroundView>
   );

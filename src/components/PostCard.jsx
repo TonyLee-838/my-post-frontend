@@ -12,13 +12,14 @@ function PostCard({ post }) {
   const { _id, title, timeUpdated, author } = post;
 
   const classes = useStyle();
-
+  //TODO: Refactor!
   return (
     <div className={classes.card}>
       <Link to={`/posts/${_id}`} className={classes.title}>
         {title}
       </Link>
       <p className={classes.description}>{description}</p>
+
       <div className={classes.category}>
         <ListItem
           icon="SiReact"
@@ -29,6 +30,12 @@ function PostCard({ post }) {
               borderRadius: "10px",
               width: "150px",
               marginBottom: "10px",
+              "&:hover": {
+                opacity: 0.8,
+              },
+              "& *": {
+                cursor: "pointer",
+              },
             },
             icon: {
               color: "#61dafb",
