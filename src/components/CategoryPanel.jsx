@@ -3,17 +3,8 @@ import { createUseStyles } from "react-jss";
 import Separator from "../common/Separator";
 import colors from "../config/color";
 
-function CategoryPanel() {
+function CategoryPanel({ categories }) {
   const classes = useStyles();
-  const categories = [
-    { id: "c1", label: "HTML", color: "#fd3f5f", icon: "SiHtml5" },
-    { id: "c2", label: "CSS", color: "#116efd", icon: "SiCss3" },
-    { id: "c3", label: "JavaScript", color: "#fdcf1f", icon: "SiJavascript" },
-    { id: "c4", label: "React", color: "#61dafb", icon: "SiReact" },
-    { id: "c5", label: "Node.js", color: "#8ac773", icon: "SiNodeDotJs" },
-    { id: "c6", label: "MySQL", color: "#1583b8", icon: "SiMysql" },
-    { id: "c7", label: "Git", color: "#f1f1f1", icon: "SiGit" },
-  ];
 
   return (
     <>
@@ -26,7 +17,7 @@ function CategoryPanel() {
             style={{ color: c.color }}
             key={c.id}
           >
-            <label href="#">{"#" + c.label}</label>
+            <label href="#">{"#" + c.name}</label>
           </div>
         ))}
       </div>
