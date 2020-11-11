@@ -8,7 +8,7 @@ import Time from "./Time";
 const description =
   "description! description! description! description! description! description! description! description! description! description! description! description! description! description! description! description! description! description! description! description! description! description! description! description! ";
 
-function PostCard({ post, category }) {
+function PostCard({ post, category, onIconClick }) {
   const { _id, title, timeUpdated } = post;
 
   const classes = useStyle();
@@ -20,7 +20,7 @@ function PostCard({ post, category }) {
       <p className={classes.description}>{description}</p>
 
       {category && (
-        <div className={classes.category}>
+        <div className={classes.category} onClick={() => onIconClick(category)}>
           <CategoryItem category={category} />
         </div>
       )}

@@ -5,7 +5,7 @@ import PostCard from "./PostCard";
 import colors from "../config/color";
 import Separator from "../common/Separator";
 
-function PostList({ posts, categories }) {
+function PostList({ posts, categories, onSelect }) {
   const classes = useStyles();
 
   return (
@@ -14,6 +14,7 @@ function PostList({ posts, categories }) {
         <div key={post.id}>
           <PostCard
             post={post}
+            onIconClick={onSelect}
             category={categories.find((c) => c._id === post.categoryId)}
           />
           <Separator />

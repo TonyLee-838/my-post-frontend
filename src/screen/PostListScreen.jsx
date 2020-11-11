@@ -9,6 +9,7 @@ import { getPosts } from "../api/posts";
 function PostListScreen() {
   const [categories, setCategories] = useState([]);
   const [posts, setPosts] = useState([]);
+  const [selectedId, setSelectedId] = useState();
 
   useEffect(() => {
     async function fetchData() {
@@ -21,13 +22,25 @@ function PostListScreen() {
     fetchData();
   }, []);
 
+  const handleSelect = (category) => {
+    setSelectedId(category._id);
+  };
+
+  const filtered = selectedId
+    ? posts.filter((post) => post.categoryId === selectedId)
+    : posts;
+
   return (
     <>
       <SideBar>
-        <CategoryPanel categories={categories} />
+        <CategoryPanel categories={categories} onSelect={handleSelect} />
       </SideBar>
       <BackgroundView>
-        <PostList posts={posts} categories={categories} />
+        <PostList
+          posts={filtered}
+          categories={categories}
+          onSelect={handleSelect}
+        />
       </BackgroundView>
     </>
   );

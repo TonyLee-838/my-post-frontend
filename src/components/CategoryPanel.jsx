@@ -3,7 +3,7 @@ import { createUseStyles } from "react-jss";
 import Separator from "../common/Separator";
 import colors from "../config/color";
 
-function CategoryPanel({ categories }) {
+function CategoryPanel({ categories, onSelect }) {
   const classes = useStyles();
 
   return (
@@ -17,7 +17,7 @@ function CategoryPanel({ categories }) {
             style={{ color: c.color }}
             key={c.id}
           >
-            <label href="#">{"#" + c.name}</label>
+            <label onClick={() => onSelect(c)}>{"#" + c.name}</label>
           </div>
         ))}
       </div>
