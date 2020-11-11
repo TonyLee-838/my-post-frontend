@@ -1,18 +1,17 @@
 import React from "react";
 import { createUseStyles } from "react-jss";
 import { Link } from "react-router-dom";
-import ListItem from "../common/ListItem";
 
 import colors from "../config/color";
+import CategoryItem from "./CategoryItem";
 import Time from "./Time";
 const description =
   "description! description! description! description! description! description! description! description! description! description! description! description! description! description! description! description! description! description! description! description! description! description! description! description! ";
 
-function PostCard({ post }) {
-  const { _id, title, timeUpdated, author } = post;
+function PostCard({ post, category, onIconClick }) {
+  const { _id, title, timeUpdated } = post;
 
   const classes = useStyle();
-  //TODO: Refactor!
   return (
     <div className={classes.card}>
       <Link to={`/posts/${_id}`} className={classes.title}>
@@ -20,32 +19,12 @@ function PostCard({ post }) {
       </Link>
       <p className={classes.description}>{description}</p>
 
-      <div className={classes.category}>
-        <ListItem
-          icon="SiReact"
-          label={"React"}
-          styles={{
-            container: {
-              backgroundColor: colors.medium,
-              borderRadius: "10px",
-              width: "150px",
-              marginBottom: "10px",
-              "&:hover": {
-                opacity: 0.8,
-              },
-              "& *": {
-                cursor: "pointer",
-              },
-            },
-            icon: {
-              color: "#61dafb",
-            },
-            label: {
-              color: "#61dafb",
-            },
-          }}
-        />
-      </div>
+      {category && (
+        <div className={classes.category} onClick={() => onIconClick(category)}>
+          <CategoryItem category={category} />
+        </div>
+      )}
+
       <div className={classes.tags}>
         Tags:
         <label>#React</label>
@@ -53,7 +32,6 @@ function PostCard({ post }) {
       </div>
       <div className={classes.postDetails}>
         <Time time={timeUpdated} label={"Updated at:"} />
-        {/* <label>{`Posted by: ${author}`}</label> */}
       </div>
     </div>
   );
@@ -66,8 +44,14 @@ const useStyle = createUseStyles({
     fontFamily: "Ubuntu,sans-serif",
     fontSize: "1.2rem",
     height: "50px",
-  },
 
+    "&:hover": {
+      opacity: 0.8,
+    },
+    "& *": {
+      cursor: "pointer",
+    },
+  },
   card: {
     backgroundColor: colors.white,
     padding: "60px",
