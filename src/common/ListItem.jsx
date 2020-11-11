@@ -19,13 +19,11 @@ function ListItem({
 const useStyle = createUseStyles({
   container: (styles) => ({
     display: "flex",
-    alignItems: "center",
-    padding: "5px",
     ...styles.container,
   }),
   label: (styles) => ({
-    fontSize: "1.6rem",
-    fontFamily: " 'Patua One', sans-serif",
+    fontSize: "1.2rem",
+    fontFamily: " 'Ubuntu', sans-serif",
     ...styles.label,
   }),
   icon: (styles) => styles.icon,

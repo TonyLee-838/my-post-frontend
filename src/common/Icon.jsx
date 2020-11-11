@@ -14,9 +14,8 @@ const Icon = ({ name, styles = "" }) => {
 
 const useStyle = createUseStyles({
   icon: {
-    margin: "0 10px 0 10px",
     color: colors.black,
-    fontSize: "2rem",
+    fontSize: "1.5rem",
   },
 });
 

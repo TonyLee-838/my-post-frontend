@@ -5,11 +5,11 @@ import { Link } from "react-router-dom";
 import colors from "../config/color";
 import CategoryItem from "./CategoryItem";
 import Time from "./Time";
-const description =
-  "description! description! description! description! description! description! description! description! description! description! description! description! description! description! description! description! description! description! description! description! description! description! description! description! ";
+// const description =
+//   "description! description! description! description! description! description! description! description! description! description! description! description! description! description! description! description! description! description! description! description! description! description! description! description! ";
 
 function PostCard({ post, category, onIconClick }) {
-  const { _id, title, timeUpdated } = post;
+  const { _id, title, timeUpdated, description } = post;
 
   const classes = useStyle();
   return (
@@ -39,16 +39,19 @@ function PostCard({ post, category, onIconClick }) {
 
 const useStyle = createUseStyles({
   category: {
-    alignItems: "center",
     display: "flex",
-    fontFamily: "Ubuntu,sans-serif",
-    fontSize: "1.2rem",
-    height: "50px",
+    alignItems: "center",
+    justifyContent: "start",
+    transition: "all 0.1s",
+    marginBottom: "1%",
 
     "&:hover": {
-      opacity: 0.8,
+      opacity: 0.7,
     },
     "& *": {
+      padding: "3px",
+      borderRadius: "10px",
+      backgroundColor: colors.blue,
       cursor: "pointer",
     },
   },
@@ -62,6 +65,7 @@ const useStyle = createUseStyles({
     fontSize: "1.35rem",
     fontFamily: "Georgia, serif",
     wordWrap: "break-word",
+    marginBottom: "1%",
   },
   postDetails: {
     textAlign: "right",
