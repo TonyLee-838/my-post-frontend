@@ -4,6 +4,7 @@ import { createUseStyles } from "react-jss";
 import PostCard from "./PostCard";
 import colors from "../config/color";
 import Separator from "../common/Separator";
+import ScrollUpButton from "./ScrollUpButton";
 
 function PostList({ posts, categories, onSelect }) {
   const classes = useStyles();
@@ -20,6 +21,7 @@ function PostList({ posts, categories, onSelect }) {
           <Separator />
         </div>
       ))}
+      <ScrollUpButton />
     </div>
   );
 }
