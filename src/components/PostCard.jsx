@@ -1,9 +1,9 @@
 import React from "react";
 import { createUseStyles } from "react-jss";
 import { Link } from "react-router-dom";
-import ListItem from "../common/ListItem";
 
 import colors from "../config/color";
+import CategoryItem from "./CategoryItem";
 import Time from "./Time";
 const description =
   "description! description! description! description! description! description! description! description! description! description! description! description! description! description! description! description! description! description! description! description! description! description! description! description! ";
@@ -11,9 +11,7 @@ const description =
 function PostCard({ post, category }) {
   const { _id, title, timeUpdated } = post;
 
-  console.log(category);
   const classes = useStyle();
-  //TODO: Refactor!
   return (
     <div className={classes.card}>
       <Link to={`/posts/${_id}`} className={classes.title}>
@@ -23,28 +21,10 @@ function PostCard({ post, category }) {
 
       {category && (
         <div className={classes.category}>
-          <ListItem
-            icon={category.icon}
-            label={category.name}
-            styles={{
-              container: {
-                "&:hover": {
-                  opacity: 0.8,
-                },
-                "& *": {
-                  cursor: "pointer",
-                },
-              },
-              icon: {
-                color: category.color,
-              },
-              label: {
-                color: category.color,
-              },
-            }}
-          />
+          <CategoryItem category={category} />
         </div>
       )}
+
       <div className={classes.tags}>
         Tags:
         <label>#React</label>
@@ -52,7 +32,6 @@ function PostCard({ post, category }) {
       </div>
       <div className={classes.postDetails}>
         <Time time={timeUpdated} label={"Updated at:"} />
-        {/* <label>{`Posted by: ${author}`}</label> */}
       </div>
     </div>
   );
@@ -65,8 +44,14 @@ const useStyle = createUseStyles({
     fontFamily: "Ubuntu,sans-serif",
     fontSize: "1.2rem",
     height: "50px",
-  },
 
+    "&:hover": {
+      opacity: 0.8,
+    },
+    "& *": {
+      cursor: "pointer",
+    },
+  },
   card: {
     backgroundColor: colors.white,
     padding: "60px",
