@@ -29,7 +29,7 @@ const useStyle = createUseStyles({
     borderRadius: "50%",
     borderColor: colors.secondary,
     border: "8px solid",
-    width: "40%",
+    width: "45%",
   },
   container: {
     position: "fixed",
@@ -37,6 +37,12 @@ const useStyle = createUseStyles({
     width: "25%",
     "min-height": "100%",
     backgroundColor: colors.dark,
+  },
+
+  "@media (min-width:1312px)": {
+    avatar: {
+      width: "155px",
+    },
   },
 });
 
