@@ -32,11 +32,11 @@ const useStyle = createUseStyles({
     width: "45%",
   },
   container: {
-    position: "fixed",
-
     width: "25%",
-    "min-height": "100%",
+    height: "100vh",
     backgroundColor: colors.dark,
+    position: "sticky",
+    top: 0,
   },
 
   "@media (min-width:1312px)": {

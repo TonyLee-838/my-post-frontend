@@ -31,18 +31,16 @@ function PostListScreen() {
     : posts;
 
   return (
-    <>
+    <BackgroundView>
       <SideBar>
         <CategoryPanel categories={categories} onSelect={handleSelect} />
       </SideBar>
-      <BackgroundView>
-        <PostList
-          posts={filtered}
-          categories={categories}
-          onSelect={handleSelect}
-        />
-      </BackgroundView>
-    </>
+      <PostList
+        posts={filtered}
+        categories={categories}
+        onSelect={handleSelect}
+      />
+    </BackgroundView>
   );
 }
 

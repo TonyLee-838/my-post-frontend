@@ -13,6 +13,7 @@ const useStyle = createUseStyles({
   container: {
     backgroundColor: colors.white,
     margin: 0,
+    display: "flex",
   },
 });
 
