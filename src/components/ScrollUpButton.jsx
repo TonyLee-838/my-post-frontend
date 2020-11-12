@@ -1,17 +1,28 @@
-import React from "react";
+import React, { useState } from "react";
 import { createUseStyles } from "react-jss";
 import Icon from "../common/Icon";
 import colors from "../config/color";
 
 const ScrollUpButton = () => {
+  const [coordinateY, setCoordinateY] = useState(0);
+
   const classes = useStyle();
+
+  window.onscroll = () => {
+    setCoordinateY(window.scrollY);
+  };
+
   const handleScrollUp = () => {
-    window.scroll(0, 0);
+    window.scrollTo({ top: 1 });
   };
   return (
-    <div className={classes.container} onClick={handleScrollUp}>
-      <Icon name="MdArrowUpward" styles={classes.icon} />
-    </div>
+    <>
+      {coordinateY > 100 && (
+        <div className={classes.container} onClick={handleScrollUp}>
+          <Icon name="MdArrowUpward" styles={classes.icon} />
+        </div>
+      )}
+    </>
   );
 };
 
