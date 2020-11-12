@@ -36,14 +36,15 @@ const useStyle = createUseStyles({
     "& > a": {
       color: colors.white,
       fontFamily: "sans-serif",
-      fontSize: "1.6rem",
+      fontSize: "1.25rem",
       textDecoration: "none",
     },
     display: "flex",
     alignItems: "center",
     padding: "15px 0px 10px 0px",
     cursor: "pointer",
-    marginLeft: "70px",
+    marginLeft: "7%",
+    marginRight: "7%",
     transition: "all 0.4s ease",
     "&:hover": {
       "& *": {

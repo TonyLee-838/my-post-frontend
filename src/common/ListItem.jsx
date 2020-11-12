@@ -23,7 +23,7 @@ const useStyle = createUseStyles({
   }),
   label: (styles) => ({
     fontSize: "1.2rem",
-    fontFamily: " 'Ubuntu', sans-serif",
+    fontFamily: " 'Ubuntu' , sans-serif",
     ...styles.label,
   }),
   icon: (styles) => styles.icon,

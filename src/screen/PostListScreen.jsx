@@ -32,7 +32,7 @@ function PostListScreen() {
     : posts;
 
   return (
-    <>
+    <BackgroundView>
       <SideBar>
         <CategoryPanel
           categories={categories}
@@ -40,14 +40,12 @@ function PostListScreen() {
           selectedId={selectedId}
         />
       </SideBar>
-      <BackgroundView>
-        <PostList
-          posts={filtered}
-          categories={categories}
-          onSelect={handleSelect}
-        />
-      </BackgroundView>
-    </>
+      <PostList
+        posts={filtered}
+        categories={categories}
+        onSelect={handleSelect}
+      />
+    </BackgroundView>
   );
 }
 

@@ -30,18 +30,18 @@ function CategoryPanel({ categories, onSelect, selectedId }) {
 
 const useStyles = createUseStyles({
   container: {
-    display: "grid",
-    gridTemplateColumns: "1fr 1fr",
+    display: "none",
     justifyItems: "center",
   },
+
   category: {
     borderRadius: "15px",
     fontFamily: "Ubuntu,sans-serif",
-    fontSize: "1.35rem",
-    padding: "15px 10px 15px 10px",
+    fontSize: "1.3rem",
+    padding: "15px 8px 15px 8px",
     textAlign: "center",
     transition: "background-color 0.1s ease 0s",
-    width: "150px",
+    width: "135px",
 
     "&:hover": {
       backgroundColor: colors.blue,
@@ -53,10 +53,24 @@ const useStyles = createUseStyles({
   heading: {
     color: colors.white,
     fontFamily: " 'Patua One', sans-serif",
-    fontSize: "2rem",
+    fontSize: "1.5rem",
     textAlign: "center",
     margin: 0,
     marginBottom: "10px",
+  },
+  "@media (min-width:688px)": {
+    container: {
+      display: "grid",
+      gridTemplateColumns: "1fr",
+    },
+  },
+  "@media (min-width:1312px)": {
+    container: {
+      gridTemplateColumns: "1fr 1fr",
+    },
+    heading: {
+      fontSize: "1.8rem",
+    },
   },
 });
 
