@@ -1,16 +1,3 @@
-/* @font-face {
-  font-family: "Ubuntu";
-  src: local("Ubuntu"),
-    url("./assets/fonts/ubuntu-title/Ubuntu-Title.ttf") format("truetype");
-}
-
-@font-face {
-  font-family: "Crimson Text";
-  src: local("Crimson Text"),
-    url("./assets/fonts/Crimson_Text/CrimsonText-Regular.ttf")
-      format("truetype");
-} */
-
 @import url("https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,400;0,500;1,400&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Patua+One&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Varela+Round&display=swap");

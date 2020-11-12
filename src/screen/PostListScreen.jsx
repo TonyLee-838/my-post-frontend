@@ -23,6 +23,7 @@ function PostListScreen() {
   }, []);
 
   const handleSelect = (category) => {
+    if (selectedId === category._id) return setSelectedId("");
     setSelectedId(category._id);
   };
 
@@ -33,7 +34,11 @@ function PostListScreen() {
   return (
     <>
       <SideBar>
-        <CategoryPanel categories={categories} onSelect={handleSelect} />
+        <CategoryPanel
+          categories={categories}
+          onSelect={handleSelect}
+          selectedId={selectedId}
+        />
       </SideBar>
       <BackgroundView>
         <PostList
