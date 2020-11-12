@@ -9,12 +9,13 @@ import Time from "./Time";
 //   "description! description! description! description! description! description! description! description! description! description! description! description! description! description! description! description! description! description! description! description! description! description! description! description! ";
 
 function PostCard({ post, category, onIconClick }) {
-  const { _id, title, timeUpdated, description } = post;
+  console.log(post);
+  const { id, title, timeUpdated, description } = post;
 
   const classes = useStyle();
   return (
     <div className={classes.card}>
-      <Link to={`/posts/${_id}`} className={classes.title}>
+      <Link to={`/posts/${id}`} className={classes.title}>
         {title}
       </Link>
       <p className={classes.description}>{description}</p>

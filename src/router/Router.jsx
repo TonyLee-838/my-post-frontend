@@ -35,6 +35,12 @@ function Router() {
 
   const routes = [
     {
+      id: "route-posts-content",
+      path: "/posts/:id",
+      sidebar: CategoriesSideBar,
+      main: () => <PostContent />,
+    },
+    {
       id: "route-post-lists",
       path: "/posts",
       sidebar: CategoriesSideBar,
@@ -45,12 +51,6 @@ function Router() {
           selectedId={selectedId}
         />
       ),
-    },
-    {
-      id: "route-posts-content",
-      path: "/posts/:id",
-      sidebar: CategoriesSideBar,
-      main: () => <PostContent />,
     },
     {
       id: "route-home",
