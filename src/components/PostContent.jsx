@@ -1,11 +1,13 @@
 import React, { useEffect, useState } from "react";
 import { createUseStyles } from "react-jss";
+import { useParams } from "react-router-dom";
 import { getPostById } from "../api/posts";
 
 import colors from "../config/color";
 import AppMarkdown from "./AppMarkdown";
 
-function PostContent({ id }) {
+function PostContent() {
+  const { id } = useParams();
   const [md, setMd] = useState("");
 
   useEffect(() => {
