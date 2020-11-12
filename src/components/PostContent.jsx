@@ -4,7 +4,7 @@ import { useParams } from "react-router-dom";
 import { getPostById } from "../api/posts";
 
 import colors from "../config/color";
-import AppMarkdown from "./AppMarkdown";
+import Markdown from "./Markdown";
 
 function PostContent() {
   const { id } = useParams();
@@ -22,7 +22,7 @@ function PostContent() {
   const classes = useStyles();
   return (
     <div className={classes.container}>
-      <AppMarkdown markdown={md} />
+      <Markdown markdown={md} />
     </div>
   );
 }
