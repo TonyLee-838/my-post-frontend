@@ -22,23 +22,33 @@ function SideBar({ children }) {
 
 const useStyle = createUseStyles({
   avatar: {
-    marginLeft: "50%",
-    marginTop: "80px",
-    marginBottom: "30px",
-    transform: " translateX(-50%)",
+    border: "8px solid",
     borderRadius: "50%",
     borderColor: colors.secondary,
-    border: "8px solid",
-    width: "45%",
+    marginLeft: "50%",
+    marginBottom: "30px",
+    transform: " translateX(-50%)",
+
+    //Styles for (screen-width < 688px)
+    marginTop: "80px",
+    width: "30%",
   },
   container: {
-    width: "25%",
-    height: "100vh",
     backgroundColor: colors.dark,
-    position: "sticky",
-    top: 0,
   },
 
+  "@media (min-width:688px)": {
+    avatar: {
+      width: "50%",
+      marginTop: "80px",
+    },
+    container: {
+      width: "25%",
+      height: "100vh",
+      position: "sticky",
+      top: 0,
+    },
+  },
   "@media (min-width:1312px)": {
     avatar: {
       width: "155px",

@@ -14,6 +14,11 @@ const useStyle = createUseStyles({
     backgroundColor: colors.white,
     margin: 0,
     display: "flex",
+    flexDirection: "column",
+
+    "@media  (min-width:688px)": {
+      flexDirection: "row",
+    },
   },
 });
 

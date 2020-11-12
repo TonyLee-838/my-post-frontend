@@ -27,8 +27,7 @@ function CategoryPanel({ categories, onSelect }) {
 
 const useStyles = createUseStyles({
   container: {
-    display: "grid",
-    gridTemplateColumns: "1fr",
+    display: "none",
     justifyItems: "center",
   },
 
@@ -55,6 +54,12 @@ const useStyles = createUseStyles({
     textAlign: "center",
     margin: 0,
     marginBottom: "10px",
+  },
+  "@media (min-width:688px)": {
+    container: {
+      display: "grid",
+      gridTemplateColumns: "1fr",
+    },
   },
   "@media (min-width:1312px)": {
     container: {

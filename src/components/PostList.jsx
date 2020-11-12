@@ -27,10 +27,12 @@ function PostList({ posts, categories, onSelect }) {
 const useStyles = createUseStyles({
   container: {
     width: "auto",
-    flex: -1,
-    marginRight: 0,
-    marginLeft: "auto",
     boxShadow: "-3px -2px 7px 1px" + colors.black,
+
+    "@media (min-width:688px)": {
+      marginRight: 0,
+      marginLeft: "auto",
+    },
   },
 });
 
