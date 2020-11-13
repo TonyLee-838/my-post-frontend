@@ -3,6 +3,7 @@ import { createUseStyles } from "react-jss";
 import { Link } from "react-router-dom";
 
 import colors from "../config/color";
+import fontFamilies from "../config/fontFamily";
 import CategoryItem from "./CategoryItem";
 import Time from "./Time";
 // const description =
@@ -64,17 +65,17 @@ const useStyle = createUseStyles({
   description: {
     color: colors.dark,
     fontSize: "1.35rem",
-    fontFamily: "Georgia, serif",
+    fontFamily: fontFamilies.text,
     wordWrap: "break-word",
     marginBottom: "1%",
   },
   postDetails: {
     textAlign: "right",
-    fontFamily: "Georgia, serif",
+    fontFamily: fontFamilies.text,
   },
   tags: {
     fontSize: "1.25rem",
-    fontFamily: "Ubuntu,sans-serif",
+    fontFamily: fontFamilies.round,
 
     "& > label": {
       color: colors.lightBlue,
@@ -89,7 +90,7 @@ const useStyle = createUseStyles({
   title: {
     fontWeight: 850,
     fontSize: "3.8rem",
-    fontFamily: " 'Patua One', sans-serif",
+    fontFamily: fontFamilies.headline,
     textDecoration: "none",
     color: colors.black,
     margin: {

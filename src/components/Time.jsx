@@ -3,6 +3,7 @@ import { createUseStyles } from "react-jss";
 import moment from "moment";
 import Icon from "../common/Icon";
 import ListItem from "../common/ListItem";
+import fontFamilies from "../config/fontFamily";
 
 const Time = ({ time }) => {
   const classes = useStyle();
@@ -15,7 +16,7 @@ const Time = ({ time }) => {
         container: { margin: "0 0 0 auto", width: "300px" },
         label: {
           fontSize: "1.6rem",
-          fontFamily: " 'Varela Round', sans-serif",
+          fontFamily: fontFamilies.round,
         },
       }}
     />
