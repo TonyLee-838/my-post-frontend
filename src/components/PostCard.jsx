@@ -4,8 +4,8 @@ import { Link } from "react-router-dom";
 
 import colors from "../config/color";
 import fontFamilies from "../config/fontFamily";
-import CategoryItem from "./CategoryItem";
-import Time from "./Time";
+import PostCategoryItem from "./PostCategoryItem";
+import TimeItem from "./TimeItem";
 // const description =
 //   "description! description! description! description! description! description! description! description! description! description! description! description! description! description! description! description! description! description! description! description! description! description! description! description! ";
 
@@ -23,7 +23,7 @@ function PostCard({ post, category, onIconClick }) {
 
       {category && (
         <div className={classes.category} onClick={() => onIconClick(category)}>
-          <CategoryItem category={category} />
+          <PostCategoryItem category={category} />
         </div>
       )}
 
@@ -33,7 +33,7 @@ function PostCard({ post, category, onIconClick }) {
         <label>#Functional Components</label>
       </div>
       <div className={classes.postDetails}>
-        <Time time={timeUpdated} label={"Updated at:"} />
+        <TimeItem time={timeUpdated} label={"Updated at:"} />
       </div>
     </div>
   );

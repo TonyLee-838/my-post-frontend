@@ -3,7 +3,7 @@ import { createUseStyles } from "react-jss";
 import fontFamilies from "../config/fontFamily";
 import Icon from "./Icon";
 
-function ListItem({
+function IconItem({
   icon,
   label,
   styles = { container: "", label: "", icon: "" },
@@ -30,4 +30,4 @@ const useStyle = createUseStyles({
   icon: (styles) => styles.icon,
 });
 
-export default ListItem;
+export default IconItem;

@@ -1,5 +1,7 @@
 import React from "react";
 import { createUseStyles } from "react-jss";
+
+import CategoryItem from "./CategoryItem";
 import Separator from "../common/Separator";
 import colors from "../config/color";
 import fontFamilies from "../config/fontFamily";
@@ -12,17 +14,12 @@ function CategoryPanel({ categories, onSelect, selectedId }) {
       <h3 className={classes.heading}>Categories</h3>
       <Separator color={colors.white} />
       <div className={classes.container}>
-        {categories.map((c) => (
-          <div
-            className={classes.category}
-            style={{
-              color: c.color,
-              backgroundColor: c._id === selectedId ? colors.blue : "",
-            }}
-            key={c.id}
-          >
-            <label onClick={() => onSelect(c)}>{"#" + c.name}</label>
-          </div>
+        {categories.map((category) => (
+          <CategoryItem
+            category={category}
+            isSelected={selectedId === category._id}
+            onSelect={onSelect}
+          />
         ))}
       </div>
     </>
@@ -33,23 +30,6 @@ const useStyles = createUseStyles({
   container: {
     display: "none",
     justifyItems: "center",
-  },
-
-  category: {
-    borderRadius: "15px",
-    fontFamily: fontFamilies.round,
-    fontSize: "1.3rem",
-    padding: "15px 8px 15px 8px",
-    textAlign: "center",
-    transition: "background-color 0.1s ease 0s",
-    width: "135px",
-
-    "&:hover": {
-      backgroundColor: colors.blue,
-      "& *": {
-        cursor: "pointer",
-      },
-    },
   },
   heading: {
     color: colors.white,
