@@ -1,5 +1,6 @@
 import React from "react";
 import { createUseStyles } from "react-jss";
+import fontFamilies from "../config/fontFamily";
 import Icon from "./Icon";
 
 function ListItem({
@@ -23,7 +24,7 @@ const useStyle = createUseStyles({
   }),
   label: (styles) => ({
     fontSize: "1.2rem",
-    fontFamily: " 'Ubuntu' , sans-serif",
+    fontFamily: fontFamilies.round,
     ...styles.label,
   }),
   icon: (styles) => styles.icon,

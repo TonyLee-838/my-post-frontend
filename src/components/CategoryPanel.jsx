@@ -2,6 +2,7 @@ import React from "react";
 import { createUseStyles } from "react-jss";
 import Separator from "../common/Separator";
 import colors from "../config/color";
+import fontFamilies from "../config/fontFamily";
 
 function CategoryPanel({ categories, onSelect, selectedId }) {
   const classes = useStyles();
@@ -36,7 +37,7 @@ const useStyles = createUseStyles({
 
   category: {
     borderRadius: "15px",
-    fontFamily: "Ubuntu,sans-serif",
+    fontFamily: fontFamilies.round,
     fontSize: "1.3rem",
     padding: "15px 8px 15px 8px",
     textAlign: "center",
@@ -52,7 +53,7 @@ const useStyles = createUseStyles({
   },
   heading: {
     color: colors.white,
-    fontFamily: " 'Patua One', sans-serif",
+    fontFamily: fontFamilies.headline,
     fontSize: "1.5rem",
     textAlign: "center",
     margin: 0,
