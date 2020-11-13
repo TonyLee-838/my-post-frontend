@@ -1,7 +1,7 @@
 const fontFamilies = {
   headline: "'Patua One', sans-serif",
-  text: "Georgia, serif",
-  mono: "'Oxygen Mono', monospace",
+  text: "'Open Sans', Georgia, serif",
+  mono: "'Fira Code', monospace",
   round: "Ubuntu,sans-serif",
 };
 
