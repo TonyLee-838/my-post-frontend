@@ -1,5 +1,6 @@
 import React from "react";
 import { createUseStyles } from "react-jss";
+import { Link } from "react-router-dom";
 
 import colors from "../config/color";
 import fontFamilies from "../config/fontFamily";
@@ -15,7 +16,7 @@ const CategoryItem = ({ category, isSelected, onSelect }) => {
       }}
       key={category.id}
     >
-      <label onClick={() => onSelect(category)}>{category.name}</label>
+      <Link onClick={() => onSelect(category)}>{category.name}</Link>
     </div>
   );
 };
@@ -30,6 +31,8 @@ const useStyle = createUseStyles({
     color: colors.dark,
 
     "& *": {
+      textDecoration: "none",
+      color: "inherit",
       transition: "all 0.1s ease 0s",
       cursor: "pointer",
     },

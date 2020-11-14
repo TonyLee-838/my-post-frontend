@@ -1,10 +1,12 @@
 import React, { useEffect, useState } from "react";
+import { useHistory } from "react-router-dom";
 import { getCategories } from "../api/categories";
 import CategoryList from "../components/CategoryList";
 
 const PostMain = ({ Component }) => {
   const [categories, setCategories] = useState([]);
   const [selectedId, setSelectedId] = useState();
+  const history = useHistory();
 
   useEffect(() => {
     async function fetchData() {
@@ -17,6 +19,7 @@ const PostMain = ({ Component }) => {
   const handleSelect = (category) => {
     if (selectedId === category._id) return setSelectedId("");
     setSelectedId(category._id);
+    history.push("/posts", selectedId);
   };
   return (
     <>
