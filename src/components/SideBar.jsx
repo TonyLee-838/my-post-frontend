@@ -34,7 +34,7 @@ const useStyle = createUseStyles({
     width: "30%",
   },
   container: {
-    backgroundColor: colors.dark,
+    backgroundColor: colors.darkBlue,
   },
 
   "@media (min-width:688px)": {

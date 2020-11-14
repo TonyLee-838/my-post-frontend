@@ -10,12 +10,12 @@ const CategoryItem = ({ category, isSelected, onSelect }) => {
     <div
       className={classes.container}
       style={{
-        color: category.color,
-        backgroundColor: isSelected ? colors.blue : "",
+        color: isSelected ? colors.lightBlue : "",
+        fontWeight: isSelected ? "bold" : "",
       }}
       key={category.id}
     >
-      <label onClick={() => onSelect(category)}>{"#" + category.name}</label>
+      <label onClick={() => onSelect(category)}>{category.name}</label>
     </div>
   );
 };
@@ -24,16 +24,18 @@ const useStyle = createUseStyles({
   container: {
     borderRadius: "15px",
     fontFamily: fontFamilies.round,
-    fontSize: "1.3rem",
-    padding: "15px 8px 15px 8px",
-    textAlign: "center",
-    transition: "background-color 0.1s ease 0s",
+    fontSize: "1.15rem",
+    padding: "10px 8px 10px 8px",
     width: "135px",
+    color: colors.dark,
 
+    "& *": {
+      transition: "all 0.1s ease 0s",
+      cursor: "pointer",
+    },
     "&:hover": {
-      backgroundColor: colors.blue,
       "& *": {
-        cursor: "pointer",
+        color: colors.lightBlue,
       },
     },
   },

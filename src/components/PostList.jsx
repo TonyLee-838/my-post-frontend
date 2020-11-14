@@ -42,8 +42,7 @@ function PostList({ categories, onSelect, selectedId }) {
 
 const useStyles = createUseStyles({
   container: {
-    width: "auto",
-    boxShadow: "-3px -2px 7px 1px" + colors.black,
+    flex: 1,
 
     "@media (min-width:688px)": {
       marginRight: 0,
