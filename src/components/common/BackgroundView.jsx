@@ -1,7 +1,7 @@
 import React from "react";
 import { createUseStyles } from "react-jss";
 
-import colors from "../config/color";
+import colors from "../../config/color";
 
 function BackgroundView({ children }) {
   const classes = useStyle();

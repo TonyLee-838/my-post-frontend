@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useHistory } from "react-router-dom";
 import { getCategories } from "../api/categories";
-import CategoryList from "../components/CategoryList";
+import CategoryList from "./categoryBar/CategoryList";
 
 const PostMain = ({ Component }) => {
   const [categories, setCategories] = useState([]);

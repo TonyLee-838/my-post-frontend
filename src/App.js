@@ -1,10 +1,8 @@
 import React from "react";
 
-import Router from "./router/Router";
-import Loader from "webfontloader";
+import Router from "./components/Router";
 import "./fonts.css";
-import BackgroundView from "./common/BackgroundView";
-import SideBar from "./components/SideBar";
+import BackgroundView from "./components/common/BackgroundView";
 
 function App() {
   return (

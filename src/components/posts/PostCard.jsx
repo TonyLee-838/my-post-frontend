@@ -2,10 +2,10 @@ import React from "react";
 import { createUseStyles } from "react-jss";
 import { Link } from "react-router-dom";
 
-import colors from "../config/color";
-import fontFamilies from "../config/fontFamily";
+import colors from "../../config/color";
+import fontFamilies from "../../config/fontFamily";
 import PostCategoryItem from "./PostCategoryItem";
-import TimeItem from "./TimeItem";
+import TimeItem from "../common/TimeItem";
 
 function PostCard({ post, category, onIconClick }) {
   const { id, title, timeUpdated, description } = post;

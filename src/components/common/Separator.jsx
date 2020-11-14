@@ -2,7 +2,7 @@ import React from "react";
 
 import { createUseStyles } from "react-jss";
 
-import colors from "../config/color";
+import colors from "../../config/color";
 
 function Separator({ color }) {
   const styles = useStyle();

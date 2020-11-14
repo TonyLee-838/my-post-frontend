@@ -1,7 +1,7 @@
 import React from "react";
 import { createUseStyles } from "react-jss";
 
-import NavPanel from "./NavPanel";
+import NavPanel from "./sidebar/NavPanel";
 import colors from "../config/color";
 
 function SideBar() {

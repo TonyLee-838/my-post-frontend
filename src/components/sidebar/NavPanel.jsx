@@ -3,8 +3,8 @@ import { createUseStyles } from "react-jss";
 import { Link } from "react-router-dom";
 import Icon from "../common/Icon";
 
-import colors from "../config/color";
-import fontFamilies from "../config/fontFamily";
+import colors from "../../config/color";
+import fontFamilies from "../../config/fontFamily";
 function NavPanel() {
   const classes = useStyle();
   const links = [

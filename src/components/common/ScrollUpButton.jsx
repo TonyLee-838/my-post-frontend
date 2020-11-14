@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { createUseStyles } from "react-jss";
-import Icon from "../common/Icon";
-import colors from "../config/color";
+import Icon from "./Icon";
+import colors from "../../config/color";
 
 const ScrollUpButton = () => {
   const [coordinateY, setCoordinateY] = useState(0);

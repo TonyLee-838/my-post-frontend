@@ -2,10 +2,10 @@ import React, { useEffect, useState } from "react";
 import { createUseStyles } from "react-jss";
 
 import PostCard from "./PostCard";
-import colors from "../config/color";
+import colors from "../../config/color";
 import Separator from "../common/Separator";
-import ScrollUpButton from "./ScrollUpButton";
-import { getPosts } from "../api/posts";
+import ScrollUpButton from "../common/ScrollUpButton";
+import { getPosts } from "../../api/posts";
 
 function PostList({ categories, onSelect, selectedId }) {
   const classes = useStyles();

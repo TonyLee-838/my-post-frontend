@@ -1,6 +1,5 @@
 import React from "react";
 import { createUseStyles } from "react-jss";
-import fontFamilies from "../config/fontFamily";
 import Icon from "./Icon";
 
 function IconItem({

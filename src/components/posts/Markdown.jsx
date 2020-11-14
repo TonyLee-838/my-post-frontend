@@ -2,10 +2,10 @@ import React, { useEffect } from "react";
 import { compiler } from "markdown-to-jsx";
 import { createUseStyles } from "react-jss";
 import Prism from "prismjs";
-import "../assets/css/prism.css";
+import "../../assets/css/prism.css";
 
-import colors from "../config/color";
-import fontFamilies from "../config/fontFamily";
+import colors from "../../config/color";
+import fontFamilies from "../../config/fontFamily";
 
 function Markdown({ markdown }) {
   const classes = useStyles();

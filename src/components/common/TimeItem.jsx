@@ -1,8 +1,8 @@
 import React from "react";
 import moment from "moment";
-import fontFamilies from "../config/fontFamily";
-import IconItem from "../common/IconItem";
-import colors from "../config/color";
+import fontFamilies from "../../config/fontFamily";
+import IconItem from "./IconItem";
+import colors from "../../config/color";
 
 const TimeItem = ({ time, ...props }) => {
   return (

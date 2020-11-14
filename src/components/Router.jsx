@@ -1,9 +1,9 @@
 import React from "react";
 import { BrowserRouter, Route, Switch, Redirect } from "react-router-dom";
-import PostContent from "../components/PostContent";
-import PostList from "../components/PostList";
-import PostMain from "../components/PostMain";
-import SideBar from "../components/SideBar";
+import PostContent from "./posts/PostContent";
+import PostList from "./posts/PostList";
+import PostMain from "./PostMain";
+import SideBar from "./SideBar";
 
 function Router() {
   const routes = [

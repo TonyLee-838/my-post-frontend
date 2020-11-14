@@ -2,8 +2,8 @@ import React from "react";
 import { createUseStyles } from "react-jss";
 
 import IconItem from "../common/IconItem";
-import colors from "../config/color";
-import fontFamilies from "../config/fontFamily";
+import colors from "../../config/color";
+import fontFamilies from "../../config/fontFamily";
 
 const PostCategoryItem = ({ category, onClick }) => {
   const classes = useStyle();
