@@ -6,7 +6,7 @@ import colors from "../config/color";
 const ScrollUpButton = () => {
   const [coordinateY, setCoordinateY] = useState(0);
 
-  const classes = useStyle();
+  const classes = useStyle(coordinateY);
 
   window.onscroll = () => {
     setCoordinateY(window.scrollY);
@@ -17,11 +17,9 @@ const ScrollUpButton = () => {
   };
   return (
     <>
-      {coordinateY > 100 && (
-        <div className={classes.container} onClick={handleScrollUp}>
-          <Icon name="MdArrowUpward" styles={classes.icon} />
-        </div>
-      )}
+      <div className={classes.container} onClick={handleScrollUp}>
+        <Icon name="MdArrowUpward" styles={classes.icon} />
+      </div>
     </>
   );
 };
@@ -29,18 +27,25 @@ const ScrollUpButton = () => {
 const useStyle = createUseStyles({
   container: {
     position: "fixed",
-    bottom: "35px",
+    bottom: "-100px",
     right: "35px",
+
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
+
     width: "70px",
     height: "70px",
     borderRadius: "50%",
     backgroundColor: colors.blue,
+
     opacity: "0.8",
     cursor: "pointer",
-    transition: "all 0.2s ease",
+    transform: (coordinateY) =>
+      coordinateY > 100 ? " translateY(-130px)" : "",
+
+    transition: "transform 0.4s ease-in-out, opacity 0.2s ease",
+
     "&:hover": {
       opacity: 1,
     },
