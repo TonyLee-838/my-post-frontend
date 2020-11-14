@@ -60,7 +60,7 @@ const useStyle = createUseStyles({
   card: {
     backgroundColor: colors.white,
     padding: "60px",
-    width: "70vw",
+    // width: "70vw",
   },
   description: {
     color: colors.dark,
