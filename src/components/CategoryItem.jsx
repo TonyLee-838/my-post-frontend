@@ -16,7 +16,9 @@ const CategoryItem = ({ category, isSelected, onSelect }) => {
       }}
       key={category.id}
     >
-      <Link onClick={() => onSelect(category)}>{category.name}</Link>
+      <Link to="/posts" onClick={() => onSelect(category)}>
+        {category.name}
+      </Link>
     </div>
   );
 };
