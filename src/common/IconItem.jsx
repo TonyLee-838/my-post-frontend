@@ -7,10 +7,11 @@ function IconItem({
   icon,
   label,
   styles = { container: "", label: "", icon: "" },
+  className,
 }) {
   const classes = useStyle(styles);
   return (
-    <div className={classes.container}>
+    <div className={`${classes.container} ${className}`}>
       <Icon name={icon} styles={classes.icon} />
       <label className={classes.label}>{label}</label>
     </div>
@@ -20,11 +21,13 @@ function IconItem({
 const useStyle = createUseStyles({
   container: (styles) => ({
     display: "flex",
+    alignItems: "center",
+    width: "min-content",
+
     ...styles.container,
   }),
   label: (styles) => ({
     fontSize: "1.2rem",
-    fontFamily: fontFamilies.round,
     ...styles.label,
   }),
   icon: (styles) => styles.icon,

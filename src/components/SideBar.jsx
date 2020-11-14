@@ -4,7 +4,7 @@ import { createUseStyles } from "react-jss";
 import NavPanel from "./NavPanel";
 import colors from "../config/color";
 
-function SideBar({ children }) {
+function SideBar() {
   const classes = useStyle();
   return (
     <div className={classes.container}>
@@ -15,7 +15,6 @@ function SideBar({ children }) {
         />
       </a>
       <NavPanel />
-      {children}
     </div>
   );
 }
@@ -43,7 +42,7 @@ const useStyle = createUseStyles({
       marginTop: "80px",
     },
     container: {
-      width: "25%",
+      width: "22%",
       height: "100vh",
       position: "sticky",
       top: 0,

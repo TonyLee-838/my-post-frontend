@@ -6,8 +6,6 @@ import colors from "../config/color";
 import fontFamilies from "../config/fontFamily";
 import PostCategoryItem from "./PostCategoryItem";
 import TimeItem from "./TimeItem";
-// const description =
-//   "description! description! description! description! description! description! description! description! description! description! description! description! description! description! description! description! description! description! description! description! description! description! description! description! ";
 
 function PostCard({ post, category, onIconClick }) {
   const { id, title, timeUpdated, description } = post;
@@ -15,15 +13,22 @@ function PostCard({ post, category, onIconClick }) {
   const classes = useStyle();
   return (
     <div className={classes.card}>
-      <Link to={`/posts/${id}`} className={classes.title}>
+      <TimeItem
+        className={classes.postDetails}
+        time={timeUpdated}
+        label={"Updated at:"}
+      />
+      <Link className={classes.title} to={`/posts/${id}`}>
         {title}
       </Link>
+
       <p className={classes.description}>{description}</p>
 
       {category && (
-        <div className={classes.category} onClick={() => onIconClick(category)}>
-          <PostCategoryItem category={category} />
-        </div>
+        <PostCategoryItem
+          category={category}
+          onClick={() => onIconClick(category)}
+        />
       )}
 
       <div className={classes.tags}>
@@ -31,35 +36,14 @@ function PostCard({ post, category, onIconClick }) {
         <label>#React</label>
         <label>#Functional Components</label>
       </div>
-      <div className={classes.postDetails}>
-        <TimeItem time={timeUpdated} label={"Updated at:"} />
-      </div>
     </div>
   );
 }
 
 const useStyle = createUseStyles({
-  category: {
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "start",
-    transition: "all 0.1s",
-    marginBottom: "1%",
-
-    "&:hover": {
-      opacity: 0.7,
-    },
-    "& *": {
-      padding: "3px",
-      borderRadius: "10px",
-      backgroundColor: colors.dark,
-      cursor: "pointer",
-    },
-  },
   card: {
     backgroundColor: colors.white,
     padding: "60px",
-    // width: "70vw",
   },
   description: {
     color: colors.dark,
@@ -69,8 +53,8 @@ const useStyle = createUseStyles({
     margin: "50px 0 30px 0",
   },
   postDetails: {
-    textAlign: "right",
-    fontFamily: fontFamilies.text,
+    float: "right",
+    marginTop: "20px",
   },
   tags: {
     fontSize: "1.25rem",
@@ -90,14 +74,15 @@ const useStyle = createUseStyles({
     fontWeight: 850,
     fontSize: "3.8rem",
     fontFamily: fontFamilies.headline,
-    textDecoration: "none",
-    color: colors.black,
     margin: {
       top: 0,
       bottom: 0,
     },
-    transition: "all 0.2s ease",
     wordWrap: "break-word",
+    transition: "all 0.2s ease",
+    textDecoration: "none",
+    color: colors.black,
+
     "&:hover": {
       color: colors.primary,
       textDecoration: "underline",
