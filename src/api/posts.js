@@ -4,7 +4,6 @@ const API_ENDPOINT = "/posts";
 
 export const getPosts = async () => {
   const posts = await http.get(API_ENDPOINT);
-  console.log(posts.data);
   return posts.data;
 };
 

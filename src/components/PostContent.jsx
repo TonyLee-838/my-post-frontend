@@ -36,7 +36,6 @@ const useStyles = createUseStyles({
     padding: "3%",
     flex: 1,
     backgroundColor: colors.white,
-    boxShadow: "-3px -2px 7px 1px" + colors.black,
   },
   title: {
     fontWeight: 850,

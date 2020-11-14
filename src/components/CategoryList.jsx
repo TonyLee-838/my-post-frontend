@@ -8,6 +8,7 @@ import fontFamilies from "../config/fontFamily";
 
 const CategoryList = ({ categories, onSelect, selectedId }) => {
   const classes = useStyle();
+
   return (
     <div className={classes.container}>
       <h3 className={classes.heading}>Categories</h3>
@@ -30,13 +31,13 @@ const CategoryList = ({ categories, onSelect, selectedId }) => {
 
 const useStyle = createUseStyles({
   container: {
-    width: "15%",
+    width: "13%",
+    padding: "80px 60px 20px 20px",
   },
   heading: {
     color: colors.black,
     fontFamily: fontFamilies.headline,
-    fontSize: "1.5rem",
-    textAlign: "center",
+    fontSize: "1.8rem",
     margin: 0,
     marginBottom: "10px",
   },

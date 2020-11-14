@@ -10,7 +10,6 @@ import TimeItem from "./TimeItem";
 //   "description! description! description! description! description! description! description! description! description! description! description! description! description! description! description! description! description! description! description! description! description! description! description! description! ";
 
 function PostCard({ post, category, onIconClick }) {
-  console.log(post);
   const { id, title, timeUpdated, description } = post;
 
   const classes = useStyle();
@@ -53,7 +52,7 @@ const useStyle = createUseStyles({
     "& *": {
       padding: "3px",
       borderRadius: "10px",
-      backgroundColor: colors.blue,
+      backgroundColor: colors.dark,
       cursor: "pointer",
     },
   },
@@ -64,10 +63,10 @@ const useStyle = createUseStyles({
   },
   description: {
     color: colors.dark,
-    fontSize: "1.35rem",
+    fontSize: "1.15rem",
     fontFamily: fontFamilies.text,
     wordWrap: "break-word",
-    marginBottom: "1%",
+    margin: "50px 0 30px 0",
   },
   postDetails: {
     textAlign: "right",
