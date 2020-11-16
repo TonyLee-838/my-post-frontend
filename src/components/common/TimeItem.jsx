@@ -4,20 +4,20 @@ import fontFamilies from "../../config/fontFamily";
 import IconItem from "./IconItem";
 import colors from "../../config/color";
 
-const TimeItem = ({ time, ...props }) => {
+const TimeItem = ({ time, format = "MMM DD HH:mm", ...props }) => {
+  const getTimeString = (time) => {
+    const date = new Date(time);
+    return moment(date).format(format);
+  };
+
   return (
     <IconItem
-      {...props}
       icon="MdDateRange"
       label={getTimeString(time)}
       styles={styles}
+      {...props}
     />
   );
-};
-
-const getTimeString = (time) => {
-  const date = new Date(time);
-  return moment(date).format("MMM DD HH:mm");
 };
 
 const styles = {
