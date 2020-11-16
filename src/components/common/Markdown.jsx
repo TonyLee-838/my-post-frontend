@@ -7,14 +7,18 @@ import "../../assets/css/prism.css";
 import colors from "../../config/color";
 import fontFamilies from "../../config/fontFamily";
 
-function Markdown({ markdown }) {
+function Markdown({ markdown, className }) {
   const classes = useStyles();
 
   useEffect(() => {
     setTimeout(() => Prism.highlightAll(), 0);
   });
 
-  return <div className={classes.container}>{compiler(markdown)}</div>;
+  return (
+    <div className={`${classes.container} ${className}`}>
+      {compiler(markdown)}
+    </div>
+  );
 }
 
 const useStyles = createUseStyles({

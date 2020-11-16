@@ -5,19 +5,19 @@ import IconItem from "./IconItem";
 import colors from "../../config/color";
 
 const TimeItem = ({ time, format = "MMM DD HH:mm", ...props }) => {
-  const getTimeString = (time) => {
-    const date = new Date(time);
-    return moment(date).format(format);
-  };
-
   return (
     <IconItem
-      icon="MdDateRange"
-      label={getTimeString(time)}
-      styles={styles}
       {...props}
+      styles={styles}
+      icon="MdDateRange"
+      label={getTimeString(time, format)}
     />
   );
+};
+
+const getTimeString = (time, format) => {
+  const date = new Date(time);
+  return moment(date).format(format);
 };
 
 const styles = {

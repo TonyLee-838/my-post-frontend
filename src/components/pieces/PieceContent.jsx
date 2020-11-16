@@ -2,13 +2,16 @@ import React from "react";
 import { createUseStyles } from "react-jss";
 import colors from "../../config/color";
 import FadeDiv from "../common/animated/FadeDiv";
+import Markdown from "../common/Markdown";
 
-const PieceContent = ({ piece = {}, onClose, selectedId, ...props }) => {
+const PieceContent = ({ piece, onClose, selectedId, ...props }) => {
   const classes = useStyle();
   return (
     <FadeDiv triggerProp={selectedId} className={classes.container} {...props}>
       <div className={classes.closeButton} onClick={onClose}></div>
-      <div>{piece && piece.markdown}</div>
+      {piece && (
+        <Markdown markdown={piece.markdown} className={classes.content} />
+      )}
     </FadeDiv>
   );
 };
@@ -17,17 +20,23 @@ const useStyle = createUseStyles({
   container: {
     position: "fixed",
     top: "60px",
-    right: "60px",
-
+    right: "50px",
+    overflow: "scroll",
     borderRadius: "10px",
     padding: "30px",
     width: "430px",
-    height: "700px",
+    height: "720px",
     boxShadow: "3px 3px 4px" + colors.medium,
-    backgroundColor: colors.white,
+    backgroundColor: colors.light,
+  },
+  content: {
+    "& h1": {
+      textAlign: "center",
+      fontWeight: "700",
+    },
   },
   closeButton: {
-    position: "absolute",
+    position: "fixed",
     top: "15px",
     right: "15px",
     width: "40px",
