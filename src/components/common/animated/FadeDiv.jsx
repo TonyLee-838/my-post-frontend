@@ -1,7 +1,13 @@
 import React, { useState, useEffect } from "react";
 import { createUseStyles } from "react-jss";
 
-const Fade = ({ triggerProp, children, className = "", duration = 200 }) => {
+const FadeDiv = ({
+  triggerProp,
+  children,
+  className = "",
+  duration = 200,
+  ...props
+}) => {
   const classes = useStyle({ duration });
 
   //To check if it's the first-time render.
@@ -17,6 +23,7 @@ const Fade = ({ triggerProp, children, className = "", duration = 200 }) => {
       className={`${classes.container} ${
         count > 0 ? (triggerProp ? classes.fadeIn : classes.fadeOut) : ""
       } ${className}`}
+      {...props}
     >
       {children}
     </div>
@@ -60,4 +67,4 @@ const useStyle = createUseStyles({
   },
 });
 
-export default Fade;
+export default FadeDiv;

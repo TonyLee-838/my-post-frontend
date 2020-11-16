@@ -1,15 +1,15 @@
 import React from "react";
 import { createUseStyles } from "react-jss";
 import colors from "../../config/color";
-import Fade from "../common/animation/Fade";
+import FadeDiv from "../common/animated/FadeDiv";
 
 const PieceContent = ({ piece = {}, onClose, selectedId, ...props }) => {
   const classes = useStyle();
   return (
-    <Fade triggerProp={selectedId} className={classes.container}>
+    <FadeDiv triggerProp={selectedId} className={classes.container} {...props}>
       <div className={classes.closeButton} onClick={onClose}></div>
       <div>{piece && piece.markdown}</div>
-    </Fade>
+    </FadeDiv>
   );
 };
 
