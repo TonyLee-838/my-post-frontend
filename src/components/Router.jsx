@@ -4,6 +4,7 @@ import PostContent from "./posts/PostContent";
 import PostList from "./posts/PostList";
 import PostMain from "./PostMain";
 import SideBar from "./SideBar";
+import PieceMain from "./PieceMain";
 
 function Router() {
   const routes = [
@@ -16,6 +17,11 @@ function Router() {
       id: "route-post-lists",
       path: "/posts",
       main: () => <PostMain Component={PostList} />,
+    },
+    {
+      id: "route-pieces",
+      path: "/pieces",
+      main: () => <PieceMain />,
     },
     {
       id: "route-home",
