@@ -1,19 +1,24 @@
 import React from "react";
 import { createUseStyles } from "react-jss";
 import colors from "../../config/color";
+import Fade from "../common/animation/Fade";
 
-const PieceContent = ({ piece = {}, onClose, ...props }) => {
+const PieceContent = ({ piece = {}, onClose, selectedId, ...props }) => {
   const classes = useStyle();
   return (
-    <div className={classes.container} {...props}>
+    <Fade triggerProp={selectedId} className={classes.container}>
       <div className={classes.closeButton} onClick={onClose}></div>
-      {piece && piece.markdown}
-    </div>
+      <div>{piece && piece.markdown}</div>
+    </Fade>
   );
 };
 
 const useStyle = createUseStyles({
   container: {
+    position: "fixed",
+    top: "60px",
+    right: "60px",
+
     borderRadius: "10px",
     padding: "30px",
     width: "430px",

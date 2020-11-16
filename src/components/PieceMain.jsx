@@ -1,11 +1,7 @@
 import React from "react";
-import { useRef } from "react";
 import { useState } from "react";
-import { createUseStyles } from "react-jss";
-import colors from "../config/color";
-import fontFamilies from "../config/fontFamily";
-import Fade from "./common/animation/Fade";
 import PieceContent from "./pieces/PieceContent";
+import PieceList from "./pieces/PieceList";
 
 const data = [
   {
@@ -46,74 +42,32 @@ const data = [
   },
 ];
 
-const PieceMain = (props) => {
+const PieceMain = () => {
   const [pieces, setPieces] = useState(data);
   const [selectedId, setSelectedId] = useState("");
-  const [visible, setVisible] = useState(false);
 
-  const handleClick = (id) => {
-    if (visible) setVisible(false);
+  const handleSelect = (id) => {
+    if (selectedId) setSelectedId("");
     setTimeout(() => {
       setSelectedId(id);
-      setVisible(true);
     }, 100);
   };
 
   const handleClose = () => {
-    setVisible(false);
     setSelectedId("");
   };
 
-  const classes = useStyle();
-
   return (
-    <div id="piece-container" className={classes.container}>
-      {pieces.map((piece) => (
-        <>
-          <div
-            key={piece.id}
-            className={classes.pieces}
-            onClick={() => handleClick(piece.id)}
-          >
-            {piece.title}
-          </div>
-        </>
-      ))}
-      <Fade triggerProp={visible} className={classes.content}>
-        <PieceContent
-          id="piece-content"
-          piece={pieces.find((piece) => piece.id === selectedId)}
-          onClose={handleClose}
-        />
-      </Fade>
+    <div>
+      <PieceList pieces={pieces} onSelect={handleSelect} />
+      <PieceContent
+        id="piece-content"
+        piece={pieces.find((piece) => piece.id === selectedId)}
+        selectedId={selectedId}
+        onClose={handleClose}
+      />
     </div>
   );
 };
-
-const useStyle = createUseStyles({
-  container: {
-    width: "100%",
-    display: "grid",
-    padding: "30px",
-    gridTemplateColumns: "21% 21% 21%",
-    gridAutoRows: "150px",
-  },
-  content: {
-    position: "fixed",
-    top: "60px",
-    right: "60px",
-  },
-
-  pieces: {
-    borderRadius: "10px",
-    margin: "15px",
-    padding: "10px",
-    fontFamily: fontFamilies.round,
-    fontSize: "1.35rem",
-    fontWeight: "bold",
-    cursor: "pointer",
-    boxShadow: "3px 3px 4px" + colors.medium,
-  },
-});
 
 export default PieceMain;
