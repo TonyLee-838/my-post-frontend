@@ -5,7 +5,7 @@ import { getPostById } from "../../api/posts";
 
 import colors from "../../config/color";
 import fontFamilies from "../../config/fontFamily";
-import Markdown from "./Markdown";
+import Markdown from "../common/Markdown";
 
 function PostContent() {
   const { id } = useParams();
