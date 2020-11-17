@@ -4,12 +4,17 @@ import fontFamilies from "../../config/fontFamily";
 import IconItem from "./IconItem";
 import colors from "../../config/color";
 
-const TimeItem = ({ time, format = "MMM DD HH:mm", ...props }) => {
+const TimeItem = ({
+  time,
+  format = "MMM DD HH:mm",
+  hideIcon = false,
+  ...props
+}) => {
   return (
     <IconItem
       {...props}
-      styles={styles}
-      icon="MdDateRange"
+      styles={styles(hideIcon)}
+      icon={hideIcon ? "" : "MdDateRange"}
       label={getTimeString(time, format)}
     />
   );
@@ -20,7 +25,7 @@ const getTimeString = (time, format) => {
   return moment(date).format(format);
 };
 
-const styles = {
+const styles = (hideIcon) => ({
   container: {
     alignItems: "center",
     width: "max-content",
@@ -29,8 +34,8 @@ const styles = {
     fontSize: "1.15rem",
     fontFamily: fontFamilies.text,
     color: colors.dark,
-    marginLeft: "20px",
+    marginLeft: hideIcon ? "" : "20px",
   },
-};
+});
 
 export default TimeItem;

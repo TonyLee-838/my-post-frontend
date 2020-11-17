@@ -1,14 +1,16 @@
 import React from "react";
 import { createUseStyles } from "react-jss";
+
 import Separator from "../common/Separator";
-import TimeItem from "../common/TimeItem";
+import TimeLine from "../common/TimeLine";
 import Piece from "./Piece";
+import colors from "../../config/color";
 
 const PieceGroup = ({ pieces, time, onSelect, selectedId }) => {
   const classes = useStyle();
   return (
     <div className={classes.container}>
-      <TimeItem time={time} format={"MMM DD"} className={classes.time} />
+      <TimeLine time={time} />
       <div className={classes.pieces}>
         {pieces.map((piece) => (
           <Piece
@@ -19,26 +21,24 @@ const PieceGroup = ({ pieces, time, onSelect, selectedId }) => {
           />
         ))}
       </div>
-      <Separator width={"65%"} />
+      <Separator width={"80%"} />
     </div>
   );
 };
 
 const useStyle = createUseStyles({
+  container: {
+    position: "relative",
+    paddingLeft: "125px",
+    marginTop: "150px",
+    backgroundColor: colors.white,
+  },
   pieces: {
     width: "100%",
     display: "grid",
-    padding: "30px",
-    gridTemplateColumns: "21% 21% 21%",
+    padding: "35px",
+    gridTemplateColumns: "22% 22% 22% 22%",
     gridAutoRows: "150px",
-  },
-  time: {
-    position: "relative",
-    top: "25px",
-    left: "50px",
-    "& label": {
-      fontSize: "1.55rem",
-    },
   },
 });
 

@@ -24,7 +24,7 @@ const useStyle = createUseStyles({
     overflow: "scroll",
     borderRadius: "10px",
     padding: "30px",
-    width: "430px",
+    width: "40%",
     height: "720px",
     boxShadow: "3px 3px 4px" + colors.medium,
     backgroundColor: colors.light,

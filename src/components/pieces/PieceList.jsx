@@ -1,8 +1,9 @@
-import React from "react";
+import React, { useState } from "react";
 import { createUseStyles } from "react-jss";
 import _ from "lodash";
 import PieceGroup from "./PieceGroup";
 import ScrollUpButton from "../common/ScrollUpButton";
+import colors from "../../config/color";
 
 const PieceList = ({ pieces, onSelect, selectedId }) => {
   const classes = useStyle();
@@ -24,7 +25,10 @@ const PieceList = ({ pieces, onSelect, selectedId }) => {
 };
 
 const useStyle = createUseStyles({
-  container: {},
+  container: {
+    backgroundColor: colors.light,
+    overflow: "hidden",
+  },
 });
 
 export default PieceList;

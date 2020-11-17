@@ -11,7 +11,7 @@ function IconItem({
   const classes = useStyle(styles);
   return (
     <div className={`${classes.container} ${className}`}>
-      <Icon name={icon} styles={classes.icon} />
+      {icon && <Icon name={icon} styles={classes.icon} />}
       <label className={classes.label}>{label}</label>
     </div>
   );

@@ -9,7 +9,7 @@ const Piece = ({ piece, isSelected, isActive, onSelect, className }) => {
   return (
     <div
       key={piece.id}
-      className={`${classes.pieces} ${className} ${
+      className={`${classes.piece} ${className} ${
         isActive ? (isSelected ? classes.selected : classes.notSelected) : ""
       }`}
       onClick={() => onSelect(piece.id)}
@@ -20,7 +20,7 @@ const Piece = ({ piece, isSelected, isActive, onSelect, className }) => {
 };
 
 const useStyle = createUseStyles({
-  pieces: {
+  piece: {
     backgroundColor: colors.light,
     borderRadius: "10px",
     boxShadow: "3px 3px 4px" + colors.medium,
