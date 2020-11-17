@@ -6,18 +6,20 @@ import TimeLine from "../common/TimeLine";
 import Piece from "./Piece";
 import colors from "../../config/color";
 
+const COL_LENGTH = 4;
+
 const PieceGroup = ({ pieces, time, onSelect, selectedId }) => {
   const classes = useStyle();
   return (
     <div className={classes.container}>
       <TimeLine time={time} />
       <div className={classes.pieces}>
-        {pieces.map((piece) => (
+        {pieces.map((piece, index) => (
           <Piece
             piece={piece}
             isActive={selectedId}
             isSelected={selectedId === piece.id}
-            onSelect={onSelect}
+            onSelect={(id) => onSelect(id, index % COL_LENGTH)}
           />
         ))}
       </div>
@@ -29,7 +31,7 @@ const PieceGroup = ({ pieces, time, onSelect, selectedId }) => {
 const useStyle = createUseStyles({
   container: {
     position: "relative",
-    paddingLeft: "125px",
+    paddingLeft: "150px",
     marginTop: "150px",
     backgroundColor: colors.white,
   },

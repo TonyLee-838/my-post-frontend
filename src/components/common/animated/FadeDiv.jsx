@@ -52,6 +52,7 @@ const useStyle = createUseStyles({
     to: animationStyles.notExist,
   },
   container: {
+    position: "relative",
     visibility: "hidden",
     animationDuration: ({ duration }) => `${duration}ms`,
     animationFillMode: "both",

@@ -1,14 +1,26 @@
-import React from "react";
+import React, { useState } from "react";
 import { createUseStyles } from "react-jss";
 import colors from "../../config/color";
 import FadeDiv from "../common/animated/FadeDiv";
 import Markdown from "../common/Markdown";
 
-const PieceContent = ({ piece, onClose, selectedId, ...props }) => {
-  const classes = useStyle();
+const POSITIONS = [20, 6, 41, 26];
+
+const PieceContent = ({
+  onClose,
+  piece,
+  positionIndex: index,
+  selectedId,
+  ...props
+}) => {
+  const classes = useStyle({ index });
+
   return (
     <FadeDiv triggerProp={selectedId} className={classes.container} {...props}>
-      <div className={classes.closeButton} onClick={onClose}></div>
+      <div className={classes.controlBar}>
+        <div className={classes.closeButton} onClick={onClose}></div>
+      </div>
+
       {piece && (
         <Markdown markdown={piece.markdown} className={classes.content} />
       )}
@@ -19,15 +31,15 @@ const PieceContent = ({ piece, onClose, selectedId, ...props }) => {
 const useStyle = createUseStyles({
   container: {
     position: "fixed",
-    top: "60px",
-    right: "50px",
-    overflow: "scroll",
+    top: "5%",
+    right: ({ index }) => `${POSITIONS[index]}%`,
     borderRadius: "10px",
     padding: "30px",
-    width: "40%",
-    height: "720px",
+    width: "30%",
+    height: "80%",
     boxShadow: "3px 3px 4px" + colors.medium,
     backgroundColor: colors.light,
+    overflowX: "hidden",
   },
   content: {
     "& h1": {
@@ -35,14 +47,23 @@ const useStyle = createUseStyles({
       fontWeight: "700",
     },
   },
+  controlBar: {
+    position: "absolute",
+    top: "0",
+    right: "0",
+    width: "100%",
+    height: "30px",
+    backgroundColor: colors.medium,
+  },
   closeButton: {
+    cursor: "pointer",
     position: "fixed",
-    top: "15px",
-    right: "15px",
-    width: "40px",
-    height: "40px",
+    top: "5px",
+    left: "5px",
+    width: "20px",
+    height: "20px",
     borderRadius: "50%",
-    backgroundColor: colors.dark,
+    backgroundColor: colors.secondary,
   },
 });
 

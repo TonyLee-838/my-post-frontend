@@ -133,14 +133,16 @@ export default BackgroundView;
 const PieceMain = () => {
   const [pieces, setPieces] = useState(data);
   const [selectedId, setSelectedId] = useState("");
+  const [positionIndex, setPositionIndex] = useState(0);
 
-  const handleSelect = (id) => {
+  const handleSelect = (id, index) => {
     if (selectedId) setSelectedId("");
 
-    //Reselect piece itself:
+    //Reselect piece itself, reset everything.
     if (selectedId === id) return;
 
     setTimeout(() => {
+      setPositionIndex(index);
       setSelectedId(id);
     }, 100);
   };
@@ -158,6 +160,7 @@ const PieceMain = () => {
       />
       <PieceContent
         id="piece-content"
+        positionIndex={positionIndex}
         piece={pieces.find((piece) => piece.id === selectedId)}
         selectedId={selectedId}
         onClose={handleClose}
