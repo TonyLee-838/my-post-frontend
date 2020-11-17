@@ -4,12 +4,12 @@ import { createUseStyles } from "react-jss";
 import colors from "../../config/color";
 import fontFamilies from "../../config/fontFamily";
 
-const Piece = ({ piece, isSelected, isActive, onSelect }) => {
+const Piece = ({ piece, isSelected, isActive, onSelect, className }) => {
   const classes = useStyle();
   return (
     <div
       key={piece.id}
-      className={`${classes.pieces} ${
+      className={`${classes.pieces} ${className} ${
         isActive ? (isSelected ? classes.selected : classes.notSelected) : ""
       }`}
       onClick={() => onSelect(piece.id)}
