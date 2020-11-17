@@ -1,12 +1,18 @@
-import React, { useState } from "react";
+import React, { useContext } from "react";
 import { createUseStyles } from "react-jss";
 import _ from "lodash";
+
 import PieceGroup from "./PieceGroup";
 import ScrollUpButton from "../common/ScrollUpButton";
 import colors from "../../config/color";
+import { CategoriesContext } from "../contexts/CategoriesContext";
 
 const PieceList = ({ pieces, onSelect, selectedId }) => {
+  const categories = useContext(CategoriesContext);
+  console.log(categories);
+
   const classes = useStyle();
+  // const groupsByTime = _.groupBy(pieces, (piece) => piece.timeCreated.toDateString());
   const groups = _.groupBy(pieces, (piece) => piece.timeCreated.toDateString());
 
   return (

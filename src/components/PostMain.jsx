@@ -1,20 +1,13 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useState } from "react";
 import { useHistory } from "react-router-dom";
-import { getCategories } from "../api/categories";
+
 import CategoryList from "./categoryBar/CategoryList";
+import { CategoriesContext } from "./contexts/CategoriesContext";
 
 const PostMain = ({ Component }) => {
-  const [categories, setCategories] = useState([]);
   const [selectedId, setSelectedId] = useState();
+  const categories = useContext(CategoriesContext);
   const history = useHistory();
-
-  useEffect(() => {
-    async function fetchData() {
-      const categories = await getCategories();
-      setCategories(categories);
-    }
-    fetchData();
-  }, []);
 
   const handleSelect = (category) => {
     if (selectedId === category._id) return setSelectedId("");
