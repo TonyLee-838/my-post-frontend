@@ -9,6 +9,7 @@ const PieceGroup = ({ pieces, onSelect, selectedId }) => {
       {pieces.map((piece) => (
         <Piece
           piece={piece}
+          isActive={selectedId}
           isSelected={selectedId === piece.id}
           onSelect={onSelect}
         />

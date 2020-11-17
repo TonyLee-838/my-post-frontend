@@ -4,12 +4,14 @@ import { createUseStyles } from "react-jss";
 import colors from "../../config/color";
 import fontFamilies from "../../config/fontFamily";
 
-const Piece = ({ piece, isSelected, onSelect }) => {
+const Piece = ({ piece, isSelected, isActive, onSelect }) => {
   const classes = useStyle();
   return (
     <div
       key={piece.id}
-      className={`${classes.pieces} ${isSelected ? classes.selected : ""}`}
+      className={`${classes.pieces} ${
+        isActive ? (isSelected ? classes.selected : classes.notSelected) : ""
+      }`}
       onClick={() => onSelect(piece.id)}
     >
       {piece.title}
@@ -28,11 +30,15 @@ const useStyle = createUseStyles({
     fontWeight: "500",
     margin: "15px",
     padding: "10px",
-    transition: "all 100ms ease, transform 25ms ease-in",
+    transition: "all 250ms ease, transform 25ms ease-in",
 
     "&:hover": {
       transform: "scale(1.02,1.02)",
     },
+  },
+  notSelected: {
+    filter: "blur(0.75px)",
+    backgroundColor: colors.medium,
   },
   selected: {
     backgroundColor: colors.lightBlue,
