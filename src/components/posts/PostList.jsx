@@ -1,8 +1,9 @@
+/* eslint-disable react/prop-types */
+/* eslint-disable no-use-before-define */
 import React, { useEffect, useState } from "react";
 import { createUseStyles } from "react-jss";
 
 import PostCard from "./PostCard";
-import colors from "../../config/color";
 import Separator from "../common/Separator";
 import ScrollUpButton from "../common/ScrollUpButton";
 import { getPosts } from "../../api/posts";
@@ -13,8 +14,8 @@ function PostList({ categories, onSelect, selectedId }) {
 
   useEffect(() => {
     async function fetchData() {
-      const posts = await getPosts();
-      setPosts(posts);
+      const result = await getPosts();
+      setPosts(result);
     }
     fetchData();
   }, []);
@@ -30,6 +31,7 @@ function PostList({ categories, onSelect, selectedId }) {
           <PostCard
             post={post}
             onIconClick={onSelect}
+            // eslint-disable-next-line
             category={categories.find((c) => c._id === post.categoryId)}
           />
           <Separator />

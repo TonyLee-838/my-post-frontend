@@ -10,6 +10,7 @@ function SideBar() {
     <div className={classes.container}>
       <a href="https://github.com/TonyLee-838?tab=repositories">
         <img
+          alt="avatar"
           className={classes.avatar}
           src={require("../assets/images/Tony.jpg")}
         />

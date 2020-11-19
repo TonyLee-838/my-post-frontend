@@ -16,7 +16,7 @@ const FadeDiv = ({
   //To prevent triggering animation at first rendering.
   useEffect(() => {
     setCount(count + 1);
-  }, [triggerProp]);
+  }, [triggerProp, count]);
 
   return (
     <div

@@ -21,7 +21,9 @@ const TimeItem = ({
 };
 
 const getTimeString = (time, format) => {
-  const date = new Date(time);
+  const date = new Date(
+    typeof time === "string" ? Number.parseInt(time) : time
+  );
   return moment(date).format(format);
 };
 

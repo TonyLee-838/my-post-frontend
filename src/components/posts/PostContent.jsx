@@ -1,3 +1,4 @@
+/* eslint-disable no-use-before-define */
 import React, { useEffect, useState } from "react";
 import { createUseStyles } from "react-jss";
 import { useParams } from "react-router-dom";
@@ -20,7 +21,7 @@ function PostContent() {
     };
 
     fetchData();
-  }, []);
+  }, [id]);
 
   const classes = useStyles();
   return (

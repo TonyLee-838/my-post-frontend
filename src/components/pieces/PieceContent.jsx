@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+/* eslint-disable */
+import React from "react";
 import { createUseStyles } from "react-jss";
 import colors from "../../config/color";
 import FadeDiv from "../common/animated/FadeDiv";
@@ -18,7 +19,7 @@ const PieceContent = ({
   return (
     <FadeDiv triggerProp={selectedId} className={classes.container} {...props}>
       <div className={classes.controlBar}>
-        <div className={classes.closeButton} onClick={onClose}></div>
+        <div className={classes.closeButton} onClick={onClose} role="close" />
       </div>
 
       {piece && (
@@ -37,7 +38,7 @@ const useStyle = createUseStyles({
     padding: "30px",
     width: "30%",
     height: "80%",
-    boxShadow: "3px 3px 4px" + colors.medium,
+    boxShadow: `3px 3px 4px${colors.medium}`,
     backgroundColor: colors.light,
     overflowX: "hidden",
   },

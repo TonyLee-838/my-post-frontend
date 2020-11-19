@@ -15,7 +15,6 @@ const TimeLine = ({
     leftFromParent,
     pinRadius,
     lineWidth,
-    leftFromParent,
     lineLength,
   });
 
@@ -52,7 +51,6 @@ const useStyle = createUseStyles({
     left: ({ leftFromParent }) => leftFromParent,
     width: ({ lineWidth }) => lineWidth,
     height: ({ lineLength }) => `calc(${lineLength})`,
-    //58.5 = 120 / 2 - 3 / 2
     transform: ({ pinRadius, lineWidth }) =>
       `translateX(calc((${pinRadius} - ${lineWidth}) / 2))`,
     backgroundColor: colors.blue,
