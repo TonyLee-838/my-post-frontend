@@ -3,6 +3,7 @@ import { BrowserRouter, Route, Switch, Redirect } from "react-router-dom";
 import PostContent from "./posts/PostContent";
 import PostList from "./posts/PostList";
 import PostMain from "./PostMain";
+import EditMain from "./EditMain";
 import SideBar from "./SideBar";
 import PieceMain from "./PieceMain";
 
@@ -22,6 +23,11 @@ function Router() {
       id: "route-pieces",
       path: "/pieces",
       main: () => <PieceMain />,
+    },
+    {
+      id: "route-editing",
+      path: "/edit",
+      main: () => <EditMain />,
     },
     {
       id: "route-home",
