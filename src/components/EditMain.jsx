@@ -4,39 +4,64 @@ import { createUseStyles } from "react-jss";
 import { compiler } from "markdown-to-jsx";
 import CodeEditor from "./common/CodeEditor";
 import colors from "../config/color";
+import TextInput from "./common/TextInput";
+import Dropdown from "./common/dropdown/Dropdown";
 
 const EditMain = () => {
   const classes = useStyle();
+  const [title, setTitle] = useState("");
+  const [description, setDescription] = useState("");
   const [content, setContent] = useState("");
 
-  const handleChange = (value) => {
+  const handleContentChange = (value) => {
     setContent(value);
+  };
+
+  const handleTitleChange = (value) => {
+    setTitle(value);
+  };
+  const handleDescription = (value) => {
+    setDescription(value);
+  };
+
+  const options = [
+    {
+      id: "o1",
+      value: "React",
+      Component: () => <div>React</div>,
+    },
+    {
+      id: "o2",
+      value: "Javascript",
+      Component: () => <div>Javascript</div>,
+    },
+  ];
+
+  const handleSelect = (value) => {
+    // setSelected(categoryId);
+    console.log("value : ", value);
   };
 
   return (
     <div className={classes.container}>
       <h2>Title</h2>
-      <input
-        className={classes.title}
-        type="text"
-        placeholder="Input title here:"
+      <TextInput
+        onChange={handleTitleChange}
+        placeholder="Enter your title here..."
       />
-
       <CodeEditor
         className={classes.content}
         value={content}
-        onChange={handleChange}
+        onChange={handleContentChange}
         placeholder={"Enter something here..."}
       />
-
       <h2>Description</h2>
-
-      <textarea className={classes.description} />
-      <select>
-        <option>1</option>
-        <option>2</option>
-        <option>3</option>
-      </select>
+      <TextInput
+        onChange={handleDescription}
+        placeholder="Enter your title here..."
+        multiColumn
+      />
+      <Dropdown onSelect={handleSelect} options={options} />;
       <div>
         <input type="text" placeholder="Tags" />
       </div>
@@ -71,9 +96,9 @@ const useStyle = createUseStyles({
     width: "75%",
     height: "35px",
     fontSize: "1.15rem",
-    borderColor: colors.light,
-
-    borderRadius: "0.5px",
+    borderStyle: "none",
+    boxShadow: " 0px 0px 2px " + colors.dark,
+    padding: "0px 5px 0px 5px",
   },
 });
 
