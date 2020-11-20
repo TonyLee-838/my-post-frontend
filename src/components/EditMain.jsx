@@ -1,11 +1,11 @@
 import React, { useState } from "react";
 import { createUseStyles } from "react-jss";
 
-import { compiler } from "markdown-to-jsx";
 import CodeEditor from "./common/CodeEditor";
 import colors from "../config/color";
 import TextInput from "./common/TextInput";
 import Dropdown from "./common/dropdown/Dropdown";
+import TagInput from "./common/TagInput";
 
 const EditMain = () => {
   const classes = useStyle();
@@ -44,6 +44,7 @@ const EditMain = () => {
 
   return (
     <div className={classes.container}>
+      <TagInput />
       <h2>Title</h2>
       <TextInput
         onChange={handleTitleChange}
