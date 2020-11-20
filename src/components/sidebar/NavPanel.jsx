@@ -18,7 +18,7 @@ function NavPanel() {
     <nav className={classes.container}>
       {links.map((l) => (
         <div className={classes.link} key={l.label}>
-          <Icon name={l.icon} styles={classes.icon} />
+          <Icon name={l.icon} className={classes.icon} />
           <Link to={l.path}>{l.label}</Link>
         </div>
       ))}

@@ -18,7 +18,7 @@ const ScrollUpButton = () => {
   return (
     <>
       <div className={classes.container} onClick={handleScrollUp}>
-        <Icon name="MdArrowUpward" styles={classes.icon} />
+        <Icon name="MdArrowUpward" className={classes.icon} />
       </div>
     </>
   );

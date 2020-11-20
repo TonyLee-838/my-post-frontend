@@ -4,12 +4,12 @@ import * as MaterialIcons from "react-icons/md";
 import * as SimpleIcons from "react-icons/si";
 import colors from "../../config/color";
 
-const Icon = ({ name, styles = "" }) => {
-  const classes = useStyle(styles);
+const Icon = ({ name, className = "" }) => {
+  const classes = useStyle(className);
   const IconComponent = name.startsWith("Md")
     ? MaterialIcons[name]
     : SimpleIcons[name];
-  return <IconComponent className={`${classes.icon} ${styles}`} />;
+  return <IconComponent className={`${classes.icon} ${className}`} />;
 };
 
 const useStyle = createUseStyles({
