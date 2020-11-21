@@ -20,7 +20,7 @@ const useStyle = createUseStyles({
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
-    transition: "all 100ms ease",
+    transition: "all 50ms ease",
     "&:hover": {
       backgroundColor: colors.lightBlue,
       color: colors.white,

@@ -65,7 +65,7 @@ const TagInput = ({
 
 const useStyle = createUseStyles({
   container: {
-    width: "70%",
+    width: "100%",
   },
   input: {
     paddingLeft: ({ padding }) => `${padding}px`,

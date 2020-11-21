@@ -8,8 +8,10 @@ const colors = {
   darkBlue: "#001d43",
   primary: "#197278",
   secondary: "#e1695b",
+  warning: "#e7001c",
   yellow: "#f9a828",
   black: "#242423",
+  lightGreen: "#0db46d",
 };
 
 export default colors;

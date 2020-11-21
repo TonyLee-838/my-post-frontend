@@ -28,7 +28,7 @@ const TextInput = ({ multiColumn = false, onChange, placeholder = "" }) => {
 
 const useStyle = createUseStyles({
   input: {
-    width: "75%",
+    width: "100%",
     height: "35px",
     fontSize: "1.15rem",
     borderStyle: "none",
@@ -40,7 +40,7 @@ const useStyle = createUseStyles({
     },
   },
   multiple: {
-    height: "200px",
+    height: "100px",
     resize: "none",
   },
 });

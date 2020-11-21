@@ -42,6 +42,7 @@ const Dropdown = ({ onSelect, options }) => {
 
 const useStyle = createUseStyles({
   options: {
+    position: "absolute",
     marginTop: "4px",
     width: "200px",
     height: "auto",
