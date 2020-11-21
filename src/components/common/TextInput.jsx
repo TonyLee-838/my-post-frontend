@@ -1,27 +1,37 @@
 import React from "react";
 import { createUseStyles } from "react-jss";
 import colors from "../../config/color";
+import fontFamilies from "../../config/fontFamily";
 
 /**
  * @param value the value of the input box.
  * @param {boolean} multiColumn allow enter content in multiple lines. By default the value is false.
  */
 
-const TextInput = ({ multiColumn = false, onChange, placeholder = "" }) => {
+const TextInput = ({
+  multiColumn = false,
+  onChange,
+  placeholder = "",
+  className,
+  ...props
+}) => {
   const classes = useStyle();
 
-  const Input = () =>
-    multiColumn ? (
-      <textarea className={`${classes.input} ${classes.multiple}`} />
-    ) : (
-      <input className={classes.input} />
-    );
-
-  return (
-    <Input
+  return multiColumn ? (
+    <textarea
       type="text"
       onChange={(e) => onChange(e.target.value)}
       placeholder={placeholder}
+      {...props}
+      className={`${classes.input} ${classes.multiple} ${className}`}
+    />
+  ) : (
+    <input
+      className={`${classes.input} ${className}`}
+      type="text"
+      onChange={(e) => onChange(e.target.value)}
+      placeholder={placeholder}
+      {...props}
     />
   );
 };
@@ -31,13 +41,10 @@ const useStyle = createUseStyles({
     width: "100%",
     height: "35px",
     fontSize: "1.15rem",
+    fontFamily: fontFamilies.text,
     borderStyle: "none",
-    boxShadow: " 0px 0px 2px " + colors.lightBlue,
-
-    "&:active": {
-      transition: "all 200ms ease",
-      borderColor: "red",
-    },
+    borderRadius: "5px",
+    boxShadow: "0px 0px 2px " + colors.lightBlue,
   },
   multiple: {
     height: "100px",

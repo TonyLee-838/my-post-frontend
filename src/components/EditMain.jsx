@@ -69,26 +69,32 @@ const EditMain = () => {
           placeholder={"Enter something here..."}
         />
       </div>
+
+      <div className={classes.categoryAndTags}>
+        <div className={classes.category}>
+          <h2>Category</h2>
+          <Dropdown onSelect={handleSelect} options={options} />
+        </div>
+        <div className={classes.tags}>
+          <h2>Tags</h2>
+          <TagInput
+            tags={tags}
+            onTagCreate={handleTagCreate}
+            onTagDelete={handleTagDelete}
+          />
+        </div>
+      </div>
+
       <div>
         <h2>Description</h2>
         <TextInput
+          className={classes.description}
           onChange={handleDescription}
           placeholder="Enter your title here..."
           multiColumn
         />
       </div>
-      <h2>Category</h2>
-      <div>
-        <Dropdown onSelect={handleSelect} options={options} />
-      </div>
-      <h2>Tags</h2>
-      <div className={classes.tags}>
-        <TagInput
-          tags={tags}
-          onTagCreate={handleTagCreate}
-          onTagDelete={handleTagDelete}
-        />
-      </div>
+
       <div className={classes.buttons}>
         <Button label="Cancel" theme="warning" />
         <Button label="Submit" theme="success" />
@@ -98,16 +104,6 @@ const EditMain = () => {
 };
 
 const useStyle = createUseStyles({
-  buttons: {
-    display: "flex",
-    flexDirection: "row",
-    width: "max-content",
-    marginRight: "0px",
-    marginLeft: "auto",
-    "& *": {
-      margin: "10px",
-    },
-  },
   container: {
     width: "100%",
     height: "100%",
@@ -117,27 +113,43 @@ const useStyle = createUseStyles({
       marginBottom: "10px",
     },
   },
+
   content: {
     width: "100%",
     height: "800px",
     marginTop: "30px",
   },
+
   description: {
-    width: "75%",
-    height: "200px",
+    height: "150px",
     resize: "none",
     marginBottom: "30px",
   },
-  tags: {
-    marginBottom: "15px",
+
+  category: {
+    marginRight: "40px",
   },
-  title: {
-    width: "75%",
-    height: "35px",
-    fontSize: "1.15rem",
-    borderStyle: "none",
-    boxShadow: " 0px 0px 2px " + colors.dark,
-    padding: "0px 5px 0px 5px",
+  tags: {
+    width: "80%",
+  },
+  categoryAndTags: {
+    marginBottom: "15px",
+    display: "flex",
+    flexDirection: "row",
+  },
+
+  buttons: {
+    display: "flex",
+    flexDirection: "row",
+
+    //left-align
+    width: "max-content",
+    marginRight: "0px",
+    marginLeft: "auto",
+
+    "& *": {
+      margin: "10px",
+    },
   },
 });
 

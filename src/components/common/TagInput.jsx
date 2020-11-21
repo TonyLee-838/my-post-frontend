@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef } from "react";
 import { createUseStyles } from "react-jss";
 
 import Tag from "./Tag";
+import TextInput from "./TextInput";
 
 const isConfirmKey = (key) => key.match(/^,| |Enter$/);
 
@@ -23,9 +24,9 @@ const TagInput = ({
     setPadding(TagContainer.current.offsetWidth);
   }, [tags]);
 
-  const handleChange = (e) => {
-    if (isConfirmKey(e.target.value)) return;
-    setValue(e.target.value);
+  const handleChange = (value) => {
+    if (isConfirmKey(value)) return;
+    setValue(value);
   };
 
   const handleKeyDown = (e) => {
@@ -52,7 +53,8 @@ const TagInput = ({
             />
           ))}
         </div>
-        <input
+
+        <TextInput
           value={value}
           className={classes.input}
           onChange={handleChange}
@@ -69,14 +71,14 @@ const useStyle = createUseStyles({
   },
   input: {
     paddingLeft: ({ padding }) => `${padding}px`,
-    width: "100%",
-    height: "40px",
+    width: ({ padding }) => `calc(100% - ${padding}px)`,
+    height: "45px",
   },
   tags: {
     position: "absolute",
     marginTop: "5px",
-    paddingLeft: "10px",
     height: "30px",
+    paddingLeft: "10px",
   },
 });
 
