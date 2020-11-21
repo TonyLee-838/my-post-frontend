@@ -6,6 +6,7 @@ import colors from "../config/color";
 import TextInput from "./common/TextInput";
 import Dropdown from "./common/dropdown/Dropdown";
 import TagInput from "./common/TagInput";
+import Main from "./common/Main";
 
 const EditMain = () => {
   const classes = useStyle();
@@ -53,38 +54,40 @@ const EditMain = () => {
   };
 
   return (
-    <div className={classes.container}>
-      <h2>Title</h2>
-      <TextInput
-        onChange={handleTitleChange}
-        placeholder="Enter your title here..."
-      />
-      <CodeEditor
-        className={classes.content}
-        value={content}
-        onChange={handleContentChange}
-        placeholder={"Enter something here..."}
-      />
-      <h2>Description</h2>
-      <TextInput
-        onChange={handleDescription}
-        placeholder="Enter your title here..."
-        multiColumn
-      />
-      <Dropdown onSelect={handleSelect} options={options} />
-      <TagInput
-        tags={tags}
-        onTagCreate={handleTagCreate}
-        onTagDelete={handleTagDelete}
-      />
-      <div>
-        <input type="text" placeholder="Tags" />
+    <Main>
+      <div className={classes.container}>
+        <h2>Title</h2>
+        <TextInput
+          onChange={handleTitleChange}
+          placeholder="Enter your title here..."
+        />
+        <CodeEditor
+          className={classes.content}
+          value={content}
+          onChange={handleContentChange}
+          placeholder={"Enter something here..."}
+        />
+        <h2>Description</h2>
+        <TextInput
+          onChange={handleDescription}
+          placeholder="Enter your title here..."
+          multiColumn
+        />
+        <Dropdown onSelect={handleSelect} options={options} />
+        <TagInput
+          tags={tags}
+          onTagCreate={handleTagCreate}
+          onTagDelete={handleTagDelete}
+        />
+        <div>
+          <input type="text" placeholder="Tags" />
+        </div>
+        <div>
+          <button>cancel</button>
+          <button>submit</button>
+        </div>
       </div>
-      <div>
-        <button>cancel</button>
-        <button>submit</button>
-      </div>
-    </div>
+    </Main>
   );
 };
 

@@ -53,6 +53,12 @@ const useStyle = createUseStyles({
     avatar: {
       width: "155px",
     },
+    container: {
+      width: "330px",
+      height: "100vh",
+      position: "sticky",
+      top: 0,
+    },
   },
 });
 

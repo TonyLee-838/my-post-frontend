@@ -6,6 +6,7 @@ import PostMain from "./PostMain";
 import EditMain from "./EditMain";
 import SideBar from "./SideBar";
 import PieceMain from "./PieceMain";
+import BackgroundView from "./common/BackgroundView";
 
 function Router() {
   const routes = [
@@ -44,10 +45,10 @@ function Router() {
             key={route.id}
             path={route.path}
             children={
-              <>
+              <BackgroundView>
                 <SideBar />
                 <route.main />
-              </>
+              </BackgroundView>
             }
           />
         ))}
