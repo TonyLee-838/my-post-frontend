@@ -42,10 +42,14 @@ const Dropdown = ({ onSelect, options }) => {
 
 const useStyle = createUseStyles({
   options: {
+    position: "absolute",
     marginTop: "4px",
     width: "200px",
     height: "auto",
-    boxShadow: "0px 0px 2px" + colors.medium,
+    boxShadow: "0px 0px 1.5px" + colors.lightBlue,
+    "&:hover": {
+      boxShadow: "0px 0px 1.5px 1px" + colors.lightBlue,
+    },
   },
 });
 

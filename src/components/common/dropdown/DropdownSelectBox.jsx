@@ -24,9 +24,9 @@ const useStyle = createUseStyles({
     borderRadius: "5px",
     cursor: "pointer",
     transition: "box-shadow 100ms ease",
-    boxShadow: " 0px 0px 2px  " + colors.medium,
+    boxShadow: "0px 0px 1.5px" + colors.lightBlue,
     "&:hover": {
-      boxShadow: "0px 0px 4px 1px " + colors.lightBlue,
+      boxShadow: "0px 0px 1.5px 1px" + colors.lightBlue,
     },
   },
   selectedIcon: {
