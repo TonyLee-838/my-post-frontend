@@ -12,6 +12,7 @@ const EditMain = () => {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const [content, setContent] = useState("");
+  const [tags, setTags] = useState([]);
 
   const handleContentChange = (value) => {
     setContent(value);
@@ -20,6 +21,7 @@ const EditMain = () => {
   const handleTitleChange = (value) => {
     setTitle(value);
   };
+
   const handleDescription = (value) => {
     setDescription(value);
   };
@@ -42,9 +44,16 @@ const EditMain = () => {
     console.log("value : ", value);
   };
 
+  const handleTagCreate = (tag) => {
+    setTags([...tags, tag]);
+  };
+
+  const handleTagDelete = (index) => {
+    setTags(tags.filter((_, i) => index !== i));
+  };
+
   return (
     <div className={classes.container}>
-      <TagInput />
       <h2>Title</h2>
       <TextInput
         onChange={handleTitleChange}
@@ -62,7 +71,12 @@ const EditMain = () => {
         placeholder="Enter your title here..."
         multiColumn
       />
-      <Dropdown onSelect={handleSelect} options={options} />;
+      <Dropdown onSelect={handleSelect} options={options} />
+      <TagInput
+        tags={tags}
+        onTagCreate={handleTagCreate}
+        onTagDelete={handleTagDelete}
+      />
       <div>
         <input type="text" placeholder="Tags" />
       </div>

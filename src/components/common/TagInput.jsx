@@ -1,43 +1,54 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { createUseStyles } from "react-jss";
+
 import Tag from "./Tag";
 
-const TagInput = (props) => {
-  const [tags, setTags] = useState(["1", "2"]);
+const isConfirmKey = (key) => key.match(/^,| |Enter$/);
+
+const TagInput = ({
+  onTagCreate,
+  onTagDelete,
+  tags,
+  className = "",
+  tagClassName = "",
+}) => {
   const [value, setValue] = useState("");
   const [padding, setPadding] = useState(0);
 
+  const TagContainer = useRef();
+
   const classes = useStyle({ padding });
 
+  useEffect(() => {
+    setPadding(TagContainer.current.offsetWidth);
+  }, [tags]);
+
   const handleChange = (e) => {
+    if (isConfirmKey(e.target.value)) return;
     setValue(e.target.value);
   };
 
   const handleKeyDown = (e) => {
-    if (e.key.match(/[, ]|^Enter$/)) {
-      setPadding(padding + e.target.value.length * 9 + 40);
-      setTags([...tags, e.target.value.replace(/,/, "")]);
+    if (value && isConfirmKey(e.key)) {
+      onTagCreate(e.target.value);
       setValue("");
     }
   };
 
-  const handleDelete = (e, index) => {
-    const charNum = e.target.parentElement.firstChild.innerText.length;
-    const paddingExtra = padding - charNum * 9 - 40;
-
-    setPadding(paddingExtra > 0 ? paddingExtra : 0);
-    setTags(tags.filter((_, i) => index !== i));
+  const handleDelete = (index) => {
+    onTagDelete(index);
   };
 
   return (
     <>
-      <div className={classes.container}>
-        <div className={classes.tags}>
+      <div className={`${classes.container} ${className}`}>
+        <div className={classes.tags} ref={TagContainer}>
           {tags.map((tag, index) => (
             <Tag
+              className={tagClassName}
               content={tag}
               key={`tag-${index}`}
-              onDelete={(e) => handleDelete(e, index)}
+              onDelete={() => handleDelete(index)}
             />
           ))}
         </div>
@@ -57,14 +68,14 @@ const useStyle = createUseStyles({
     width: "70%",
   },
   input: {
-    paddingLeft: ({ padding }) => `${padding + 5}px`,
+    paddingLeft: ({ padding }) => `${padding}px`,
     width: "100%",
     height: "40px",
   },
   tags: {
     position: "absolute",
-    marginTop: "15px",
-    paddingLeft: "5px",
+    marginTop: "5px",
+    paddingLeft: "10px",
     height: "30px",
   },
 });
