@@ -9,13 +9,30 @@ import TagInput from "./common/TagInput";
 import Main from "./common/Main";
 import fontFamilies from "../config/fontFamily";
 import Button from "./common/Button";
+import IconItem from "./common/IconItem";
+import TypeBar from "./edit/TypeBar";
+
+const fakeOptions = [
+  {
+    id: "o1",
+    value: "React",
+    Component: () => <div>React</div>,
+  },
+  {
+    id: "o2",
+    value: "Javascript",
+    Component: () => <div>Javascript</div>,
+  },
+];
 
 const EditMain = () => {
   const classes = useStyle();
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const [content, setContent] = useState("");
+  const [categoryId, setCategoryId] = useState("");
   const [tags, setTags] = useState([]);
+  const [options, setOptions] = useState(fakeOptions);
 
   const handleContentChange = (value) => {
     setContent(value);
@@ -29,22 +46,8 @@ const EditMain = () => {
     setDescription(value);
   };
 
-  const options = [
-    {
-      id: "o1",
-      value: "React",
-      Component: () => <div>React</div>,
-    },
-    {
-      id: "o2",
-      value: "Javascript",
-      Component: () => <div>Javascript</div>,
-    },
-  ];
-
   const handleSelect = (value) => {
-    // setSelected(categoryId);
-    console.log("value : ", value);
+    setCategoryId(value);
   };
 
   const handleTagCreate = (tag) => {
@@ -55,51 +58,61 @@ const EditMain = () => {
     setTags(tags.filter((_, i) => index !== i));
   };
 
+  const handleSubmit = () => {
+    console.log("submit: ", {
+      title,
+      description,
+      content,
+      tags,
+      categoryId,
+    });
+  };
+
   return (
     <Main>
       <div className={classes.container}>
-        <h2>Title</h2>
-        <TextInput
-          className={classes.title}
-          onChange={handleTitleChange}
-          placeholder="Enter your title here..."
-        />
-        <div className={classes.content}>
-          <CodeEditor
-            value={content}
-            onChange={handleContentChange}
-            placeholder={"Enter something here..."}
+        <TypeBar />
+        <div className={classes.inputContainer}>
+          <h2>Title</h2>
+          <TextInput
+            className={classes.title}
+            onChange={handleTitleChange}
+            placeholder="Enter your title here..."
           />
-        </div>
-
-        <div className={classes.categoryAndTags}>
-          <div className={classes.category}>
-            <h2>Category</h2>
-            <Dropdown onSelect={handleSelect} options={options} />
+          <div className={classes.content}>
+            <h2>Content</h2>
+            <CodeEditor value={content} onChange={handleContentChange} />
           </div>
-          <div className={classes.tags}>
-            <h2>Tags</h2>
-            <TagInput
-              tags={tags}
-              onTagCreate={handleTagCreate}
-              onTagDelete={handleTagDelete}
+
+          <div className={classes.categoryAndTags}>
+            <div className={classes.category}>
+              <h2>Category</h2>
+              <Dropdown onSelect={handleSelect} options={options} />
+            </div>
+            <div className={classes.tags}>
+              <h2>Tags</h2>
+              <TagInput
+                tags={tags}
+                onTagCreate={handleTagCreate}
+                onTagDelete={handleTagDelete}
+              />
+            </div>
+          </div>
+
+          <div>
+            <h2>Description</h2>
+            <TextInput
+              className={classes.description}
+              onChange={handleDescription}
+              placeholder="Enter your description here..."
+              multiColumn
             />
           </div>
-        </div>
 
-        <div>
-          <h2>Description</h2>
-          <TextInput
-            className={classes.description}
-            onChange={handleDescription}
-            placeholder="Enter your title here..."
-            multiColumn
-          />
-        </div>
-
-        <div className={classes.buttons}>
-          <Button label="Cancel" theme="warning" />
-          <Button label="Submit" theme="success" />
+          <div className={classes.buttons}>
+            <Button label="Cancel" theme="warning" />
+            <Button label="Submit" theme="success" onClick={handleSubmit} />
+          </div>
         </div>
       </div>
     </Main>
@@ -107,9 +120,21 @@ const EditMain = () => {
 };
 
 const useStyle = createUseStyles({
+  typeContainer: {
+    height: "initial",
+    width: "15%",
+    backgroundColor: "red",
+  },
   container: {
-    height: "100%",
-    margin: "30px 15% 30px 15%",
+    // margin: "60px 15% 60px 15%",
+    display: "flex",
+    flexDirection: "row",
+  },
+
+  inputContainer: {
+    flex: 1,
+    padding: "30px 60px 30px 30px",
+    height: "max-content",
     "& h2": {
       fontFamily: fontFamilies.text,
       marginBottom: "10px",
@@ -136,6 +161,7 @@ const useStyle = createUseStyles({
   },
   categoryAndTags: {
     marginBottom: "15px",
+    marginTop: "40px",
     display: "flex",
     flexDirection: "row",
   },

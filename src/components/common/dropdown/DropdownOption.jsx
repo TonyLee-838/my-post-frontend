@@ -2,6 +2,7 @@ import React from "react";
 import { createUseStyles } from "react-jss";
 
 import colors from "../../../config/color";
+import fontFamilies from "../../../config/fontFamily";
 
 const DropdownOption = ({ onClick, value }) => {
   const classes = useStyle();
@@ -21,6 +22,7 @@ const useStyle = createUseStyles({
     justifyContent: "center",
     alignItems: "center",
     transition: "all 50ms ease",
+    fontFamily: fontFamilies.text,
     "&:hover": {
       backgroundColor: colors.lightBlue,
       color: colors.white,

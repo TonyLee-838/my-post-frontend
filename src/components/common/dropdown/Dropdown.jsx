@@ -46,10 +46,6 @@ const useStyle = createUseStyles({
     marginTop: "4px",
     width: "200px",
     height: "auto",
-    boxShadow: "0px 0px 1.5px" + colors.lightBlue,
-    "&:hover": {
-      boxShadow: "0px 0px 1.5px 1px" + colors.lightBlue,
-    },
   },
 });
 

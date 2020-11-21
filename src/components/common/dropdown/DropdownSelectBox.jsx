@@ -3,6 +3,7 @@ import { createUseStyles } from "react-jss";
 
 import Icon from "../Icon";
 import colors from "../../../config/color";
+import fontFamilies from "../../../config/fontFamily";
 
 const DropdownSelectBox = ({ onExpand, value, expanded }) => {
   const classes = useStyle({ expanded });
@@ -25,6 +26,7 @@ const useStyle = createUseStyles({
     cursor: "pointer",
     transition: "box-shadow 100ms ease",
     boxShadow: "0px 0px 1.5px" + colors.lightBlue,
+    fontFamily: fontFamilies.text,
     "&:hover": {
       boxShadow: "0px 0px 1.5px 1px" + colors.lightBlue,
     },
@@ -37,6 +39,7 @@ const useStyle = createUseStyles({
     color: colors.medium,
   },
   selectedLabel: {
+    paddingLeft: "15px",
     flex: 1,
   },
 });
