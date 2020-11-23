@@ -120,13 +120,7 @@ const EditMain = () => {
 };
 
 const useStyle = createUseStyles({
-  typeContainer: {
-    height: "initial",
-    width: "15%",
-    backgroundColor: "red",
-  },
   container: {
-    // margin: "60px 15% 60px 15%",
     display: "flex",
     flexDirection: "row",
   },

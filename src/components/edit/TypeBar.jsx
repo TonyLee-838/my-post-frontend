@@ -41,7 +41,7 @@ const useStyle = createUseStyles({
     height: "initial",
     width: "15%",
     padding: "15px",
-    margin: "15px",
+    margin: "20px",
   },
 });
 

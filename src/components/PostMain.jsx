@@ -5,6 +5,7 @@ import { createUseStyles } from "react-jss";
 import Main from "./common/Main";
 import CategoryList from "./categoryBar/CategoryList";
 import { CategoriesContext } from "./contexts/CategoriesContext";
+import ToolBar from "./common/toolBar/ToolBar";
 
 const PostMain = ({ Component }) => {
   const [selectedId, setSelectedId] = useState();
@@ -20,6 +21,7 @@ const PostMain = ({ Component }) => {
   return (
     <Main>
       <div className={classes.container}>
+        <ToolBar />
         <Component
           categories={categories}
           onSelect={handleSelect}

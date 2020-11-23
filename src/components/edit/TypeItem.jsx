@@ -22,11 +22,11 @@ const useStyle = createUseStyles({
 
     width: "100%",
     padding: "15px",
-    marginBottom: "3px",
+    marginBottom: "5px",
 
     textDecoration: "none",
     borderRadius: "5px",
-    boxShadow: "3px 3px 3px " + colors.medium,
+    boxShadow: "3.5px 3.5px 2px" + colors.medium,
     cursor: "pointer",
 
     "& *": {
