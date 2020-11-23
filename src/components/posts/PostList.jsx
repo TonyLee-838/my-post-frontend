@@ -7,10 +7,12 @@ import PostCard from "./PostCard";
 import Separator from "../common/Separator";
 import ScrollUpButton from "../common/ScrollUpButton";
 import { getPosts } from "../../api/posts";
+import ToolBar from "../common/toolBar/ToolBar";
 
 function PostList({ categories, onSelect, selectedId }) {
   const classes = useStyles();
   const [posts, setPosts] = useState([]);
+  const [searchTerms, setSearchTerms] = useState("");
 
   useEffect(() => {
     async function fetchData() {
@@ -20,13 +22,17 @@ function PostList({ categories, onSelect, selectedId }) {
     fetchData();
   }, []);
 
-  const filtered = selectedId
+  const filteredByCategory = selectedId
     ? posts.filter((post) => post.categoryId === selectedId)
     : posts;
 
+  const filteredByTerms = searchTerms
+    ? filteredByCategory.filter((post) => post.title.includes(searchTerms))
+    : filteredByCategory;
+
   return (
     <div className={classes.container}>
-      {filtered.map((post) => (
+      {filteredByTerms.map((post) => (
         <div key={post.id}>
           <PostCard
             post={post}
@@ -37,6 +43,7 @@ function PostList({ categories, onSelect, selectedId }) {
           <Separator />
         </div>
       ))}
+      <ToolBar onSearch={setSearchTerms} />
       <ScrollUpButton />
     </div>
   );

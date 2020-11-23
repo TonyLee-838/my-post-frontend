@@ -1,20 +1,22 @@
 import React from "react";
+import { useState } from "react";
 import { createUseStyles } from "react-jss";
 
 import colors from "../../../config/color";
 import IconItem from "../IconItem";
 import TextInput from "../TextInput";
 
-const SearchBox = ({ onTermsChange, onSubmit }) => {
+const SearchBox = ({ onSubmit }) => {
   const classes = useStyle();
-  console.log("classes : ", classes);
+  const [terms, setTerms] = useState();
+
   return (
     <div className={classes.container}>
-      <TextInput onChange={onTermsChange} className={classes.searchField} />
+      <TextInput onChange={setTerms} className={classes.searchField} />
       <IconItem
         icon="MdSearch"
         className={classes.searchIcon}
-        onClick={onSubmit}
+        onClick={() => onSubmit(terms)}
       />
     </div>
   );
