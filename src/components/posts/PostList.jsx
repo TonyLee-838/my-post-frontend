@@ -8,6 +8,7 @@ import Separator from "../common/Separator";
 import ScrollUpButton from "../common/ScrollUpButton";
 import { getPosts } from "../../api/posts";
 import ToolBar from "../common/toolBar/ToolBar";
+import PostNotFound from "./PostNotFound";
 
 function PostList({ categories, onSelect, selectedId }) {
   const classes = useStyles();
@@ -22,6 +23,7 @@ function PostList({ categories, onSelect, selectedId }) {
     fetchData();
   }, []);
 
+  //unit test:
   const filteredByCategory = selectedId
     ? posts.filter((post) => post.categoryId === selectedId)
     : posts;
@@ -29,6 +31,8 @@ function PostList({ categories, onSelect, selectedId }) {
   const filteredByTerms = searchTerms
     ? filteredByCategory.filter((post) => post.title.includes(searchTerms))
     : filteredByCategory;
+
+  const notFound = searchTerms && !filteredByTerms.length;
 
   return (
     <div className={classes.container}>
@@ -43,7 +47,8 @@ function PostList({ categories, onSelect, selectedId }) {
           <Separator />
         </div>
       ))}
-      <ToolBar onSearch={setSearchTerms} />
+      {notFound && <PostNotFound />}
+      <ToolBar onSearch={setSearchTerms} notFound={notFound} />
       <ScrollUpButton />
     </div>
   );
