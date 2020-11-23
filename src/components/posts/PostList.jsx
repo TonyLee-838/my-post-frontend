@@ -13,7 +13,7 @@ import PostNotFound from "./PostNotFound";
 function PostList({ categories, onSelect, selectedId }) {
   const classes = useStyles();
   const [posts, setPosts] = useState([]);
-  const [searchTerms, setSearchTerms] = useState("");
+  const [terms, setTerms] = useState("");
 
   useEffect(() => {
     async function fetchData() {
@@ -28,11 +28,11 @@ function PostList({ categories, onSelect, selectedId }) {
     ? posts.filter((post) => post.categoryId === selectedId)
     : posts;
 
-  const filteredByTerms = searchTerms
-    ? filteredByCategory.filter((post) => post.title.includes(searchTerms))
+  const filteredByTerms = terms
+    ? filteredByCategory.filter((post) => post.title.includes(terms))
     : filteredByCategory;
 
-  const notFound = searchTerms && !filteredByTerms.length;
+  const notFound = terms && !filteredByTerms.length;
 
   return (
     <div className={classes.container}>
@@ -48,7 +48,15 @@ function PostList({ categories, onSelect, selectedId }) {
         </div>
       ))}
       {notFound && <PostNotFound />}
-      <ToolBar onSearch={setSearchTerms} notFound={notFound} />
+      <ToolBar
+        terms={terms}
+        onSearch={setTerms}
+        notFound={notFound}
+        onClear={(e) => {
+          console.log("e : ", e);
+          setTerms("");
+        }}
+      />
       <ScrollUpButton />
     </div>
   );

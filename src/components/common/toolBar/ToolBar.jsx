@@ -4,7 +4,7 @@ import colors from "../../../config/color";
 import IconItem from "../IconItem";
 import SearchBox from "./SearchBox";
 
-const ToolBar = ({ onSearch, notFound }) => {
+const ToolBar = ({ terms, onSearch, onClear, notFound }) => {
   const [isActive, setIsActive] = useState(false);
   const classes = useStyle({ isActive });
 
@@ -16,7 +16,14 @@ const ToolBar = ({ onSearch, notFound }) => {
         onClick={() => setIsActive(!isActive)}
       />
 
-      {isActive && <SearchBox notFound={notFound} onTermsChange={onSearch} />}
+      {isActive && (
+        <SearchBox
+          terms={terms}
+          notFound={notFound}
+          onTermsChange={onSearch}
+          onTermsClear={onClear}
+        />
+      )}
     </div>
   );
 };

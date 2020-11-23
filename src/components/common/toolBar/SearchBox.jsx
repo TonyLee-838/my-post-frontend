@@ -5,14 +5,23 @@ import colors from "../../../config/color";
 import IconItem from "../IconItem";
 import TextInput from "../TextInput";
 
-const SearchBox = ({ notFound, onTermsChange }) => {
+const SearchBox = ({ terms, notFound, onTermsChange, onTermsClear }) => {
   const classes = useStyle({ notFound });
 
   return (
     <div className={classes.container}>
       <IconItem icon="MdSearch" className={classes.searchIcon} />
-      <TextInput onChange={onTermsChange} className={classes.searchField} />
-      <IconItem icon="MdClear" className={classes.deleteIcon} />
+      <TextInput
+        value={terms}
+        onChange={onTermsChange}
+        className={classes.searchField}
+        onClear={onTermsClear}
+      />
+      <IconItem
+        icon="MdClear"
+        className={classes.deleteIcon}
+        onClick={onTermsClear}
+      />
     </div>
   );
 };
@@ -24,6 +33,7 @@ const useStyle = createUseStyles({
     alignItems: "center",
   },
   deleteIcon: {
+    cursor: "pointer",
     position: "relative",
     right: "50px",
     borderRadius: "50%",
