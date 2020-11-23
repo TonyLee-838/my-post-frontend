@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { createUseStyles } from "react-jss";
+import { Link } from "react-router-dom";
 import colors from "../../../config/color";
 import IconItem from "../IconItem";
 import SearchBox from "./SearchBox";
@@ -17,12 +18,17 @@ const ToolBar = ({ terms, onSearch, onClear, notFound }) => {
       />
 
       {isActive && (
-        <SearchBox
-          terms={terms}
-          notFound={notFound}
-          onTermsChange={onSearch}
-          onTermsClear={onClear}
-        />
+        <>
+          <SearchBox
+            terms={terms}
+            notFound={notFound}
+            onTermsChange={onSearch}
+            onTermsClear={onClear}
+          />
+          <Link to="/edit">
+            <IconItem icon="MdEdit" className={classes.editIcon} />
+          </Link>
+        </>
       )}
     </div>
   );
@@ -63,6 +69,12 @@ const useStyle = createUseStyles({
         }
       : null),
   }),
+  editIcon: {
+    cursor: "pointer",
+    "& *": {
+      color: colors.white,
+    },
+  },
 
   closeIcon: {
     cursor: "pointer",

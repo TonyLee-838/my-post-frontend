@@ -35,7 +35,7 @@ const useStyle = createUseStyles({
   deleteIcon: {
     cursor: "pointer",
     position: "relative",
-    right: "50px",
+    right: "30px",
     borderRadius: "50%",
     opacity: 0.5,
     "& *": {
@@ -53,7 +53,7 @@ const useStyle = createUseStyles({
   searchField: {
     transition: "box-shadow 200ms ease,color 200ms ease",
     backgroundColor: colors.medium,
-    margin: "0px 20px 0px 15px",
+    marginLeft: "10px",
     color: ({ notFound }) => (notFound ? colors.warning : colors.black),
     boxShadow: ({ notFound }) =>
       notFound ? "0px 0px 3.5px 2.5px" + colors.warning : "",
