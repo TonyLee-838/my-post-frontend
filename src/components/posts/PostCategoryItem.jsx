@@ -6,21 +6,16 @@ import colors from "../../config/color";
 import fontFamilies from "../../config/fontFamily";
 
 const PostCategoryItem = ({ category, onClick }) => {
-  const classes = useStyle();
-  const styles = {
-    icon: {
-      color: category.color,
-    },
-    label: {
-      color: category.color,
-      fontFamily: fontFamilies.round,
-    },
-  };
+  const classes = useStyle({ category });
 
   return (
-    <div className={classes.container} onClick={onClick}>
-      <IconItem icon={category.icon} label={category.name} styles={styles} />
-    </div>
+    <IconItem
+      icon={category.icon}
+      label={category.name}
+      className={classes.container}
+      iconClassName={classes.icon}
+      onClick={onClick}
+    />
   );
 };
 
@@ -28,15 +23,20 @@ const useStyle = createUseStyles({
   container: {
     transition: "all 0.1s",
     marginBottom: "1%",
+    backgroundColor: colors.dark,
+    borderRadius: "10px",
+    padding: "1.5px",
 
     "&:hover": {
       opacity: 0.8,
     },
     "& *": {
-      padding: "3px",
-      backgroundColor: colors.dark,
+      color: ({ category }) => category.color,
       borderRadius: "8px",
+      padding: "3px",
+      margin: "1px",
       cursor: "pointer",
+      fontFamily: fontFamilies.round,
     },
   },
 });

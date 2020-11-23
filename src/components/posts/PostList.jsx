@@ -7,10 +7,13 @@ import PostCard from "./PostCard";
 import Separator from "../common/Separator";
 import ScrollUpButton from "../common/ScrollUpButton";
 import { getPosts } from "../../api/posts";
+import ToolBar from "../common/toolBar/ToolBar";
+import PostNotFound from "./PostNotFound";
 
 function PostList({ categories, onSelect, selectedId }) {
   const classes = useStyles();
   const [posts, setPosts] = useState([]);
+  const [terms, setTerms] = useState("");
 
   useEffect(() => {
     async function fetchData() {
@@ -20,13 +23,20 @@ function PostList({ categories, onSelect, selectedId }) {
     fetchData();
   }, []);
 
-  const filtered = selectedId
+  //unit test:
+  const filteredByCategory = selectedId
     ? posts.filter((post) => post.categoryId === selectedId)
     : posts;
 
+  const filteredByTerms = terms
+    ? filteredByCategory.filter((post) => post.title.includes(terms))
+    : filteredByCategory;
+
+  const notFound = terms && !filteredByTerms.length;
+
   return (
     <div className={classes.container}>
-      {filtered.map((post) => (
+      {filteredByTerms.map((post) => (
         <div key={post.id}>
           <PostCard
             post={post}
@@ -37,6 +47,16 @@ function PostList({ categories, onSelect, selectedId }) {
           <Separator />
         </div>
       ))}
+      {notFound && <PostNotFound />}
+      <ToolBar
+        terms={terms}
+        onSearch={setTerms}
+        notFound={notFound}
+        onClear={(e) => {
+          console.log("e : ", e);
+          setTerms("");
+        }}
+      />
       <ScrollUpButton />
     </div>
   );

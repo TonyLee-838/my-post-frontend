@@ -1,19 +1,22 @@
 import React from "react";
 import moment from "moment";
-import fontFamilies from "../../config/fontFamily";
+import { createUseStyles } from "react-jss";
+
 import IconItem from "./IconItem";
+import fontFamilies from "../../config/fontFamily";
 import colors from "../../config/color";
 
 const TimeItem = ({
   time,
   format = "MMM DD HH:mm",
   hideIcon = false,
-  ...props
+  className,
 }) => {
+  const classes = useStyle({ hideIcon });
+
   return (
     <IconItem
-      {...props}
-      styles={styles(hideIcon)}
+      className={`${classes.container} ${className} `}
       icon={hideIcon ? "" : "MdDateRange"}
       label={getTimeString(time, format)}
     />
@@ -27,16 +30,17 @@ const getTimeString = (time, format) => {
   return moment(date).format(format);
 };
 
-const styles = (hideIcon) => ({
+const useStyle = createUseStyles({
   container: {
     alignItems: "center",
     width: "max-content",
-  },
-  label: {
-    fontSize: "1.15rem",
-    fontFamily: fontFamilies.text,
-    color: colors.dark,
-    marginLeft: hideIcon ? "" : "20px",
+
+    "& *": {
+      fontSize: "1.3rem",
+      fontFamily: fontFamilies.text,
+      color: colors.dark,
+      marginLeft: ({ hideIcon }) => (hideIcon ? "" : "20px"),
+    },
   },
 });
 

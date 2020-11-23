@@ -27,7 +27,7 @@ function Router() {
     },
     {
       id: "route-editing",
-      path: "/edit",
+      path: "/edit/post",
       main: () => <EditMain />,
     },
     {
@@ -40,6 +40,7 @@ function Router() {
   return (
     <BrowserRouter>
       <Switch>
+        <Redirect exact from="/edit" to="/edit/post" />
         {routes.map((route) => (
           <Route
             key={route.id}

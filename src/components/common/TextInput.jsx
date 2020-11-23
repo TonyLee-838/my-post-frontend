@@ -9,29 +9,34 @@ import fontFamilies from "../../config/fontFamily";
  */
 
 const TextInput = ({
+  value,
   multiColumn = false,
   onChange,
   placeholder = "",
   className,
-  ...props
 }) => {
   const classes = useStyle();
 
+  const handleChange = (e) => {
+    const value = e.target.value;
+    onChange(value);
+  };
+
   return multiColumn ? (
     <textarea
+      value={value}
       type="text"
-      onChange={(e) => onChange(e.target.value)}
+      onChange={handleChange}
       placeholder={placeholder}
-      {...props}
       className={`${classes.input} ${classes.multiple} ${className}`}
     />
   ) : (
     <input
+      value={value}
       className={`${classes.input} ${className}`}
       type="text"
-      onChange={(e) => onChange(e.target.value)}
+      onChange={handleChange}
       placeholder={placeholder}
-      {...props}
     />
   );
 };

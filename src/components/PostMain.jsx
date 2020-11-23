@@ -8,6 +8,7 @@ import { CategoriesContext } from "./contexts/CategoriesContext";
 
 const PostMain = ({ Component }) => {
   const [selectedId, setSelectedId] = useState();
+
   const categories = useContext(CategoriesContext);
   const history = useHistory();
   const classes = useStyle();
@@ -17,6 +18,7 @@ const PostMain = ({ Component }) => {
     setSelectedId(category._id);
     history.push("/posts", selectedId);
   };
+
   return (
     <Main>
       <div className={classes.container}>

@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { createUseStyles } from "react-jss";
-import colors from "../../../config/color";
 import Separator from "../Separator";
 import DropdownOption from "./DropdownOption";
 import DropdownSelectBox from "./DropdownSelectBox";

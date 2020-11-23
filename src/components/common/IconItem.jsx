@@ -5,33 +5,30 @@ import Icon from "./Icon";
 function IconItem({
   icon,
   label,
-  styles = { container: "", label: "", icon: "" },
+  iconClassName,
   className,
   reverse = false,
+  onClick,
 }) {
-  const classes = useStyle({ styles, reverse });
+  const classes = useStyle({ reverse });
   return (
-    <div className={`${classes.container} ${className}`}>
-      {icon && <Icon name={icon} className={classes.icon} />}
+    <div className={`${classes.container} ${className}`} onClick={onClick}>
+      {icon && <Icon name={icon} className={iconClassName} />}
       <label className={classes.label}>{label}</label>
     </div>
   );
 }
 
 const useStyle = createUseStyles({
-  container: ({ styles, reverse }) => ({
+  container: ({ reverse }) => ({
     display: "flex",
     alignItems: "center",
     width: "min-content",
     flexDirection: `row${reverse ? "-reverse" : ""}`,
-
-    ...styles.container,
   }),
-  label: ({ styles }) => ({
+  label: {
     fontSize: "1.2rem",
-    ...styles.label,
-  }),
-  icon: ({ styles }) => styles.icon,
+  },
 });
 
 export default IconItem;

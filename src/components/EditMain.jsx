@@ -2,14 +2,12 @@ import React, { useState } from "react";
 import { createUseStyles } from "react-jss";
 
 import CodeEditor from "./common/CodeEditor";
-import colors from "../config/color";
 import TextInput from "./common/TextInput";
 import Dropdown from "./common/dropdown/Dropdown";
 import TagInput from "./common/TagInput";
 import Main from "./common/Main";
 import fontFamilies from "../config/fontFamily";
 import Button from "./common/Button";
-import IconItem from "./common/IconItem";
 import TypeBar from "./edit/TypeBar";
 
 const fakeOptions = [
@@ -32,6 +30,7 @@ const EditMain = () => {
   const [content, setContent] = useState("");
   const [categoryId, setCategoryId] = useState("");
   const [tags, setTags] = useState([]);
+  // eslint-disable-next-line
   const [options, setOptions] = useState(fakeOptions);
 
   const handleContentChange = (value) => {
@@ -120,13 +119,7 @@ const EditMain = () => {
 };
 
 const useStyle = createUseStyles({
-  typeContainer: {
-    height: "initial",
-    width: "15%",
-    backgroundColor: "red",
-  },
   container: {
-    // margin: "60px 15% 60px 15%",
     display: "flex",
     flexDirection: "row",
   },
