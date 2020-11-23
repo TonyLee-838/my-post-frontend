@@ -2,7 +2,8 @@ import React, { useState } from "react";
 import { createUseStyles } from "react-jss";
 import colors from "../../../config/color";
 import Icon from "../Icon";
-import TextInput from "../TextInput";
+import IconItem from "../IconItem";
+import SearchBox from "./SearchBox";
 
 const ToolBar = () => {
   const [isActive, setIsActive] = useState(false);
@@ -10,19 +11,19 @@ const ToolBar = () => {
 
   return (
     <div className={classes.container}>
-      <div
+      {/* <div
         className={classes.closeIconContainer}
         onClick={() => setIsActive(!isActive)}
       >
         <Icon name="MdKeyboardArrowLeft" className={classes.closeIcon} />
-      </div>
+      </div> */}
+      <IconItem
+        icon="MdKeyboardArrowLeft"
+        className={classes.closeIcon}
+        onClick={() => setIsActive(!isActive)}
+      />
 
-      {isActive && (
-        <>
-          <TextInput className={classes.searchField} />
-          <Icon name="MdSearch" className={classes.searchIcon} />
-        </>
-      )}
+      {isActive && <SearchBox />}
     </div>
   );
 };
@@ -63,23 +64,13 @@ const useStyle = createUseStyles({
       : null),
   }),
 
-  searchIcon: {
-    color: colors.white,
-  },
   closeIcon: {
-    color: colors.white,
     cursor: "pointer",
     transition: "transform 500ms ease",
     transform: ({ isActive }) => `rotate(${isActive ? "180deg" : "0deg"})`,
-  },
-  closeIconContainer: {
-    display: "flex",
-  },
-
-  searchField: {
-    backgroundColor: colors.medium,
-    margin: "0px 20px 0px 15px",
-    width: "60%",
+    "& *": {
+      color: colors.white,
+    },
   },
 });
 
