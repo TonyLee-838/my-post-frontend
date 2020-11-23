@@ -1,5 +1,6 @@
 import React from "react";
 import { createUseStyles } from "react-jss";
+/* eslint-disable no-unused-vars */
 import codemirror from "codemirror";
 import { UnControlled as CodeMirror } from "react-codemirror2";
 

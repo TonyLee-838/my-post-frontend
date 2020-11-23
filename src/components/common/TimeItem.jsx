@@ -11,14 +11,11 @@ const TimeItem = ({
   format = "MMM DD HH:mm",
   hideIcon = false,
   className,
-  ...props
 }) => {
   const classes = useStyle({ hideIcon });
 
   return (
     <IconItem
-      {...props}
-      // styles={styles(hideIcon)}
       className={`${classes.container} ${className} `}
       icon={hideIcon ? "" : "MdDateRange"}
       label={getTimeString(time, format)}

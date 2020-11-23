@@ -1,7 +1,5 @@
 import React from "react";
 import { createUseStyles } from "react-jss";
-import { Link } from "react-router-dom";
-import fontFamilies from "../../config/fontFamily";
 import TypeItem from "./TypeItem";
 
 const types = [

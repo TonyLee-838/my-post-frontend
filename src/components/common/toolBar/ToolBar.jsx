@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { createUseStyles } from "react-jss";
 import colors from "../../../config/color";
-import Icon from "../Icon";
 import IconItem from "../IconItem";
 import SearchBox from "./SearchBox";
 
@@ -11,12 +10,6 @@ const ToolBar = () => {
 
   return (
     <div className={classes.container}>
-      {/* <div
-        className={classes.closeIconContainer}
-        onClick={() => setIsActive(!isActive)}
-      >
-        <Icon name="MdKeyboardArrowLeft" className={classes.closeIcon} />
-      </div> */}
       <IconItem
         icon="MdKeyboardArrowLeft"
         className={classes.closeIcon}
