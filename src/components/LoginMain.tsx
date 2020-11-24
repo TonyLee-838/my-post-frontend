@@ -1,12 +1,9 @@
 import React, { FC, ReactElement, useState } from "react";
 import { useHistory } from "react-router-dom";
-import { createUseStyles } from "react-jss";
 import Joi from "joi";
 
 import { login } from "../api/auth";
 import LoginForm from "./LoginForm";
-
-const LOGIN_MESSAGE = "To continue, you have to login as an administrator!";
 
 const validateData = (email: string, password: string) => {
   return Joi.object({

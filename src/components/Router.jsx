@@ -8,6 +8,7 @@ import SideBar from "./SideBar";
 import PieceMain from "./PieceMain";
 import BackgroundView from "./common/BackgroundView";
 import LoginMain from "./LoginMain";
+import ProtectedRoute from "./ProtectedRoute";
 
 function Router() {
   const routes = [
@@ -34,7 +35,11 @@ function Router() {
     {
       id: "route-editing",
       path: "/edit/post",
-      main: () => <EditMain />,
+      main: () => (
+        <ProtectedRoute>
+          <EditMain />
+        </ProtectedRoute>
+      ),
     },
     {
       id: "route-home",
