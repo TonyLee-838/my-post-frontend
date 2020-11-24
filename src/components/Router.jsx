@@ -3,7 +3,7 @@ import { BrowserRouter, Route, Switch, Redirect } from "react-router-dom";
 import PostContent from "./posts/PostContent";
 import PostList from "./posts/PostList";
 import PostMain from "./PostMain";
-import EditMain from "./EditMain";
+import EditMain from "./EditMain.tsx";
 import SideBar from "./SideBar";
 import PieceMain from "./PieceMain";
 import BackgroundView from "./common/BackgroundView";
