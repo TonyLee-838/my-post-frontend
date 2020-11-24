@@ -12,6 +12,7 @@
     "codemirror": "^5.58.3",
     "dotenv": "^8.2.0",
     "html-to-react": "^1.4.5",
+    "joi": "^17.3.0",
     "jss": "^10.4.0",
     "lodash": "^4.17.20",
     "markdown-to-jsx": "^7.0.1",

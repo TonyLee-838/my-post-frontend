@@ -1,37 +1,89 @@
 import React, { FC, ReactElement, useState } from "react";
 import { createUseStyles } from "react-jss";
-import fontFamilies from "../config/fontFamily";
+import Joi from "joi";
+
+import { login } from "../api/auth";
 import Button from "./common/Button";
 import TextInput from "./common/TextInput";
+import boxShadows from "../config/boxShadow";
+import colors from "../config/color";
+import fontFamilies from "../config/fontFamily";
 
 const LOGIN_MESSAGE = "To continue, you have to login as an administrator!";
+const NOT_MATCH_MESSAGE = "Wrong Email of Password provided!";
+const INVALID_MESSAGE = "You have to provide valid email/password!";
 
-interface LoginMainProps {}
+const validateData = (email: string, password: string) => {
+  return Joi.object({
+    email: Joi.string()
+      .email({ tlds: { allow: false } })
+      .required(),
+    password: Joi.string().required(),
+  }).validate({ email, password });
+};
 
-const LoginMain: FC<LoginMainProps> = (): ReactElement => {
+const LoginMain: FC = (): ReactElement => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [errorMessage, setErrorMessage] = useState("");
 
-  const classes = useStyle();
+  const classes = useStyle({ hasError: errorMessage });
 
-  const handleSubmit = () => {
-    console.log({ email, password });
+  const handleEmailChange = (email: string) => {
+    if (errorMessage) setErrorMessage("");
+    setEmail(email);
+  };
+
+  const handlePasswordChange = (password: string) => {
+    if (errorMessage) setErrorMessage("");
+    setPassword(password);
+  };
+
+  const handleSubmit = async () => {
+    setErrorMessage("");
+
+    //user type invalid email/password
+    const { error } = validateData(email, password);
+    if (error) return setErrorMessage(INVALID_MESSAGE);
+
+    try {
+      const { data } = await login(email, password);
+      console.log(data);
+    } catch (error) {
+      //user type valid email/password, but didn't match.
+      if (error.response.status === 401) {
+        setEmail("");
+        setPassword("");
+        setErrorMessage(NOT_MATCH_MESSAGE);
+      }
+    }
   };
 
   return (
     <div className={classes.container}>
-      <h3 className={classes.message}>{LOGIN_MESSAGE}</h3>
+      <h3 className={classes.loginMessage}>{LOGIN_MESSAGE}</h3>
 
       <h3 className={classes.label}>Email:</h3>
-      <TextInput value={email} onChange={setEmail} />
+      <TextInput
+        value={email}
+        onChange={handleEmailChange}
+        className={classes.email}
+      />
       <h3 className={classes.label}>Password:</h3>
-      <TextInput type="password" value={password} onChange={setPassword} />
+      <TextInput
+        type="password"
+        value={password}
+        onChange={handlePasswordChange}
+        className={classes.password}
+      />
+      {errorMessage && <p className={classes.warningMessage}>{errorMessage}</p>}
       <div className={classes.buttons}>
         <Button
           onClick={handleSubmit}
           theme="success"
           className={classes.button}
           label="Submit"
+          disable={!!errorMessage}
         />
         <Button
           onClick={handleSubmit}
@@ -49,7 +101,7 @@ const useStyle = createUseStyles({
     flexDirection: "column",
     margin: "10% auto",
   },
-  message: {
+  loginMessage: {
     fontFamily: fontFamilies.text,
     fontSize: "1.25rem",
   },
@@ -64,6 +116,17 @@ const useStyle = createUseStyles({
   buttons: {
     marginTop: "20px",
     display: "flex",
+  },
+  email: {
+    boxShadow: ({ hasError }) => (hasError ? boxShadows.warning : ""),
+  },
+  password: {
+    boxShadow: ({ hasError }) => (hasError ? boxShadows.warning : ""),
+  },
+  warningMessage: {
+    margin: 0,
+    fontFamily: fontFamilies.text,
+    color: colors.warning,
   },
 });
 
