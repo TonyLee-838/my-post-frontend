@@ -29,31 +29,31 @@ const EditMain = () => {
   const [description, setDescription] = useState("");
   const [content, setContent] = useState("");
   const [categoryId, setCategoryId] = useState("");
-  const [tags, setTags] = useState([]);
+  const [tags, setTags] = useState([""]);
   // eslint-disable-next-line
   const [options, setOptions] = useState(fakeOptions);
 
-  const handleContentChange = (value) => {
+  const handleContentChange = (value: string) => {
     setContent(value);
   };
 
-  const handleTitleChange = (value) => {
+  const handleTitleChange = (value: string) => {
     setTitle(value);
   };
 
-  const handleDescription = (value) => {
+  const handleDescription = (value: string) => {
     setDescription(value);
   };
 
-  const handleSelect = (value) => {
+  const handleSelect = (value: string) => {
     setCategoryId(value);
   };
 
-  const handleTagCreate = (tag) => {
+  const handleTagCreate = (tag: string) => {
     setTags([...tags, tag]);
   };
 
-  const handleTagDelete = (index) => {
+  const handleTagDelete = (index: number) => {
     setTags(tags.filter((_, i) => index !== i));
   };
 
@@ -74,13 +74,13 @@ const EditMain = () => {
         <div className={classes.inputContainer}>
           <h2>Title</h2>
           <TextInput
-            className={classes.title}
+            value={title}
             onChange={handleTitleChange}
             placeholder="Enter your title here..."
           />
           <div className={classes.content}>
             <h2>Content</h2>
-            <CodeEditor value={content} onChange={handleContentChange} />
+            <CodeEditor content={content} onChange={handleContentChange} />
           </div>
 
           <div className={classes.categoryAndTags}>
@@ -101,6 +101,7 @@ const EditMain = () => {
           <div>
             <h2>Description</h2>
             <TextInput
+              value={description}
               className={classes.description}
               onChange={handleDescription}
               placeholder="Enter your description here..."
@@ -109,7 +110,7 @@ const EditMain = () => {
           </div>
 
           <div className={classes.buttons}>
-            <Button label="Cancel" theme="warning" />
+            <Button label="Cancel" theme="warning" onClick={() => {}} />
             <Button label="Submit" theme="success" onClick={handleSubmit} />
           </div>
         </div>

@@ -1,5 +1,6 @@
 import React from "react";
 import { createUseStyles } from "react-jss";
+import boxShadows from "../../../config/boxShadow";
 
 import colors from "../../../config/color";
 import IconItem from "../IconItem";
@@ -55,8 +56,7 @@ const useStyle = createUseStyles({
     backgroundColor: colors.medium,
     marginLeft: "10px",
     color: ({ notFound }) => (notFound ? colors.warning : colors.black),
-    boxShadow: ({ notFound }) =>
-      notFound ? "0px 0px 3.5px 2.5px" + colors.warning : "",
+    boxShadow: ({ notFound }) => (notFound ? boxShadows.warning : ""),
     "&:focus": {
       outline: "none",
     },

@@ -7,7 +7,7 @@ import { UnControlled as CodeMirror } from "react-codemirror2";
 import "codemirror/mode/markdown/markdown";
 import "../../assets/css/codemirror.css";
 
-const CodeEditor = ({ content, onChange, className }) => {
+const CodeEditor = ({ content, onChange, className = "" }) => {
   const classes = useStyle();
   return (
     <CodeMirror

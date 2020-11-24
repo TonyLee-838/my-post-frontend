@@ -13,7 +13,8 @@ const TextInput = ({
   multiColumn = false,
   onChange,
   placeholder = "",
-  className,
+  className = "",
+  type = "text",
 }) => {
   const classes = useStyle();
 
@@ -25,7 +26,7 @@ const TextInput = ({
   return multiColumn ? (
     <textarea
       value={value}
-      type="text"
+      type={type}
       onChange={handleChange}
       placeholder={placeholder}
       className={`${classes.input} ${classes.multiple} ${className}`}
@@ -34,7 +35,7 @@ const TextInput = ({
     <input
       value={value}
       className={`${classes.input} ${className}`}
-      type="text"
+      type={type}
       onChange={handleChange}
       placeholder={placeholder}
     />

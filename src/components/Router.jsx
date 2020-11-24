@@ -3,10 +3,11 @@ import { BrowserRouter, Route, Switch, Redirect } from "react-router-dom";
 import PostContent from "./posts/PostContent";
 import PostList from "./posts/PostList";
 import PostMain from "./PostMain";
-import EditMain from "./EditMain";
+import EditMain from "./EditMain.tsx";
 import SideBar from "./SideBar";
 import PieceMain from "./PieceMain";
 import BackgroundView from "./common/BackgroundView";
+import LoginMain from "./LoginMain";
 
 function Router() {
   const routes = [
@@ -24,6 +25,11 @@ function Router() {
       id: "route-pieces",
       path: "/pieces",
       main: () => <PieceMain />,
+    },
+    {
+      id: "route-login",
+      path: "/login",
+      main: () => <LoginMain />,
     },
     {
       id: "route-editing",
