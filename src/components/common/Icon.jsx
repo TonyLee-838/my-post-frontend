@@ -1,4 +1,4 @@
-import React from "react";
+import React, { FC } from "react";
 import { createUseStyles } from "react-jss";
 import * as MaterialIcons from "react-icons/md";
 import * as SimpleIcons from "react-icons/si";

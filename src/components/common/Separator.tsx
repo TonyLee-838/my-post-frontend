@@ -3,11 +3,16 @@ import { createUseStyles } from "react-jss";
 
 import colors from "../../config/color";
 
-function Separator({ color, width }) {
+interface SeparatorProps {
+  color?: string;
+  width?: string | number;
+}
+
+const Separator = ({ color, width }: SeparatorProps) => {
   const styles = useStyle({ color, width });
 
   return <div className={styles.line}></div>;
-}
+};
 
 const useStyle = createUseStyles({
   line: {
