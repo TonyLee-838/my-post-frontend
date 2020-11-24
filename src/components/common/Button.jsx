@@ -8,57 +8,51 @@ const presets = {
     color: colors.medium,
     boxShadow: "0px 0px 1.5px" + colors.medium,
     "&:hover": {
-      boxShadow: "0px 0px 1.5px 1px" + colors.medium,
+      boxShadow: "0px 0px 3px 1.5px" + colors.medium,
     },
   },
   primary: {
     color: colors.primary,
     boxShadow: "0px 0px 1.5px" + colors.primary,
     "&:hover": {
-      boxShadow: "0px 0px 1.5px 1px" + colors.primary,
+      boxShadow: "0px 0px 3px 1.5px" + colors.primary,
     },
   },
   secondary: {
     color: colors.secondary,
     boxShadow: "0px 0px 1.5px" + colors.secondary,
     "&:hover": {
-      boxShadow: "0px 0px 1.5px 1px" + colors.secondary,
+      boxShadow: "0px 0px 3px 1.5px" + colors.secondary,
     },
   },
   info: {
     color: colors.lightBlue,
     boxShadow: "0px 0px 1.5px" + colors.lightBlue,
     "&:hover": {
-      boxShadow: "0px 0px 1.5px 1px" + colors.lightBlue,
+      boxShadow: "0px 0px 3px 1.5px" + colors.lightBlue,
     },
   },
   success: {
     color: colors.lightGreen,
     boxShadow: "0px 0px 1.5px" + colors.lightGreen,
     "&:hover": {
-      boxShadow: "0px 0px 1.5px 1px" + colors.lightGreen,
+      boxShadow: "0px 0px 3px 1.5px" + colors.lightGreen,
     },
   },
   warning: {
     color: colors.warning,
     boxShadow: "0px 0px 1.5px" + colors.warning,
     "&:hover": {
-      boxShadow: "0px 0px 1.5px 1px" + colors.warning,
+      boxShadow: "0px 0px 3px 1.5px" + colors.warning,
     },
   },
 };
 
-const Button = ({
-  children,
-  onClick,
-  className = "",
-  label = "",
-  theme = "",
-}) => {
+const Button = ({ onClick, className = "", label = "", theme = "" }) => {
   const classes = useStyle({ theme });
   return (
     <div className={`${classes.container} ${className}`} onClick={onClick}>
-      {children || label}
+      {label}
     </div>
   );
 };
