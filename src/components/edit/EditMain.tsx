@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import { createUseStyles } from "react-jss";
 
-import Main from "./common/Main";
-import TypeBar, { TargetType } from "./edit/TypeBar";
-import EditForm from "./edit/EditForm";
+import Main from "../common/Main";
+import TypeBar, { TargetType } from "./TypeBar";
+import EditForm from "./EditForm";
 
 const EditMain = () => {
   const classes = useStyle();

@@ -3,9 +3,9 @@ import { createUseStyles } from "react-jss";
 import { useHistory } from "react-router-dom";
 
 import Button from "../common/Button";
-import CodeEditor from "../common/CodeEditor";
+import CodeEditor from "./form/CodeEditor";
 import Dropdown from "../common/dropdown/Dropdown";
-import TagInput from "../common/TagInput";
+import TagInput from "./form/TagInput";
 import TextInput from "../common/TextInput";
 import { postPiece } from "../../api/pieces";
 import { postPost } from "../../api/posts";
@@ -53,7 +53,6 @@ const EditForm: FC<EditFormProps> = ({
   const options = categories.map((c) => ({ value: c._id, label: c.name }));
 
   const classes = useStyle();
-
   const history = useHistory();
 
   const handleTagCreate = (tag: string) => {

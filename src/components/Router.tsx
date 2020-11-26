@@ -2,12 +2,12 @@ import React from "react";
 import { BrowserRouter, Route, Switch, Redirect } from "react-router-dom";
 import PostContent from "./posts/PostContent";
 import PostList from "./posts/PostList";
-import PostMain from "./PostMain";
-import EditMain from "./EditMain";
-import PieceMain from "./PieceMain";
+import PostMain from "./posts/PostMain";
+import EditMain from "./edit/EditMain";
+import PieceMain from "./pieces/PieceMain";
 import SideBar from "./SideBar";
 import BackgroundView from "./common/BackgroundView";
-import LoginMain from "./LoginMain";
+import LoginMain from "./login/LoginMain";
 import ProtectedRoute from "./ProtectedRoute";
 
 function Router() {

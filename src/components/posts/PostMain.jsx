@@ -2,9 +2,9 @@ import React, { useContext, useState } from "react";
 import { useHistory } from "react-router-dom";
 import { createUseStyles } from "react-jss";
 
-import Main from "./common/Main";
-import CategoryList from "./categoryBar/CategoryList";
-import { CategoriesContext } from "./contexts/CategoriesContext";
+import Main from "../common/Main";
+import CategoryList from "../categoryBar/CategoryList";
+import { CategoriesContext } from "../contexts/CategoriesContext";
 
 const PostMain = ({ Component }) => {
   const [selectedId, setSelectedId] = useState();

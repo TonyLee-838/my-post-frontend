@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from "react";
 import { createUseStyles } from "react-jss";
 
 import Tag from "./Tag";
-import TextInput from "./TextInput";
+import TextInput from "../../common/TextInput";
 
 const isConfirmKey = (key) => key.match(/^,| |Enter$/);
 

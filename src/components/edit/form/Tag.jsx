@@ -1,8 +1,8 @@
 import React from "react";
 import { createUseStyles } from "react-jss";
-import colors from "../../config/color";
-import fontFamilies from "../../config/fontFamily";
-import Icon from "./Icon";
+import colors from "../../../config/color";
+import fontFamilies from "../../../config/fontFamily";
+import Icon from "../../common/Icon";
 
 const Tag = ({ content, onDelete, className = "" }) => {
   const classes = useStyle();

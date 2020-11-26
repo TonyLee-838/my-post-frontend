@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from "react";
 import { createUseStyles } from "react-jss";
 
-import PieceContent from "./pieces/PieceContent";
-import PieceList from "./pieces/PieceList";
-import Main from "./common/Main";
-import { getPieces, PieceReceiveType } from "../api/pieces";
-import ToolBar from "./common/toolBar/ToolBar";
+import PieceContent from "./PieceContent";
+import PieceList from "./PieceList";
+import Main from "../common/Main";
+import { getPieces, PieceReceiveType } from "../../api/pieces";
+import ToolBar from "../common/toolBar/ToolBar";
 
 const PieceMain = () => {
   // eslint-disable-next-line

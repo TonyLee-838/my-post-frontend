@@ -1,11 +1,11 @@
 import React, { FC, ReactElement } from "react";
 import { createUseStyles } from "react-jss";
 
-import TextInput from "./common/TextInput";
-import boxShadows from "../config/boxShadow";
-import colors from "../config/color";
-import fontFamilies from "../config/fontFamily";
-import Button from "./common/Button";
+import TextInput from "../common/TextInput";
+import boxShadows from "../../config/boxShadow";
+import colors from "../../config/color";
+import fontFamilies from "../../config/fontFamily";
+import Button from "../common/Button";
 
 const LOGIN_MESSAGE = "To continue, you have to login as an administrator!";
 const ERROR_MESSAGE = "Wrong Email of Password provided!";

@@ -2,7 +2,7 @@ import React, { FC, ReactElement, useState } from "react";
 import { useHistory } from "react-router-dom";
 import Joi from "joi";
 
-import { login } from "../api/auth";
+import { login } from "../../api/auth";
 import LoginForm from "./LoginForm";
 
 const validateData = (email: string, password: string) => {
