@@ -1,8 +1,8 @@
 import React from "react";
 import { createUseStyles } from "react-jss";
 
-import TimeItem from "../common/TimeItem";
 import colors from "../../config/color";
+import fontFamilies from "../../config/fontFamily";
 
 const TimeLine = ({
   time,
@@ -22,12 +22,7 @@ const TimeLine = ({
     <>
       <div className={classes.timeLine}></div>
       <div className={classes.timePin}>
-        <TimeItem
-          time={time}
-          format={"DD MMM"}
-          className={classes.time}
-          hideIcon
-        />
+        <label className={classes.time}>{time}</label>
       </div>
     </>
   );
@@ -57,11 +52,10 @@ const useStyle = createUseStyles({
   },
   time: {
     width: "50px",
-    "& label": {
-      color: colors.white,
-      fontSize: "1.50rem",
-      textAlign: "center",
-    },
+    color: colors.white,
+    fontSize: "1.50rem",
+    fontFamily: fontFamilies.round,
+    textAlign: "center",
   },
 });
 

@@ -5,9 +5,20 @@ import _ from "lodash";
 import PieceGroup from "./PieceGroup";
 import ScrollUpButton from "../common/ScrollUpButton";
 import colors from "../../config/color";
-const PieceList = ({ pieces, onSelect, selectedId }) => {
+import getTimeString from "../../helper/getTimeString";
+import { PieceType } from "../../api/pieces";
+
+interface PieceListProps {
+  pieces: PieceType[];
+  onSelect: Function;
+  selectedId: string;
+}
+
+const PieceList = ({ pieces, onSelect, selectedId }: PieceListProps) => {
   const classes = useStyle();
-  const groupsByTime = _.groupBy(pieces, (piece) => piece.timeCreated);
+  const groupsByTime = _.groupBy(pieces, (piece: PieceType) =>
+    getTimeString(piece.timeCreated, "MMM DD")
+  );
 
   return (
     <div id="piece-container" className={classes.container}>
@@ -27,7 +38,7 @@ const PieceList = ({ pieces, onSelect, selectedId }) => {
 const useStyle = createUseStyles({
   container: {
     backgroundColor: colors.light,
-    overflow: "hidden",
+    flex: 1,
   },
 });
 

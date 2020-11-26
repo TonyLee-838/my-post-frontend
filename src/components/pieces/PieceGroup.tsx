@@ -5,21 +5,31 @@ import Separator from "../common/Separator";
 import TimeLine from "../common/TimeLine";
 import Piece from "./Piece";
 import colors from "../../config/color";
+import { PieceType } from "../../api/pieces";
 
-const COL_LENGTH = 4;
+interface PieceGroupProps {
+  pieces: PieceType[];
+  time: string;
+  onSelect: Function;
+  selectedId: string;
+}
 
-const PieceGroup = ({ pieces, time, onSelect, selectedId }) => {
+const PieceGroup = ({
+  pieces,
+  time,
+  onSelect,
+  selectedId,
+}: PieceGroupProps) => {
   const classes = useStyle();
   return (
     <div className={classes.container}>
       <TimeLine time={time} />
       <div className={classes.pieces}>
-        {pieces.map((piece, index) => (
+        {pieces.map((piece) => (
           <Piece
             piece={piece}
-            isActive={selectedId}
-            isSelected={selectedId === piece.id}
-            onSelect={(id) => onSelect(id, index % COL_LENGTH)}
+            isSelected={selectedId === piece._id}
+            onSelect={(id: string) => onSelect(id)}
           />
         ))}
       </div>
@@ -31,15 +41,13 @@ const PieceGroup = ({ pieces, time, onSelect, selectedId }) => {
 const useStyle = createUseStyles({
   container: {
     position: "relative",
-    paddingLeft: "150px",
-    marginTop: "150px",
+    paddingLeft: "130px",
+    marginTop: "80px",
     backgroundColor: colors.white,
   },
   pieces: {
     width: "100%",
-    display: "grid",
-    padding: "35px",
-    gridTemplateColumns: "22% 22% 22% 22%",
+    padding: "10px",
     gridAutoRows: "150px",
   },
 });

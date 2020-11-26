@@ -1,11 +1,11 @@
-import React, { FC } from "react";
+import React from "react";
 import { createUseStyles } from "react-jss";
 import * as MaterialIcons from "react-icons/md";
 import * as SimpleIcons from "react-icons/si";
 import colors from "../../config/color";
 
 const Icon = ({ name, className = "" }) => {
-  const classes = useStyle(className);
+  const classes = useStyle();
   const IconComponent = name.startsWith("Md")
     ? MaterialIcons[name]
     : SimpleIcons[name];
