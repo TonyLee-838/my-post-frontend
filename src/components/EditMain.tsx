@@ -7,7 +7,7 @@ import Dropdown from "./common/dropdown/Dropdown";
 import TagInput from "./common/TagInput";
 import Main from "./common/Main";
 import fontFamilies from "../config/fontFamily";
-import Button from "./common/Button.tsx";
+import Button from "./common/Button";
 import TypeBar from "./edit/TypeBar";
 
 const fakeOptions = [
