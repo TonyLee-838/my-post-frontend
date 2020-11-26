@@ -2,30 +2,38 @@ import React from "react";
 import { createUseStyles } from "react-jss";
 import TypeItem from "./TypeItem";
 
-const types = [
+export type TargetType = "post" | "piece" | "project";
+
+export type EditType = {
+  icon: string;
+  target: TargetType;
+};
+
+const TYPES: EditType[] = [
   {
     icon: "MdDescription",
-    label: "Post",
-    path: "/edit/post",
+    target: "post",
   },
   {
     icon: "MdCropLandscape",
-    label: "Piece",
-    path: "/edit/piece",
+    target: "piece",
   },
   {
     icon: "MdImportantDevices",
-    label: "Project",
-    path: "/edit/project",
+    target: "project",
   },
 ];
 
-const TypeBar = (props) => {
+interface TypeBarProps {
+  onSelect: Function;
+}
+
+const TypeBar = ({ onSelect }: TypeBarProps) => {
   const classes = useStyle();
   return (
     <div className={classes.container}>
-      {types.map((type) => (
-        <TypeItem icon={type.icon} label={type.label} path={type.path} />
+      {TYPES.map((type) => (
+        <TypeItem type={type} onClick={() => onSelect(type.target)} />
       ))}
     </div>
   );

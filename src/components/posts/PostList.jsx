@@ -52,8 +52,7 @@ function PostList({ categories, onSelect, selectedId }) {
         terms={terms}
         onSearch={setTerms}
         notFound={notFound}
-        onClear={(e) => {
-          console.log("e : ", e);
+        onClear={() => {
           setTerms("");
         }}
       />
