@@ -4,12 +4,12 @@ import { createUseStyles } from "react-jss";
 import PieceContent from "./pieces/PieceContent";
 import PieceList from "./pieces/PieceList";
 import Main from "./common/Main";
-import { getPieces, PieceType } from "../api/pieces";
+import { getPieces, PieceReceiveType } from "../api/pieces";
 import ToolBar from "./common/toolBar/ToolBar";
 
 const PieceMain = () => {
   // eslint-disable-next-line
-  const [pieces, setPieces] = useState<PieceType[]>([]);
+  const [pieces, setPieces] = useState<PieceReceiveType[]>([]);
   const [selectedId, setSelectedId] = useState("");
   const [terms, setTerms] = useState("");
 

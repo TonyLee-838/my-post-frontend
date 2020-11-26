@@ -1,16 +1,22 @@
 import React from "react";
 import { createUseStyles } from "react-jss";
-import { Link } from "react-router-dom";
+
 import colors from "../../config/color";
 import fontFamilies from "../../config/fontFamily";
 import IconItem from "../common/IconItem";
+import { EditType } from "./TypeBar";
 
-const TypeItem = ({ icon, label, path }) => {
+interface TypeItemProps {
+  type: EditType;
+  onClick: React.MouseEventHandler;
+}
+
+const TypeItem = ({ type, onClick }: TypeItemProps) => {
   const classes = useStyle();
   return (
-    <Link key={`type-${label}`} to={path} className={classes.type}>
-      <IconItem icon={icon} label={label} />
-    </Link>
+    <div key={`type-${type.target}`} className={classes.type} onClick={onClick}>
+      <IconItem icon={type.icon} label={type.target} />
+    </div>
   );
 };
 
@@ -24,7 +30,6 @@ const useStyle = createUseStyles({
     padding: "15px",
     marginBottom: "5px",
 
-    textDecoration: "none",
     borderRadius: "5px",
     boxShadow: "3.5px 3.5px 2px" + colors.medium,
     cursor: "pointer",

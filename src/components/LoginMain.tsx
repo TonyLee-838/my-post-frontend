@@ -38,8 +38,9 @@ const LoginMain: FC = (): ReactElement => {
     if (error) return setHasError(true);
 
     try {
-      const { data } = await login(email, password);
-      sessionStorage.setItem("x-auth-token", data);
+      const { headers, data } = await login(email, password);
+      sessionStorage.setItem("x-auth-token", headers["x-auth-token"]);
+      sessionStorage.setItem("user_id", data.id);
       history.replace("/edit");
     } catch (error) {
       //user type valid email/password, but didn't match.

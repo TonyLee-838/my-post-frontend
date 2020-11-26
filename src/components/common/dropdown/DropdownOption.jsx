@@ -4,11 +4,11 @@ import { createUseStyles } from "react-jss";
 import colors from "../../../config/color";
 import fontFamilies from "../../../config/fontFamily";
 
-const DropdownOption = ({ onClick, value }) => {
+const DropdownOption = ({ onClick, value, label = "" }) => {
   const classes = useStyle();
   return (
     <div onClick={onClick} className={classes.option}>
-      {value}
+      {label || value}
     </div>
   );
 };

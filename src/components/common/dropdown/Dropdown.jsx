@@ -23,6 +23,7 @@ const Dropdown = ({ onSelect, options }) => {
           {options.map((option, i) => (
             <div>
               <DropdownOption
+                label={option.label}
                 value={option.value}
                 onClick={() => {
                   setSelected(option.value);

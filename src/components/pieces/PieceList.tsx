@@ -6,17 +6,17 @@ import PieceGroup from "./PieceGroup";
 import ScrollUpButton from "../common/ScrollUpButton";
 import colors from "../../config/color";
 import getTimeString from "../../helper/getTimeString";
-import { PieceType } from "../../api/pieces";
+import { PieceReceiveType } from "../../api/pieces";
 
 interface PieceListProps {
-  pieces: PieceType[];
+  pieces: PieceReceiveType[];
   onSelect: Function;
   selectedId: string;
 }
 
 const PieceList = ({ pieces, onSelect, selectedId }: PieceListProps) => {
   const classes = useStyle();
-  const groupsByTime = _.groupBy(pieces, (piece: PieceType) =>
+  const groupsByTime = _.groupBy(pieces, (piece: PieceReceiveType) =>
     getTimeString(piece.timeCreated, "MMM DD")
   );
 

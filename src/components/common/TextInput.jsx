@@ -15,6 +15,7 @@ const TextInput = ({
   placeholder = "",
   className = "",
   type = "text",
+  ...props
 }) => {
   const classes = useStyle();
 
@@ -30,6 +31,7 @@ const TextInput = ({
       onChange={handleChange}
       placeholder={placeholder}
       className={`${classes.input} ${classes.multiple} ${className}`}
+      {...props}
     />
   ) : (
     <input
@@ -38,6 +40,7 @@ const TextInput = ({
       type={type}
       onChange={handleChange}
       placeholder={placeholder}
+      {...props}
     />
   );
 };

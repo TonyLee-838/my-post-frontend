@@ -1,12 +1,12 @@
 import React from "react";
 import { createUseStyles } from "react-jss";
-import { PieceType } from "../../api/pieces";
+import { PieceReceiveType } from "../../api/pieces";
 
 import colors from "../../config/color";
 import fontFamilies from "../../config/fontFamily";
 
 interface PieceProp {
-  piece: PieceType;
+  piece: PieceReceiveType;
   isSelected: boolean;
   onSelect: Function;
   className?: String;

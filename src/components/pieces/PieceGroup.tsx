@@ -5,10 +5,10 @@ import Separator from "../common/Separator";
 import TimeLine from "../common/TimeLine";
 import Piece from "./Piece";
 import colors from "../../config/color";
-import { PieceType } from "../../api/pieces";
+import { PieceReceiveType } from "../../api/pieces";
 
 interface PieceGroupProps {
-  pieces: PieceType[];
+  pieces: PieceReceiveType[];
   time: string;
   onSelect: Function;
   selectedId: string;
