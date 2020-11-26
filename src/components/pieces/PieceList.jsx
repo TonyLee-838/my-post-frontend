@@ -27,7 +27,7 @@ const PieceList = ({ pieces, onSelect, selectedId }) => {
 const useStyle = createUseStyles({
   container: {
     backgroundColor: colors.light,
-    overflow: "hidden",
+    flex: 1,
   },
 });
 

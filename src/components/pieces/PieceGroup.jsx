@@ -31,15 +31,13 @@ const PieceGroup = ({ pieces, time, onSelect, selectedId }) => {
 const useStyle = createUseStyles({
   container: {
     position: "relative",
-    paddingLeft: "150px",
-    marginTop: "150px",
+    paddingLeft: "130px",
+    marginTop: "80px",
     backgroundColor: colors.white,
   },
   pieces: {
     width: "100%",
-    display: "grid",
-    padding: "35px",
-    gridTemplateColumns: "22% 22% 22% 22%",
+    padding: "10px",
     gridAutoRows: "150px",
   },
 });
