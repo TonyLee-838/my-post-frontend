@@ -1,13 +1,17 @@
 /* eslint-disable */
 import React, { useEffect, useState } from "react";
 import { createUseStyles } from "react-jss";
-import { getPieceById } from "../../api/pieces";
+import { getPieceById, PieceType } from "../../api/pieces";
 import colors from "../../config/color";
 import Markdown from "../common/Markdown";
 
-const PieceContent = ({ selectedId }) => {
+interface PieceContentProps {
+  selectedId: string;
+}
+
+const PieceContent = ({ selectedId }: PieceContentProps) => {
   const classes = useStyle();
-  const [piece, setPiece] = useState();
+  const [piece, setPiece] = useState<PieceType>();
 
   useEffect(() => {
     if (!selectedId) return;

@@ -3,11 +3,8 @@ import { createUseStyles } from "react-jss";
 
 import PieceContent from "./pieces/PieceContent";
 import PieceList from "./pieces/PieceList";
-import { getPieces, PieceType } from "../api/pieces";
 import Main from "./common/Main";
-import ToolBar from "./common/toolBar/ToolBar";
-import Separator from "./common/Separator";
-import colors from "../config/color";
+import { getPieces, PieceType } from "../api/pieces";
 
 const PieceMain = () => {
   // eslint-disable-next-line
@@ -35,10 +32,6 @@ const PieceMain = () => {
     setSelectedId(id);
   };
 
-  const handleClose = () => {
-    setSelectedId("");
-  };
-
   return (
     <Main>
       <div className={classes.container}>
@@ -47,12 +40,7 @@ const PieceMain = () => {
           selectedId={selectedId}
           onSelect={handleSelect}
         />
-        <PieceContent
-          // id="piece-content"
-          // piece={pieces.find((piece) => piece.id === selectedId)}
-          selectedId={selectedId}
-          // onClose={handleClose}
-        />
+        <PieceContent selectedId={selectedId} />
       </div>
     </Main>
   );

@@ -1,10 +1,18 @@
 import React from "react";
 import { createUseStyles } from "react-jss";
+import { PieceType } from "../../api/pieces";
 
 import colors from "../../config/color";
 import fontFamilies from "../../config/fontFamily";
 
-const Piece = ({ piece, isSelected, onSelect, className }) => {
+interface PieceProp {
+  piece: PieceType;
+  isSelected: boolean;
+  onSelect: Function;
+  className?: String;
+}
+
+const Piece = ({ piece, isSelected, onSelect, className = "" }: PieceProp) => {
   const classes = useStyle();
   return (
     <div

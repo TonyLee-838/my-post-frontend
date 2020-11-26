@@ -5,8 +5,21 @@ import Separator from "../common/Separator";
 import TimeLine from "../common/TimeLine";
 import Piece from "./Piece";
 import colors from "../../config/color";
+import { PieceType } from "../../api/pieces";
 
-const PieceGroup = ({ pieces, time, onSelect, selectedId }) => {
+interface PieceGroupProps {
+  pieces: PieceType[];
+  time: string;
+  onSelect: Function;
+  selectedId: string;
+}
+
+const PieceGroup = ({
+  pieces,
+  time,
+  onSelect,
+  selectedId,
+}: PieceGroupProps) => {
   const classes = useStyle();
   return (
     <div className={classes.container}>
@@ -16,7 +29,7 @@ const PieceGroup = ({ pieces, time, onSelect, selectedId }) => {
           <Piece
             piece={piece}
             isSelected={selectedId === piece._id}
-            onSelect={(id) => onSelect(id)}
+            onSelect={(id: string) => onSelect(id)}
           />
         ))}
       </div>

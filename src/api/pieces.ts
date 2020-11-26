@@ -3,9 +3,9 @@ import http from "./http";
 const API_ENDPOINT = "/pieces";
 
 export type PieceType = {
-  id: string;
+  _id: string;
   title: string;
-  markdown: string;
+  content: string;
   timeCreated: number;
 };
 
