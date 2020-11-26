@@ -1,19 +1,24 @@
 /* eslint-disable */
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { createUseStyles } from "react-jss";
+import { getPieceById } from "../../api/pieces";
 import colors from "../../config/color";
 import Markdown from "../common/Markdown";
 
-// const POSITIONS = [20, 6, 41, 26];
-
-const PieceContent = ({
-  onClose,
-  piece,
-  positionIndex: index,
-  selectedId,
-  ...props
-}) => {
+const PieceContent = ({ selectedId }) => {
   const classes = useStyle();
+  const [piece, setPiece] = useState();
+
+  useEffect(() => {
+    if (!selectedId) return;
+    const fetchPiece = async () => {
+      const piece = await getPieceById(selectedId);
+      setPiece(piece);
+    };
+    fetchPiece();
+  }, [selectedId]);
+
+  console.log("piece2 : ", piece);
 
   return (
     <div className={classes.container}>

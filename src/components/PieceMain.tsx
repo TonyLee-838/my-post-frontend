@@ -13,7 +13,6 @@ const PieceMain = () => {
   // eslint-disable-next-line
   const [pieces, setPieces] = useState<PieceType[]>([]);
   const [selectedId, setSelectedId] = useState("");
-  const [positionIndex, setPositionIndex] = useState(0);
   const classes = useStyle();
 
   useEffect(() => {
@@ -24,17 +23,16 @@ const PieceMain = () => {
 
     fetchData();
   }, []);
+  console.log(pieces);
+  console.log(selectedId);
 
-  const handleSelect = (id: string, index: number) => {
+  const handleSelect = (id: string) => {
     if (selectedId) setSelectedId("");
 
     // Reselect piece itself, reset everything.
     if (selectedId === id) return;
 
-    setTimeout(() => {
-      setPositionIndex(index);
-      setSelectedId(id);
-    }, 100);
+    setSelectedId(id);
   };
 
   const handleClose = () => {
@@ -50,11 +48,10 @@ const PieceMain = () => {
           onSelect={handleSelect}
         />
         <PieceContent
-          id="piece-content"
-          positionIndex={positionIndex}
-          piece={pieces.find((piece) => piece.id === selectedId)}
+          // id="piece-content"
+          // piece={pieces.find((piece) => piece.id === selectedId)}
           selectedId={selectedId}
-          onClose={handleClose}
+          // onClose={handleClose}
         />
       </div>
     </Main>

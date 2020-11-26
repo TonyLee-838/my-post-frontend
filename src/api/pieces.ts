@@ -16,5 +16,6 @@ export const getPieces = async (): Promise<PieceType[]> => {
 
 export const getPieceById = async (id: string): Promise<PieceType> => {
   const piece = await http.get(`${API_ENDPOINT}/${id}`);
-  return piece.data;
+  console.log(piece.data);
+  return piece.data[0];
 };

@@ -1,7 +1,6 @@
 import React from "react";
 import { createUseStyles } from "react-jss";
 import _ from "lodash";
-import moment from "moment";
 
 import PieceGroup from "./PieceGroup";
 import ScrollUpButton from "../common/ScrollUpButton";
@@ -12,8 +11,6 @@ const PieceList = ({ pieces, onSelect, selectedId }) => {
   const groupsByTime = _.groupBy(pieces, (piece) =>
     getTimeString(piece.timeCreated, "MMM DD")
   );
-
-  console.log("groupsByTime : ", groupsByTime);
 
   return (
     <div id="piece-container" className={classes.container}>
