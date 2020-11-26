@@ -5,6 +5,7 @@ import { createUseStyles } from "react-jss";
 import IconItem from "./IconItem";
 import fontFamilies from "../../config/fontFamily";
 import colors from "../../config/color";
+import getTimeString from "../../helper/getTimeString";
 
 const TimeItem = ({
   time,
@@ -14,6 +15,8 @@ const TimeItem = ({
 }) => {
   const classes = useStyle({ hideIcon });
 
+  console.log("time,typeof time : ", time, typeof time);
+
   return (
     <IconItem
       className={`${classes.container} ${className} `}
@@ -21,13 +24,6 @@ const TimeItem = ({
       label={getTimeString(time, format)}
     />
   );
-};
-
-const getTimeString = (time, format) => {
-  const date = new Date(
-    typeof time === "string" ? Number.parseInt(time) : time
-  );
-  return moment(date).format(format);
 };
 
 const useStyle = createUseStyles({
