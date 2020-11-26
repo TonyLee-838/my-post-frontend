@@ -25,12 +25,15 @@ const TagInput = ({
   }, [tags]);
 
   const handleChange = (value) => {
+    console.log("value : ", value);
     if (isConfirmKey(value)) return;
     setValue(value);
   };
 
   const handleKeyDown = (e) => {
+    console.log("e.key : ", e.key);
     if (value && isConfirmKey(e.key)) {
+      console.log("e.target.value : ", e.target.value);
       onTagCreate(e.target.value);
       setValue("");
     }
@@ -57,8 +60,8 @@ const TagInput = ({
         <TextInput
           value={value}
           className={classes.input}
-          onChange={handleChange}
           onKeyDown={handleKeyDown}
+          onChange={handleChange}
         />
       </div>
     </>

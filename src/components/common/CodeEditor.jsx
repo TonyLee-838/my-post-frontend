@@ -7,18 +7,19 @@ import { UnControlled as CodeMirror } from "react-codemirror2";
 import "codemirror/mode/markdown/markdown";
 import "../../assets/css/codemirror.css";
 
-const CodeEditor = ({ content, onChange, className = "" }) => {
+const CodeEditor = ({ onChange, className = "" }) => {
   const classes = useStyle();
   return (
     <CodeMirror
-      value={content}
       options={{
         mode: "markdown",
         lineNumbers: true,
         theme: "base16-light",
       }}
       className={`${classes.editor} ${className}`}
-      onChange={(editor, data, value) => onChange(value)}
+      onChange={(editor, data, value) => {
+        onChange(value);
+      }}
     />
   );
 };

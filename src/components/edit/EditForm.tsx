@@ -1,24 +1,17 @@
-import React, { FC, ReactElement, useState } from "react";
+import React, { FC, ReactElement, useContext, useState } from "react";
 import { createUseStyles } from "react-jss";
+import { useHistory } from "react-router-dom";
 
 import Button from "../common/Button";
 import CodeEditor from "../common/CodeEditor";
 import Dropdown from "../common/dropdown/Dropdown";
 import TagInput from "../common/TagInput";
 import TextInput from "../common/TextInput";
-import fontFamilies from "../../config/fontFamily";
+import { postPiece } from "../../api/pieces";
+import { postPost } from "../../api/posts";
 import { TargetType } from "./TypeBar";
-
-const fakeOptions = [
-  {
-    id: "o1",
-    value: "React",
-  },
-  {
-    id: "o2",
-    value: "Javascript",
-  },
-];
+import { CategoriesContext } from "../contexts/CategoriesContext";
+import fontFamilies from "../../config/fontFamily";
 
 const formConfig = {
   post: {
@@ -27,7 +20,7 @@ const formConfig = {
     description: true,
   },
   piece: {
-    category: true,
+    category: false,
     tags: false,
     description: false,
   },
@@ -38,19 +31,30 @@ const formConfig = {
   },
 };
 
+type CategoryType = {
+  _id: string;
+  name: string;
+  icon: string;
+  color: string;
+};
 interface EditFormProps {
   target: TargetType;
 }
 const EditForm: FC<EditFormProps> = ({
   target,
 }: EditFormProps): ReactElement => {
-  const [title, setTitle] = useState("");
-  const [description, setDescription] = useState("");
-  const [content, setContent] = useState("");
   const [categoryId, setCategoryId] = useState("");
+  const [content, setContent] = useState("");
+  const [description, setDescription] = useState("");
   const [tags, setTags] = useState<string[]>([]);
+  const [title, setTitle] = useState("");
+
+  const categories: CategoryType[] = useContext(CategoriesContext);
+  const options = categories.map((c) => ({ value: c._id, label: c.name }));
 
   const classes = useStyle();
+
+  const history = useHistory();
 
   const handleTagCreate = (tag: string) => {
     setTags([...tags, tag]);
@@ -60,14 +64,25 @@ const EditForm: FC<EditFormProps> = ({
     setTags(tags.filter((_, i) => index !== i));
   };
 
-  const handleSubmit = () => {
-    console.log("submit: ", target, {
-      title,
-      description,
-      content,
-      tags,
-      categoryId,
-    });
+  const handleSubmit = async () => {
+    //TODO: data validation:
+    const userId = sessionStorage.getItem("user_id");
+    const token = sessionStorage.getItem("x-auth-token");
+    if (!token || !userId) return;
+
+    try {
+      if (target === "piece") {
+        await postPiece({ title, content, userId }, token);
+      } else if (target === "post") {
+        await postPost(
+          { title, content, userId, categoryId, description, tags },
+          token
+        );
+      }
+      history.push(`/${target}s`);
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   return (
@@ -80,10 +95,7 @@ const EditForm: FC<EditFormProps> = ({
       />
       <div className={classes.content}>
         <h2>Content</h2>
-        <CodeEditor
-          content={content}
-          onChange={(content: string) => setContent(content)}
-        />
+        <CodeEditor onChange={(content: string) => setContent(content)} />
       </div>
 
       <div className={classes.categoryAndTags}>
@@ -92,7 +104,7 @@ const EditForm: FC<EditFormProps> = ({
             <h2>Category</h2>
             <Dropdown
               onSelect={(categoryId: string) => setCategoryId(categoryId)}
-              options={fakeOptions}
+              options={options}
             />
           </div>
         )}

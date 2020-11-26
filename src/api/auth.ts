@@ -1,9 +1,9 @@
-import { AxiosPromise } from "axios";
+import { AxiosResponse } from "axios";
 import http from "./http";
 
 export const login = (
   email: string,
   password: string
-): AxiosPromise<string> => {
+): Promise<AxiosResponse> => {
   return http.post("/auth", { email, password });
 };
