@@ -5,11 +5,14 @@ import PieceContent from "./pieces/PieceContent";
 import PieceList from "./pieces/PieceList";
 import Main from "./common/Main";
 import { getPieces, PieceType } from "../api/pieces";
+import ToolBar from "./common/toolBar/ToolBar";
 
 const PieceMain = () => {
   // eslint-disable-next-line
   const [pieces, setPieces] = useState<PieceType[]>([]);
   const [selectedId, setSelectedId] = useState("");
+  const [terms, setTerms] = useState("");
+
   const classes = useStyle();
 
   useEffect(() => {
@@ -20,8 +23,6 @@ const PieceMain = () => {
 
     fetchData();
   }, []);
-  console.log(pieces);
-  console.log(selectedId);
 
   const handleSelect = (id: string) => {
     if (selectedId) setSelectedId("");
@@ -32,15 +33,29 @@ const PieceMain = () => {
     setSelectedId(id);
   };
 
+  const filtered = terms
+    ? pieces.filter((post) => post.title.includes(terms))
+    : pieces;
+
+  const notFound = terms && !filtered.length;
+
   return (
     <Main>
       <div className={classes.container}>
         <PieceList
-          pieces={pieces}
+          pieces={filtered}
           selectedId={selectedId}
           onSelect={handleSelect}
         />
         <PieceContent selectedId={selectedId} />
+        <ToolBar
+          terms={terms}
+          onSearch={setTerms}
+          notFound={notFound}
+          onClear={() => {
+            setTerms("");
+          }}
+        />
       </div>
     </Main>
   );
